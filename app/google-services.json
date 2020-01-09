@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1068161778916",
+    "firebase_url": "https://barbeirosemglorias-82692.firebaseio.com",
+    "project_id": "barbeirosemglorias-82692",
+    "storage_bucket": "barbeirosemglorias-82692.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068161778916:android:45dcdd0f11183dec6858f1",
+        "android_client_info": {
+          "package_name": "com.babeirosemgloria.barbergloria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068161778916-qjvevqv9l2smpadke98b70vmb88ch557.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.babeirosemgloria.barbergloria",
+            "certificate_hash": "f91e4f3aa12c84b68e4600bfcdd99f98bf83c6f4"
+          }
+        },
+        {
+          "client_id": "1068161778916-dsncesns9609l35ojj5p3a06kqd0f86u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT8PbZ0aAye3GTPL0pXtGnZxoHWybNqAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068161778916-dsncesns9609l35ojj5p3a06kqd0f86u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
