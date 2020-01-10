@@ -35,6 +35,20 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        btnBarbeiro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), Barbeiros.class);
+                startActivity(intent);
+            }
+        });
+        btnData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), DataHora.class);
+                startActivity(intent);
+            }
+        });
 
         // databaseReference.child("pontos").setValue(100);
 
