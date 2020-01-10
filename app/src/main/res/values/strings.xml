@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Barber&amp;Gloria</string>
+    <string name="btnServico">SERVIÇO</string>
+    <string name="btnBarbeiro">BARBEIRO</string>
+    <string name="btnData">DATA E HORA</string>
+    <string name="btnVoltar">VOLTAR</string>
+    <string name="btnConfimar">CONFIRMAR</string>
+    <string name="btnCancelar">CANCELAR</string>
+    <string name="btnDvs">DVSCUTS</string>
+    <string name="btnIgor">IGOR</string>
+    <string name="btnKaique">KAIQUE</string>
+    <string name="btnSemPref">SEM PREFERÊNCIA</string>
+    <string name="textValor">00,00</string>
+    <string name="txtSimbolo">R$</string>
 </resources>
