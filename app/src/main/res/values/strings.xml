@@ -12,4 +12,10 @@
     <string name="btnSemPref">SEM PREFERÊNCIA</string>
     <string name="textValor">00,00</string>
     <string name="txtSimbolo">R$</string>
+    <string name="txtBarba">Barba</string>
+    <string name="txtCorte">Corte</string>
+    <string name="txtCorBar">Corte e Barba</string>
+    <string name="txtCorRela">Corte e Relaxamento</string>
+    <string name="txtCorProg">Corte e Progressiva</string>
+    <string name="txtHidratacao">Hidratação</string>
 </resources>
