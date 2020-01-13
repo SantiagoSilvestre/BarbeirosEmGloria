@@ -10,7 +10,7 @@
         android:id="@+id/btnCancelar"
         android:layout_width="278dp"
         android:layout_height="52dp"
-        android:text="@string/btnCancelar"
+        android:background="@mipmap/btnfechar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -24,38 +24,44 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
         tools:layout_editor_absoluteX="1dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:gravity="center">
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="200dp"
+            android:layout_width="385dp"
+            android:layout_height="223dp"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btnDvscuts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnDvs"/>
+                android:layout_width="128dp"
+                android:layout_height="165dp"
+                android:background="@mipmap/btndanilo" />
+
             <Button
                 android:id="@+id/btnIgor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnIgor"/>
+                android:layout_width="128dp"
+                android:layout_height="165dp"
+                android:background="@mipmap/btnigor" />
+
             <Button
                 android:id="@+id/btnKaique"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnKaique"/>
+                android:layout_width="128dp"
+                android:layout_height="165dp"
+                android:background="@mipmap/btnkaique" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="350dp"
             android:layout_height="200dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
+
             <Button
                 android:id="@+id/btnSemPref"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnSemPref"/>
+                android:layout_width="128dp"
+                android:layout_height="165dp"
+                android:background="@mipmap/btnsp" />
 
         </LinearLayout>
     </LinearLayout>

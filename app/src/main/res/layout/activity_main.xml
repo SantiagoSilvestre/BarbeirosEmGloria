@@ -4,35 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fundomenu"
     tools:context=".activity.MainActivity">
 
     <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="400dp"
+        android:layout_width="363dp"
+        android:layout_height="355dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.894">
+        app:layout_constraintVertical_bias="0.893">
 
         <Button
             android:id="@+id/btnServico"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btnServico" />
+            android:layout_width="312dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/btnservico" />
 
         <Button
             android:id="@+id/btnBarbeiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btnBarbeiro" />
+            android:layout_width="312dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/btnbarbeiro" />
 
         <Button
             android:id="@+id/btnData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btnData" />
+            android:layout_width="312dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:background="@mipmap/btndataehora" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

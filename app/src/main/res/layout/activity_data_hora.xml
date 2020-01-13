@@ -18,15 +18,15 @@
 
         <Button
             android:id="@+id/btnServico"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btnServico" />
+            android:layout_width="264dp"
+            android:layout_height="55dp"
+            android:background="@mipmap/btnservico02" />
 
         <Button
             android:id="@+id/btnBarbeiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btnBarbeiro" />
+            android:layout_width="264dp"
+            android:layout_height="55dp"
+            android:background="@mipmap/btnbarbeiro02" />
 
 
     </LinearLayout>
@@ -42,10 +42,10 @@
 
         <Button
             android:id="@+id/btnCancelar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/btnVoltar" />
+            android:background="@mipmap/btnvoltar" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,10 +62,10 @@
 
         <Button
             android:id="@+id/btnConfimar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="126dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/btnConfimar" />
+            android:background="@mipmap/btnconfirmar" />
     </LinearLayout>
 
     <CalendarView
