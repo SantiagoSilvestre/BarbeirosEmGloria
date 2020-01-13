@@ -25,7 +25,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="POR SANBEZ"
+        android:text="@string/txtCorp"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="152dp"
         tools:layout_editor_absoluteY="703dp" />
