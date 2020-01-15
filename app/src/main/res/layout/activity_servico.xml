@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fundo"
     tools:context=".activity.Servico">
 
     <LinearLayout
@@ -215,7 +216,7 @@
             android:layout_width="45dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/btnvoltar"/>
+            android:background="@mipmap/btnvoltar" />
 
         <TextView
             android:layout_width="18dp"

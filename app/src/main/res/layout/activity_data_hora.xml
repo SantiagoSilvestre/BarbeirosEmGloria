@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fundo"
     tools:context=".activity.DataHora">
 
     <LinearLayout
@@ -20,13 +21,13 @@
             android:id="@+id/btnServico"
             android:layout_width="264dp"
             android:layout_height="55dp"
-            android:background="@mipmap/btnservico02" />
+            android:background="@mipmap/btnservico" />
 
         <Button
             android:id="@+id/btnBarbeiro"
             android:layout_width="264dp"
             android:layout_height="55dp"
-            android:background="@mipmap/btnbarbeiro02" />
+            android:background="@mipmap/btnbarbeiro" />
 
 
     </LinearLayout>
@@ -75,7 +76,15 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.973"
-        tools:layout_editor_absoluteX="5dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="5dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="210dp"
+        android:layout_height="182dp"
+        app:srcCompat="@mipmap/beg"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

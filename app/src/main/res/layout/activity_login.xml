@@ -1,102 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/fundo_degrade"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fundocad"
     tools:context=".activity.Login">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/imageLogo"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/beg" />
-
-    <LinearLayout
-        android:id="@+id/linear1"
-        android:layout_below="@+id/imageLogo"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="100dp"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content"
-            android:text="@string/txtUsuario"
-            android:textSize="24sp"/>
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="324dp">
 
-        <EditText
-            android:id="@+id/edit_login_email"
-            android:background="@drawable/fundo_caixa_texto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@android:color/white"
-            android:hint="Digite o login"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear2"
-        android:layout_below="@+id/linear1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="100dp"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content"
-            android:text="@string/txtPassword"
-            android:textSize="24sp"/>
-        <EditText
-            android:id="@+id/edit_login_senha"
-            android:background="@drawable/fundo_caixa_texto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@android:color/white"
-            android:inputType="textPassword"
-            android:hint="Digite a sua senha"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear3"
-        android:layout_below="@+id/linear2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_margin="10dp">
-
-        <Button
-            android:id="@+id/btnLogar"
+        <LinearLayout
+            android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/fundo_botao"
-            android:textColor="@android:color/white"
-            android:text="@string/entrar"/>
+            android:layout_below="@+id/imageLogo"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="44dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/ic_dialog_email" />
+
+            <EditText
+                android:id="@+id/edit_login_email"
+                android:layout_width="319dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/fundo_caixa_texto"
+                android:hint="Digite o login"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear1"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_weight="1"
+                android:tint="@color/colorAccent"
+                app:srcCompat="@android:drawable/ic_secure" />
+
+            <EditText
+                android:id="@+id/edit_login_senha"
+                android:layout_width="319dp"
+                android:layout_height="41dp"
+                android:background="@drawable/fundo_caixa_texto"
+                android:hint="Digite a sua senha"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear2"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnLogar"
+                android:layout_width="229dp"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/designbranco"
+                android:text="ENTRAR"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="OU"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="83dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@mipmap/facebook" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/text_cadastrar"
-        android:layout_below="@+id/linear3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/txtCadastrar"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:layout_width="79dp"
+        android:layout_height="33dp"
         android:onClick="abrirCadastroUsuario"
-        />
+        android:text="Cadastrar"
+        android:textAlignment="center"
+        android:textColor="#FBC02D"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="577dp" />
 
-</RelativeLayout>
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ainda não tem cadastro?"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="577dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
