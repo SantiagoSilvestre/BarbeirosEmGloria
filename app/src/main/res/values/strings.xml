@@ -19,4 +19,21 @@
     <string name="txtCorProg">Corte e Progressiva</string>
     <string name="txtHidratacao">Hidratação</string>
     <string name="txtCorp">POR SANBEZ</string>
+    <string name="txtUsuario">Usuário</string>
+    <string name="txtPassword">Senha</string>
+
+    <string name="btn_cadastrar">CADASTRAR</string>
+    <string name="btnLogar">Entrar</string>
+    <string name="item_configuracoes">Configurações</string>
+    <string name="item_sair">Sair</string>
+    <string name="item_adicionar">Adicionar</string>
+    <string name="password">Senha</string>
+    <string name="usuario">Usuário</string>
+    <string name="email">E-mail</string>
+    <string name="telefone">Cel</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="txtCadastrar">Não tem conta? Cadastre-se </string>
+    <string name="txtLogin">Já tem conta? Faça login </string>
+    <string name="entrar">Login</string>
+    <string name="mensagens">Mensagens</string>
 </resources>
