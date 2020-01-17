@@ -19,7 +19,6 @@ public class Splash extends AppCompatActivity {
 
     DatabaseReference firebase;
     DatabaseReference reference;
-    DatabaseReference firebases;
     private FirebaseAuth autenticacao;
 
     @Override
@@ -42,6 +41,7 @@ public class Splash extends AppCompatActivity {
     }
 
     public void verifica(){
+        /*
 
         //Recuperar contatos do firebase
         Preferencias preferencias = new Preferencias(this);
@@ -77,7 +77,10 @@ public class Splash extends AppCompatActivity {
 
             }
         });
-
+        */
+        Intent intent = new Intent(Splash.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
     public void verificaPg(){
 

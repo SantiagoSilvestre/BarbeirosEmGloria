@@ -13,8 +13,6 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private String nivel_acesso;
-    private String status;
     private String telefone;
 
     public Usuario(){
@@ -60,26 +58,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getNivel_acesso() {
-        return nivel_acesso;
-    }
 
-    public void setNivel_acesso(String status) {
-
-        this.nivel_acesso = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus() {
-        this.status = "false";
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String getTelefone() {
         return telefone;

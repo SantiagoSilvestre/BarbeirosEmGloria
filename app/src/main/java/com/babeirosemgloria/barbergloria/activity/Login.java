@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.babeirosemgloria.barbergloria.R;
@@ -38,12 +39,23 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth auth;
     private ValueEventListener eventListener;
     private String identificarUsuarioLogado;
+    private TextView txtNaoTemConta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        verificarUsuarioLogado();
+        // verificarUsuarioLogado();
+
+        txtNaoTemConta = findViewById(R.id.text_cadastrar);
+
+        txtNaoTemConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), Cadastro.class);
+                startActivity(intent);
+            }
+        });
 
         usuarioL = findViewById(R.id.edit_login_email);
         senhaL = findViewById(R.id.edit_login_senha);
@@ -122,7 +134,8 @@ public class Login extends AppCompatActivity {
 
                         Toast.makeText(Login.this, "Sucesso ao fazer Login", Toast.LENGTH_SHORT).show();
                         Log.i("testeUser", identificarUsuarioLogado);
-                        verifica();
+
+                        abrirTelaPrincipal();
 
                     } else {
                         Toast.makeText(Login.this, "Usuário e/ou senha incorreto", Toast.LENGTH_SHORT).show();
@@ -145,8 +158,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void abrirTelaPrincipal(){
-       // Intent i = new Intent(Login.this, UsuarioMain.class);
-       // startActivity(i);
+        Intent i = new Intent(Login.this, MainActivity.class);
+        startActivity(i);
         finish();
     }
 

@@ -41,7 +41,6 @@ public class Cadastro extends AppCompatActivity {
     private EditText telefone;
     private Button btn_cadastrar;
     private Usuario usuario;
-    private String identificadorContato;
 
     private FirebaseAuth autenticacao;
     private DatabaseReference firebase;
@@ -51,6 +50,7 @@ public class Cadastro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+
         nome = findViewById(R.id.edit_nome_user);
         email = findViewById(R.id.edit_email);
         senha = findViewById(R.id.edit_senha);
@@ -84,10 +84,12 @@ public class Cadastro extends AppCompatActivity {
                 telefoneSemFormatacao = telefoneSemFormatacao.replace("-","");
 
                 usuario = new Usuario();
+
                 usuario.setNome( nome.getText().toString() );
                 usuario.setEmail( email.getText().toString());
                 usuario.setSenha( senha.getText().toString() );
                 usuario.setTelefone(telefoneSemFormatacao);
+
 
                 if (usuario.getNome().equals("")){
                     Toast.makeText(Cadastro.this, "Usuário não pode ser vazio", Toast.LENGTH_SHORT).show();
@@ -98,8 +100,6 @@ public class Cadastro extends AppCompatActivity {
 
                 } else {
                     cadastrarUsuario();
-
-
                 }
 
             }
@@ -113,7 +113,8 @@ public class Cadastro extends AppCompatActivity {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
         autenticacao.createUserWithEmailAndPassword(
-                usuario.getEmail(), usuario.getSenha()
+                usuario.getEmail(),
+                usuario.getSenha()
         ).addOnCompleteListener(Cadastro.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -121,13 +122,13 @@ public class Cadastro extends AppCompatActivity {
                 if ( task.isSuccessful() ){
                     Toast.makeText(Cadastro.this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
+                    /*
                     FirebaseUser usuarioFirebase = task.getResult().getUser();
 
                     String identificadorUsuario = Base64Custom.codificarBase64( usuario.getEmail() );
 
 
                     usuario.setId( identificadorUsuario );
-                    usuario.setNivel_acesso("usuario");
                     usuario.salvar();
 
 
@@ -136,7 +137,7 @@ public class Cadastro extends AppCompatActivity {
                     preferencias.salvarDados(identificadorUsuario, usuario.getNome());
 
                     abrirLoginUsuario();
-
+                    */
 
                 } else  {
 
@@ -151,7 +152,7 @@ public class Cadastro extends AppCompatActivity {
                     } catch ( FirebaseAuthUserCollisionException e) {
                         erroExcesao = "Esse e-mail já está em uso no App!";
                     } catch ( Exception e  ){
-                        erroExcesao = "Erro ao cadastrar usuário!";
+                        erroExcesao = "Erro ao cadastrar usuário!" + e;
                         e.printStackTrace();
                     }
 
