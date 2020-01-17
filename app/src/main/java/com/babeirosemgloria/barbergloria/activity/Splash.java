@@ -21,6 +21,7 @@ public class Splash extends AppCompatActivity {
     DatabaseReference reference;
     private FirebaseAuth autenticacao;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

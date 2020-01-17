@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/fundo"
+    android:background="@color/colorAccent"
     tools:context=".activity.Servico">
 
     <LinearLayout
@@ -222,21 +222,25 @@
             android:layout_width="18dp"
             android:layout_height="21dp"
             android:layout_weight="1"
-            android:text="@string/txtSimbolo" />
+            android:text="@string/txtSimbolo"
+            android:textColor="@color/colorPrimaryDark" />
 
         <TextView
             android:id="@+id/txtValor"
             android:layout_width="63dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/textValor" />
+            android:text="@string/textValor"
+            android:textColor="@color/colorPrimaryDark" />
 
         <Button
             android:id="@+id/btnConfimar"
             android:layout_width="169dp"
             android:layout_height="58dp"
             android:layout_weight="1"
-            android:background="@mipmap/btnconfirmar" />
+            android:background="@mipmap/btnpreto"
+            android:text="CONFIRMAR"
+            android:textColor="@color/colorAccent" />
     </LinearLayout>
 
 

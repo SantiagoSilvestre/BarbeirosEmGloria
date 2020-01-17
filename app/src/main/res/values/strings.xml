@@ -23,10 +23,14 @@
     <string name="editTextelefone">DDD+TELEFONE</string>
     <string name="editTextnome">Nome</string>
     <string name="editTextemail">E-mail</string>
-    <string name="txtLogin">Já tem conta? Faça Login</string>
-    <string name="txtCad">Ainda não tem conta?</string>
-    <string name="txtCadastrar">CADASTRE-SE </string>
-    <string name="item_sair"> Sair </string>
-    <string name="mensagens"> Mensagens </string>
-
+    <string name="btncontinuar">CONTINUAR</string>
+    <string name="txtLogin">LOGIN</string>
+    <string name="txtitem_sair">SAIR</string>
+    <string name="txtmensagens">MSG</string>
+    <string name="txtCad">FAÇA</string>
+    <string name="txtCadastrar">CADASTRAR</string>
+    <string name="btnlocalizacao">LOCALIZAÇÃO</string>
+    <string name="btnpromocoes">PROMOÇÕES</string>
+    <string name="btncredito">CREDITO</string>
+    <string name="mapView">MAPA</string>
 </resources>

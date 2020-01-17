@@ -7,16 +7,17 @@
 
     <item
         android:id="@+id/item_sair"
-        android:title="@string/item_sair"
-        android:orderInCategory="200" app:showAsAction="never"
-        />
+        android:orderInCategory="200"
+        android:title="@string/txtitem_sair"
+        app:showAsAction="never" />
 
 
     <item
         android:id="@+id/item_mensagens"
-        android:title="@string/mensagens"
-        android:orderInCategory="400" app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_action_gmail"/>
+        android:icon="@drawable/ic_action_gmail"
+        android:orderInCategory="400"
+        android:title="MSG"
+        app:showAsAction="ifRoom" />
 
 
 </menu>
