@@ -22,7 +22,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="324dp"
+                android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtBarba" />
@@ -33,17 +33,13 @@
                 android:layout_weight="1"
                 android:text="@string/txtSimbolo" />
 
-            <RadioGroup
+            <CheckBox
+                android:id="@+id/checkBarba"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_weight="1">
-
-                <RadioButton
-                    android:id="@+id/radioBarba"
-                    android:layout_width="98dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/textValor" />
-            </RadioGroup>
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:onClick="recuperaValor"
+                android:text="@string/valBarba" />
 
         </LinearLayout>
 
@@ -53,28 +49,25 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="312dp"
+                android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtCorte" />
 
             <TextView
-                android:layout_width="49dp"
+                android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtSimbolo" />
 
-            <RadioGroup
+            <CheckBox
+                android:id="@+id/checkCorte"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_weight="1">
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:onClick="recuperaValor"
+                android:text="@string/valCorte" />
 
-                <RadioButton
-                    android:id="@+id/radioCorte"
-                    android:layout_width="86dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/textValor" />
-            </RadioGroup>
         </LinearLayout>
 
         <LinearLayout
@@ -83,28 +76,26 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="309dp"
+                android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtCorBar" />
 
             <TextView
-                android:layout_width="43dp"
+                android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtSimbolo" />
 
-            <RadioGroup
+            <CheckBox
+                android:id="@+id/checkCorBar"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_weight="1">
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:onClick="recuperaValor"
+                android:text="@string/valCorEBarba" />
 
-                <RadioButton
-                    android:id="@+id/radioCorBar"
-                    android:layout_width="81dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/textValor" />
-            </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
@@ -113,28 +104,25 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="293dp"
+                android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtCorRela" />
 
             <TextView
-                android:layout_width="33dp"
+                android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtSimbolo" />
 
-            <RadioGroup
+            <CheckBox
+                android:id="@+id/checkCorRelax"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_weight="1">
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:onClick="recuperaValor"
+                android:text="@string/valCorERela" />
 
-                <RadioButton
-                    android:id="@+id/radioCorRela"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textValor" />
-            </RadioGroup>
         </LinearLayout>
 
         <LinearLayout
@@ -143,28 +131,25 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="295dp"
+                android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtCorProg" />
 
             <TextView
-                android:layout_width="32dp"
+                android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtSimbolo" />
 
-            <RadioGroup
+            <CheckBox
+                android:id="@+id/checkCorProg"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_weight="1">
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:onClick="recuperaValor"
+                android:text="@string/valCorEProg" />
 
-                <RadioButton
-                    android:id="@+id/radioCorPro"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/textValor" />
-            </RadioGroup>
         </LinearLayout>
 
         <LinearLayout
@@ -173,28 +158,24 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="306dp"
+                android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtHidratacao" />
 
             <TextView
-                android:layout_width="45dp"
+                android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/txtSimbolo" />
 
-            <RadioGroup
+            <CheckBox
+                android:id="@+id/checkHidratacao"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_weight="1">
-
-                <RadioButton
-                    android:id="@+id/radioHidratacao"
-                    android:layout_width="78dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/textValor" />
-            </RadioGroup>
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:onClick="recuperaValor"
+                android:text="@string/valHidratacao" />
         </LinearLayout>
 
 

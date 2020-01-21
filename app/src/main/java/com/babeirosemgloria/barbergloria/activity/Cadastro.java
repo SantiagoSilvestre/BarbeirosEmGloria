@@ -122,7 +122,7 @@ public class Cadastro extends AppCompatActivity {
                 if ( task.isSuccessful() ){
                     Toast.makeText(Cadastro.this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
-                    /*
+
                     FirebaseUser usuarioFirebase = task.getResult().getUser();
 
                     String identificadorUsuario = Base64Custom.codificarBase64( usuario.getEmail() );
@@ -136,8 +136,8 @@ public class Cadastro extends AppCompatActivity {
                     Preferencias preferencias = new Preferencias(Cadastro.this);
                     preferencias.salvarDados(identificadorUsuario, usuario.getNome());
 
-                    abrirLoginUsuario();
-                    */
+                    // abrirLoginUsuario();
+
 
                 } else  {
 

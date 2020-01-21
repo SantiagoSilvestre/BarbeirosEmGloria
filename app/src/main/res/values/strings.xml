@@ -33,4 +33,11 @@
     <string name="btnpromocoes">PROMOÇÕES</string>
     <string name="btncredito">CREDITO</string>
     <string name="mapView">MAPA</string>
+    <string name="valBarba">20,00</string>
+    <string name="valCorte">20,00</string>
+    <string name="valCorEBarba">20,00</string>
+    <string name="valCorEProg">20,00</string>
+    <string name="valCorERela">20,00</string>
+    <string name="valHidratacao">20,00</string>
+
 </resources>

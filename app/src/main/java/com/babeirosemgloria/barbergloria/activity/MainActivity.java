@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnServicos;
     private Button btnBarbeiro;
     private Button btnData;
-    private Button btnlocalizacao;
+    private Button btnLocalizacao;
     private Button btnpromocoes;
 
     @Override
@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btnServicos = findViewById(R.id.btnServico);
         btnBarbeiro = findViewById(R.id.btnBarbeiro);
         btnData = findViewById(R.id.btnData);
-        btnlocalizacao = findViewById(R.id.btnlocalizacao);
+        btnLocalizacao = findViewById(R.id.btnLocalizacao);
+        btnpromocoes = findViewById(R.id.btnPromocoes);
 
         btnServicos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,13 +52,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /*
         btnlocalizacao.setOnClickListener(new View.OnClickListener(){
             @Override
                     public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                Intent intent = new Intent(getBaseContext(), MapActivity.class);
                 startActivity(intent);
             }
         });
+
+         */
         btnpromocoes.setOnClickListener(new View.OnClickListener() {
             @Override
                      public void onClick(View v) {

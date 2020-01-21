@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.Cadastro" />
+        <activity android:name=".activity.Login" />
         <activity android:name=".activity.Splash" />
         <activity android:name=".activity.DataHora" />
         <activity android:name=".activity.Barbeiros" />
-        <activity android:name=".activity.Servico" />
-        <activity android:name=".activity.Login">
+        <activity android:name=".activity.Cadastro" />
+        <activity android:name=".activity.Servico">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

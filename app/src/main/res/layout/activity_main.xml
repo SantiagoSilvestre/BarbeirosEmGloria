@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +9,7 @@
     tools:context=".activity.MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="348dp"
         android:layout_height="356dp"
         android:orientation="vertical"
@@ -18,9 +20,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.957">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnData"
@@ -49,8 +52,15 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="16dp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <Button
-                android:id="@+id/btnlocalizacao"
+                android:id="@+id/btnLocalizacao"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:background="@mipmap/btnlocalizacao"
@@ -58,7 +68,7 @@
                 tools:layout_editor_absoluteY="138dp" />
 
             <Button
-                android:id="@+id/btnpromocoes"
+                android:id="@+id/btnPromocoes"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:background="@mipmap/btnpromocoes"
@@ -66,42 +76,48 @@
                 tools:layout_editor_absoluteY="138dp" />
 
             <Button
-                android:id="@+id/btncredito"
+                android:id="@+id/btnCredito"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:background="@mipmap/btncredito"
                 tools:layout_editor_absoluteX="237dp"
                 tools:layout_editor_absoluteY="138dp" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*Necessário cartão fidelidade, solicite o seu na barbearia"
-                android:textColor="@color/colorAccent"
-                android:textSize="12sp"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="324dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Necessário cartão fidelidade, solicite o seu na barbearia"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="324dp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/promocaoicon"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="283dp" />
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.389"
+        app:srcCompat="@mipmap/promocaoicon" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="208dp"
         android:layout_height="24dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="112dp"
         android:text="PROMOÇÃO DO ANO"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="295dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
@@ -109,7 +125,11 @@
         android:layout_height="wrap_content"
         android:text="10º Corte gratuito*"
         android:textColor="@color/colorAccent"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="319dp" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
