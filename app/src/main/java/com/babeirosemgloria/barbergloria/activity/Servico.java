@@ -101,47 +101,60 @@ public class Servico extends AppCompatActivity {
 
         if (barba.isChecked()) {
             valor += valorBarba;
-            String teste = String.valueOf(valor);
-            Log.i("testeBar", teste);
-            //txtValor.setText((int) valor);
+
+            String retornoActivity = transformaString(valor);
+            txtValor.setText(retornoActivity);
         } else {
-            valor -= valorBarba;
-            //txtValor.setText((int) valor);
+            if (valor == 0) {
+                txtValor.setText("00,00");
+            } else {
+                valor -= valorBarba;
+
+                String retornoActivity = transformaString(valor);
+                txtValor.setText(retornoActivity);
+            }
         }
         if (corte.isChecked()) {
             valor += valorCorte;
-            txtValor.setText((int) valor);
-        } else {
-            valor -= valorCorte;
-            txtValor.setText((int) valor);
+
+            String retornoActivity = transformaString(valor);
+            txtValor.setText(retornoActivity);
         }
         if (corBarb.isChecked()) {
             valor += valorCorBarba;
-        } else {
-            valor -= valorCorBarba;
-            txtValor.setText((int) valor);
+
+            String retornoActivity = transformaString(valor);
+            txtValor.setText(retornoActivity);
         }
         if (corProg.isChecked()) {
             valor += valorCorProg;
-            txtValor.setText((int) valor);
-        } else {
-            valor -= valorCorProg;
-            txtValor.setText((int) valor);
+
+            String retornoActivity = transformaString(valor);
+            txtValor.setText(retornoActivity);
         }
         if (corRela.isChecked()){
             valor += valorCorRel;
-            txtValor.setText((int) valor);
-        } else {
-            valor -= valorCorRel;
-            txtValor.setText((int) valor);
+
+            String retornoActivity = transformaString(valor);
+            txtValor.setText(retornoActivity);
         }
         if (hidratacao.isChecked()) {
             valor += valorHidratacao;
-            txtValor.setText((int) valor);
-        } else {
-            valor -= valorHidratacao;
-            txtValor.setText((int) valor);
+
+            String retornoActivity = transformaString(valor);
+            txtValor.setText(retornoActivity);
         }
 
+
+    }
+
+    public String transformaString(double valor) {
+
+        String stringValor = String.valueOf(valor);
+        String variavelFormat = stringValor.replace(".", ",");
+        variavelFormat += "0";
+
+
+        return variavelFormat;
     }
 }
