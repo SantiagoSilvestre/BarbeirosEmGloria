@@ -7,20 +7,20 @@
     android:background="@mipmap/fundohorario"
     tools:context=".activity.DataHora">
 
-    <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="152dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/calendarView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="155dp">
+        <LinearLayout
+            android:id="@+id/linearLayoutServ"
+            android:layout_width="397dp"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="186dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="1dp">
 
             <Button
                 android:id="@+id/btnBarbeiro"
@@ -43,65 +43,64 @@
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="203dp"
                 tools:layout_editor_absoluteY="81dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="390dp"
-        android:layout_height="54dp"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="726dp">
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="193dp"
+            android:layout_below="@+id/calendarView"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="726dp">
 
-        <Button
-            android:id="@+id/btnCancelar"
-            android:layout_width="10dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/designbranco"
-            android:text="VOLTAR"
-            android:textColor="@color/colorPrimaryDark" />
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/designbranco"
+                android:text="VOLTAR"
+                android:textColor="@color/colorPrimaryDark" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="R$"
-            android:textColor="@color/colorAccent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="R$"
+                android:textColor="@color/colorAccent" />
 
-        <TextView
-            android:id="@+id/txtValor"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/textValor"
-            android:textColor="@color/colorAccent" />
+            <TextView
+                android:id="@+id/txtValor"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/textValor"
+                android:textColor="@color/colorAccent" />
 
-        <Button
-            android:id="@+id/btnConfimar"
-            android:layout_width="126dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/designbranco"
-            android:text="CONFIRMAR"
-            android:textColor="@color/colorPrimaryDark" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnConfimar"
+                android:layout_width="126dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/designbranco"
+                android:text="CONFIRMAR"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="391dp"
-        android:layout_height="310dp"
-        android:background="@color/colorAccent"
-        android:scrollbarThumbHorizontal="@color/colorAccent"
-        android:scrollbarThumbVertical="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"/>
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="302dp"
+            android:layout_below="@id/linearLayoutServ"
+            android:background="@color/colorAccent"
+            android:scrollbarThumbHorizontal="@color/colorAccent"
+            android:scrollbarThumbVertical="@color/colorAccent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.953"
+            tools:layout_editor_absoluteX="0dp" />
 
-
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
