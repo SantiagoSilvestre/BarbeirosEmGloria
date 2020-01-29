@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Login" />
         <activity android:name=".activity.Splash" />
         <activity android:name=".activity.Barbeiros" />
@@ -24,9 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDMIwMPBdpPG9M0-XFfhmy_ssQS-fGTQSI"/>
+            android:value="AIzaSyDMIwMPBdpPG9M0-XFfhmy_ssQS-fGTQSI" />
     </application>
 
 </manifest>
