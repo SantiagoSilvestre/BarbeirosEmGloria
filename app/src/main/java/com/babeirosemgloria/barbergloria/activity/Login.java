@@ -45,7 +45,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        // verificarUsuarioLogado();
+
+        verificarUsuarioLogado();
 
         txtNaoTemConta = findViewById(R.id.text_cadastrar);
 
@@ -66,24 +67,15 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String usuario = usuarioL.getText().toString().trim();
-                String senha = senhaL.getText().toString();
-
-
                 user = new Usuario();
-                user.setEmail(usuario);
-                user.setSenha(senha);
-
-
+                user.setEmail(usuarioL.getText().toString().trim());
+                user.setSenha(senhaL.getText().toString());
 
                 if ( user.getEmail().equals("") & user.getSenha().equals("") ) {
                     Toast.makeText(Login.this, "E-mail ou senha incorreto", Toast.LENGTH_SHORT).show();
                 } else {
                     validarLogin();
                 }
-
-
-
             }
         });
 
@@ -92,7 +84,9 @@ public class Login extends AppCompatActivity {
         auth = ConfiguracaoFirebase.getFirebaseAutenticacao();
         if (auth.getCurrentUser() != null) {
 
-            verifica();
+            Intent intent = new Intent(Login.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 
     }
@@ -130,8 +124,6 @@ public class Login extends AppCompatActivity {
                         };
                         referenceFirebase.addListenerForSingleValueEvent(eventListener);
 
-
-
                         Toast.makeText(Login.this, "Sucesso ao fazer Login", Toast.LENGTH_SHORT).show();
                         Log.i("testeUser", identificarUsuarioLogado);
 
@@ -141,14 +133,11 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(Login.this, "Usuário e/ou senha incorreto", Toast.LENGTH_SHORT).show();
                     }
 
-
                 }
             });
         } catch ( Exception e ){
             Toast.makeText(this, "Campos não podem ser vazios", Toast.LENGTH_SHORT).show();
         }
-
-
 
     }
 
@@ -163,14 +152,17 @@ public class Login extends AppCompatActivity {
         finish();
     }
 
-
-
-
+    /*
     public void verifica(){
 
         firebase = ConfiguracaoFirebase.getFirebase()
                 .child("usuarios")
-                .child( identificarUsuarioLogado ).child("nivel_acesso");
+                .child( identificarUsuarioLogado );
+
+        Intent intent = new Intent(Login.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+
 
         firebase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -194,35 +186,10 @@ public class Login extends AppCompatActivity {
             }
         });
 
-    }
-    public void verificaPg(){
-        Preferencias preferencias = new Preferencias(this);
-        String identificarUsuarioLogado = preferencias.getIdentificador();
 
-        reference = ConfiguracaoFirebase.getFirebase()
-                .child("contatos").child("c2FuQGdtYWlsLmNvbQ==")
-                .child(identificarUsuarioLogado).child("status");
-
-        //Recuperar contatos do firebase
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String i =  dataSnapshot.getValue().toString();
-                if (i.equals("true")) {
-                    abrirTelaPrincipal();
-                } else {
-                    // Intent intent = new Intent(Login.this, AguardarLiberacao.class);
-                    // startActivity(intent);
-                    finish();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
     }
+
+     */
+
 }

@@ -136,7 +136,7 @@ public class Cadastro extends AppCompatActivity {
                     Preferencias preferencias = new Preferencias(Cadastro.this);
                     preferencias.salvarDados(identificadorUsuario, usuario.getNome());
 
-                    // abrirLoginUsuario();
+                    abrirLoginUsuario();
 
 
                 } else  {
@@ -170,62 +170,9 @@ public class Cadastro extends AppCompatActivity {
         Intent intent = new Intent(Cadastro.this, MainActivity.class);
         startActivity(intent);
         finish();
-        //add();
+
     }
 
-    /*
-    public void add (){
-        String emailContato = usuario.getEmail();
-
-        //Verifica se o usuário já está cadastrado em nosso App
-        identificadorContato = Base64Custom.codificarBase64(emailContato);
-
-        firebase = ConfiguracaoFirebase.getFirebase();
-        firebase = firebase.child("usuarios").child(identificadorContato);
-
-        firebase.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                if ( dataSnapshot.getValue() != null ) {
-
-                    //Recuperar dados do contato a ser adicionado
-                    Usuario usuarioContato = dataSnapshot.getValue( Usuario.class );
-
-                    //Recuperar o administrador para logar (base64)
-                    reference = ConfiguracaoFirebase.getFirebase();
-                    reference = reference.child("usuarios").child("c2FuQGdtYWlsLmNvbQ==");
-
-
-                    firebase = ConfiguracaoFirebase.getFirebase();
-                    firebase = firebase.child("contatos")
-                            .child(reference.getKey())
-                            .child(identificadorContato);
-
-                    Contato contato = new Contato();
-                    contato.setIdentificadorUsuario(identificadorContato);
-                    contato.setNome(usuarioContato.getNome());
-                    contato.setEmail(usuarioContato.getEmail());
-                    contato.setNivel_acesso("usuario");
-                    contato.setStatus("false");
-
-
-                    firebase.setValue(contato);
-
-                    Toast.makeText(CadastroUsuario.this, "Adicionado com sucesso!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(CadastroUsuario.this, "Usuário não possui cadastro", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-    */
 
     public void abrirLogin(View view) {
         Intent intent = new Intent(Cadastro.this, Login.class);
