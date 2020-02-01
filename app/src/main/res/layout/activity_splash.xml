@@ -8,12 +8,15 @@
 
 
     <LinearLayout
-        android:layout_width="411dp"
-        android:layout_height="275dp"
+        android:layout_width="400dp"
+        android:layout_height="265dp"
+        android:layout_marginBottom="184dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="238dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-9dp">
 
         <ImageView
             android:id="@+id/imageView"
@@ -27,9 +30,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         android:text="@string/txtCorp"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="703dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="143dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

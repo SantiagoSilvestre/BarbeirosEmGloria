@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,19 +16,19 @@
 
         <LinearLayout
             android:id="@+id/linearLayoutServ"
-            android:layout_width="397dp"
-            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="186dp"
+            android:layout_marginTop="227dp"
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="1dp">
 
             <Button
                 android:id="@+id/btnBarbeiro"
-                android:layout_width="185dp"
-                android:layout_height="63dp"
-                android:background="@mipmap/designbranco"
-                android:text="BARBEIRO"
+                android:layout_width="199dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center"
+                android:background="@mipmap/btnbarbeiro03"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="2dp"
@@ -35,10 +36,10 @@
 
             <Button
                 android:id="@+id/btnServico"
-                android:layout_width="185dp"
-                android:layout_height="63dp"
-                android:background="@mipmap/designbranco"
-                android:text="SERVIÇO"
+                android:layout_width="193dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center"
+                android:background="@mipmap/btnservico03"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="203dp"
@@ -57,11 +58,11 @@
 
             <Button
                 android:id="@+id/btnCancelar"
-                android:layout_width="87dp"
+                android:layout_width="34dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@mipmap/designbranco"
-                android:text="VOLTAR"
+                android:text="<"
                 android:textColor="@color/colorPrimaryDark" />
 
             <TextView
@@ -89,52 +90,25 @@
                 android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/displayDate"
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:layout_above="@+id/btnData"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="9dp"
-            android:text="Escolha uma data"
-            android:textColor="#FFF"
-            android:textIsSelectable="false"
-            android:textSize="20sp" />
-
         <Button
             android:id="@+id/btnData"
-            android:drawableLeft="@android:drawable/ic_menu_my_calendar"
-            android:layout_width="169dp"
-            android:layout_height="wrap_content"
+            android:layout_width="198dp"
+            android:layout_height="68dp"
             android:layout_above="@+id/linearLayout"
             android:layout_marginBottom="147dp"
-            android:text="Data" />
-
-        <TextView
-            android:id="@+id/tvHorarioEntrada"
-            android:layout_width="180dp"
-            android:layout_height="43dp"
-            android:layout_above="@+id/btnHorarioEntrada"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="-1dp"
-            android:layout_marginBottom="13dp"
-            android:ems="10"
-            android:text="Escolha um horário"
-            android:textColor="#FFF"
-            android:textIsSelectable="false"
-            android:textSize="20sp" />
+            android:background="@mipmap/btndata" />
 
         <Button
             android:id="@+id/btnHorario"
-            android:layout_width="179dp"
-            android:layout_height="73dp"
+            android:layout_width="199dp"
+            android:layout_height="68dp"
             android:layout_above="@+id/linearLayout"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="127dp"
-            android:text="Escolha um horário"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="149dp"
+            android:background="@mipmap/btnhorario"
             android:textColor="#000" />
 
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,71 +7,68 @@
     android:background="@mipmap/fundobarb"
     tools:context=".activity.Barbeiros">
 
-    <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="278dp"
-        android:layout_height="52dp"
-        android:background="@mipmap/designbranco"
-        android:text="FECHAR"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHighlight="@color/colorPrimaryDark"
-        android:textColorLink="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.962" />
-
     <LinearLayout
         android:layout_width="417dp"
-        android:layout_height="431dp"
+        android:layout_height="405dp"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_gravity="bottom"
         app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp">
 
         <LinearLayout
-            android:layout_width="385dp"
-            android:layout_height="223dp"
+            android:layout_width="402dp"
+            android:layout_height="183dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnDvscuts"
                 android:layout_width="128dp"
                 android:layout_height="165dp"
-                android:text="1"
-                android:background="@mipmap/danilo" />
+                android:background="@mipmap/danilo"
+                android:text="1" />
 
             <Button
                 android:id="@+id/btnIgor"
                 android:layout_width="128dp"
                 android:layout_height="165dp"
-                android:text="2"
-                android:background="@mipmap/igor" />
+                android:background="@mipmap/igor"
+                android:text="2" />
 
             <Button
                 android:id="@+id/btnKaique"
                 android:layout_width="128dp"
                 android:layout_height="165dp"
-                android:text="3"
-                android:background="@mipmap/kaique" />
-        </LinearLayout>
+                android:background="@mipmap/kaique"
+                android:text="3" />
 
-        <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnSemPref"
-                android:layout_width="128dp"
-                android:layout_height="177dp"
-                android:text="4"
-                android:background="@mipmap/spreferencia" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSemPref"
+            android:layout_width="128dp"
+            android:layout_height="165dp"
+            android:background="@mipmap/spreferencia"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="278dp"
+            android:layout_height="52dp"
+            android:background="@mipmap/designbranco"
+            android:text="FECHAR"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.962" />
+
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

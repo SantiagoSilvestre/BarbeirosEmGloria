@@ -14,10 +14,10 @@
     <string name="txtSimbolo">R$</string>
     <string name="txtBarba">Barba</string>
     <string name="txtCorte">Corte</string>
-    <string name="txtCorBar">Corte e Barba</string>
-    <string name="txtCorRela">Corte e Relaxamento</string>
-    <string name="txtCorProg">Corte e Progressiva</string>
-    <string name="txtHidratacao">Hidratação</string>
+    <string name="txtCorBar">Corte + Barba</string>
+    <string name="txtCorRela">Corte + Relaxamento</string>
+    <string name="txtCorProg">Corte + Progressiva</string>
+    <string name="txtsobrancelha">Sobrancelha</string>
     <string name="txtCorp">POR SANBEZ</string>
     <string name="btnentrarfc">ENTRAR</string>
     <string name="editTextelefone">DDD+TELEFONE</string>
@@ -33,11 +33,20 @@
     <string name="btnpromocoes">PROMOÇÕES</string>
     <string name="btncredito">CREDITO</string>
     <string name="mapView">MAPA</string>
-    <string name="valBarba">20,00</string>
+    <string name="valBarba">15,00</string>
     <string name="valCorte">20,00</string>
-    <string name="valCorEBarba">20,00</string>
+    <string name="valCorEBarba">30,00</string>
     <string name="valCorEProg">20,00</string>
     <string name="valCorERela">20,00</string>
     <string name="valHidratacao">20,00</string>
+    <string name="valSobrancelha">20,00</string>
+    <string name="valLimpeza">20,00</string>
+    <string name="valPezinho">20,00</string>
+    <string name="txtlimpezafacial">Limpeza Facial</string>
+    <string name="txtpezinho">Pezinho</string>
+    <string name="valCorteInfantil">15,00</string>
+    <string name="txtCorteinfantil">Corte Infantil</string>
+    <string name="valLuzes">20,00</string>
+    <string name="txtLuzes">Luzes</string>
 
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,182 +8,188 @@
     android:background="@mipmap/fundocad"
     tools:context=".activity.Cadastro">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.815"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/linear1"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            tools:ignore="UnknownId">
+            android:layout_height="388dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.815"
+            tools:layout_editor_absoluteX="0dp">
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                tools:ignore="UnknownId">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Usuário"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edit_nome_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/fundo_caixa_texto"
+                    android:hint="Digite o seu usuário"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@color/colorAccent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear1"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="E-mail"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/fundo_caixa_texto"
+                    android:hint="Digite o seu e-mail"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@color/colorAccent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear2"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telefone"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edit_codArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/fundo_caixa_texto"
+                    android:hint=" +55"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@color/colorAccent"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edit_ddd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/fundo_caixa_texto"
+                    android:hint="(11) "
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@color/colorAccent"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edit_telefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/fundo_caixa_texto"
+                    android:hint=" 97070-7070"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@color/colorAccent"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear3"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Senha"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/edit_senha"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/fundo_caixa_texto"
+                    android:hint="Digite a sua senha"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@color/colorAccent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear4"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <Button
+                    android:id="@+id/btn_cadastrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/designbranco"
+                    android:text="CADASTRAR"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+            </LinearLayout>
 
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Usuário"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edit_nome_user"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/fundo_caixa_texto"
-                android:hint="Digite o seu usuário"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/colorAccent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear1"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="E-mail"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edit_email"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/fundo_caixa_texto"
-                android:hint="Digite o seu e-mail"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/colorAccent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear2"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Telefone"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edit_codArea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/fundo_caixa_texto"
-                android:hint=" +55"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/colorAccent"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edit_ddd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/fundo_caixa_texto"
-                android:hint="(11) "
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/colorAccent"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edit_telefone"
+                android:id="@+id/txt_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="@drawable/fundo_caixa_texto"
-                android:hint=" 97070-7070"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/colorAccent"
-                android:textSize="18sp" />
+                android:layout_below="@+id/linear5"
+                android:layout_marginTop="8dp"
+                android:onClick="abrirLogin"
+                android:text="@string/txtLogin"
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+    </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear3"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Senha"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-
-            <EditText
-                android:id="@+id/edit_senha"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/fundo_caixa_texto"
-                android:hint="Digite a sua senha"
-                android:inputType="textPassword"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/colorAccent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear4"
-            android:layout_margin="10dp"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <Button
-                android:id="@+id/btn_cadastrar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/designbranco"
-                android:text="CADASTRAR"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txt_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linear5"
-            android:layout_marginTop="8dp"
-            android:onClick="abrirLogin"
-            android:text="@string/txtLogin"
-            android:textAlignment="center"
-            android:textColor="@android:color/white" />
-    </RelativeLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

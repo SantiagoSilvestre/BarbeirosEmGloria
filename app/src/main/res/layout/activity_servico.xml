@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@mipmap/fundolocalizacao"
     tools:context=".activity.Servico">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="405dp"
-        android:layout_height="409dp"
+        android:layout_width="389dp"
+        android:layout_height="634dp"
+        android:layout_marginTop="92dp"
+        android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteX="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,21 +27,26 @@
                 android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtBarba" />
+                android:text="@string/txtBarba"
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtSimbolo" />
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
 
             <CheckBox
                 android:id="@+id/checkBarba"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
                 android:onClick="recuperaValor"
-                android:text="@string/valBarba" />
+                android:text="@string/valBarba"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent" />
 
         </LinearLayout>
 
@@ -52,21 +59,25 @@
                 android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtCorte" />
+                android:text="@string/txtCorte"
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtSimbolo" />
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
 
             <CheckBox
                 android:id="@+id/checkCorte"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
                 android:onClick="recuperaValor"
-                android:text="@string/valCorte" />
+                android:text="@string/valCorte"
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
@@ -79,21 +90,25 @@
                 android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtCorBar" />
+                android:text="@string/txtCorBar"
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtSimbolo" />
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
 
             <CheckBox
                 android:id="@+id/checkCorBar"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
                 android:onClick="recuperaValor"
-                android:text="@string/valCorEBarba" />
+                android:text="@string/valCorEBarba"
+                android:textColor="@color/colorAccent" />
 
 
         </LinearLayout>
@@ -107,21 +122,25 @@
                 android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtCorRela" />
+                android:text="@string/txtCorRela"
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtSimbolo" />
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
 
             <CheckBox
                 android:id="@+id/checkCorRelax"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
                 android:onClick="recuperaValor"
-                android:text="@string/valCorERela" />
+                android:text="@string/valCorERela"
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
@@ -134,21 +153,26 @@
                 android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtCorProg" />
+                android:text="@string/txtCorProg"
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtSimbolo" />
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
 
             <CheckBox
                 android:id="@+id/checkCorProg"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
+                android:checked="false"
                 android:onClick="recuperaValor"
-                android:text="@string/valCorEProg" />
+                android:text="@string/valCorEProg"
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
@@ -161,23 +185,149 @@
                 android:layout_width="214dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtHidratacao" />
+                android:text="@string/txtsobrancelha"
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:layout_width="59dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/txtSimbolo" />
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
 
             <CheckBox
-                android:id="@+id/checkHidratacao"
+                android:id="@+id/checkSobrancelha"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
                 android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
                 android:onClick="recuperaValor"
-                android:text="@string/valHidratacao" />
+                android:text="@string/valSobrancelha"
+                android:textColor="@color/colorAccent" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="214dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtlimpezafacial"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
+
+            <CheckBox
+                android:id="@+id/checkLimpeza"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
+                android:onClick="recuperaValor"
+                android:text="@string/valLimpeza"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="214dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtpezinho"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
+
+            <CheckBox
+                android:id="@+id/checkpezinho"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
+                android:onClick="recuperaValor"
+                android:text="@string/valPezinho"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="214dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtCorteinfantil"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
+
+            <CheckBox
+                android:id="@+id/checkcorteinfantil"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
+                android:onClick="recuperaValor"
+                android:text="@string/valCorteInfantil"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="214dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtLuzes"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txtSimbolo"
+                android:textColor="@color/colorAccent" />
+
+            <CheckBox
+                android:id="@+id/checkLuzes"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
+                android:onClick="recuperaValor"
+                android:text="@string/valLuzes"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -197,14 +347,16 @@
             android:layout_width="45dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/btnvoltar" />
+            android:background="@mipmap/designbranco"
+            android:text="<"
+            android:textColor="@color/colorPrimaryDark" />
 
         <TextView
             android:layout_width="18dp"
             android:layout_height="21dp"
             android:layout_weight="1"
             android:text="@string/txtSimbolo"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/txtValor"
@@ -212,16 +364,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/textValor"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorAccent" />
 
         <Button
             android:id="@+id/btnConfimar"
             android:layout_width="169dp"
             android:layout_height="58dp"
             android:layout_weight="1"
-            android:background="@mipmap/btnpreto"
+            android:background="@mipmap/designbranco"
             android:text="CONFIRMAR"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
 
