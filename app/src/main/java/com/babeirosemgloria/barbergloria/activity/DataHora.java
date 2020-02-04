@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.babeirosemgloria.barbergloria.R;
+import com.babeirosemgloria.barbergloria.helper.Preferencias;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,6 +37,7 @@ public class DataHora extends AppCompatActivity {
     private TimePickerDialog EntradaTimePickerDialog;
     private TextView displayDate;
     private TextView tvHorarioEntrada;
+    private TextView txtValor;
 
 
 
@@ -43,6 +45,8 @@ public class DataHora extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_hora);
+
+        final Preferencias preferencias = new Preferencias(DataHora.this);
 
         // Recuperando Elementos da view
         btnData = findViewById(R.id.btnData);
@@ -53,6 +57,10 @@ public class DataHora extends AppCompatActivity {
         btnBarbeiro = findViewById(R.id.btnBarbeiro);
         btnCancelar = findViewById(R.id.btnCancelar);
         btnConfirmar = findViewById(R.id.btnConfimar);
+        txtValor = findViewById(R.id.txtValor);
+
+        // set o valor na view
+        txtValor.setText(preferencias.getValor());
 
         // Define a localidade sendo como Brasl
         Locale brasil = new Locale("pt", "BR");

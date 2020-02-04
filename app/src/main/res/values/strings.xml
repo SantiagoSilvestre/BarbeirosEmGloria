@@ -48,5 +48,6 @@
     <string name="txtCorteinfantil">Corte Infantil</string>
     <string name="valLuzes">20,00</string>
     <string name="txtLuzes">Luzes</string>
+    <string name="back"> { </string>
 
 </resources>
