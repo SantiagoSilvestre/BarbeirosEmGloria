@@ -17,6 +17,17 @@ public class Preferencias {
     private String CHAVE_DATA = "chaveData";
     private String CHAVE_HORA = "chaveHora";
     private String CHAVE_BARBEIRO = "chaveBarbeiro";
+    private String CHAVE_CK_CORTE= "chaveCkCorte";
+    private String CHAVE_CK_BARBA= "chaveCkBarba";
+    private String CHAVE_CK_CORBAR= "chaveCkCorBar";
+    private String CHAVE_CK_CORPROG= "chaveCkCorProg";
+    private String CHAVE_CK_CORREL= "chaveCkCorRel";
+    private String CHAVE_CK_CORINFANTIL= "chaveCkCorInfantil";
+    private String CHAVE_CK_LUZES= "chaveCkLuzes";
+    private String CHAVE_CK_LIMPEZA= "chaveCkLimpeza";
+    private String CHAVE_CK_PEZINHO= "chaveCkPezinho";
+    private String CHAVE_CK_SOMBRANCELHA = "chaveCkSombrancelha";
+
     public Preferencias( Context contextoParemetro ) {
 
         contexto = contextoParemetro;
@@ -46,6 +57,46 @@ public class Preferencias {
         editor.putString(CHAVE_HORA, hora);
         editor.commit();
     }
+    public void salvarCkCorte(String val) {
+        editor.putString(CHAVE_CK_CORTE, val);
+        editor.commit();
+    }
+    public void salvarCkBarba(String val) {
+        editor.putString(CHAVE_CK_BARBA, val);
+        editor.commit();
+    }
+    public void salvarCkCorBar(String val) {
+        editor.putString(CHAVE_CK_CORBAR, val);
+        editor.commit();
+    }
+    public void salvarCkCorProg(String val) {
+        editor.putString(CHAVE_CK_CORPROG, val);
+        editor.commit();
+    }
+    public void salvarCkCorRel(String val) {
+        editor.putString(CHAVE_CK_CORREL, val);
+        editor.commit();
+    }
+    public void salvarCkCorteInfantil(String val) {
+        editor.putString(CHAVE_CK_CORINFANTIL, val);
+        editor.commit();
+    }
+    public void salvarCkLimpeza(String val) {
+        editor.putString(CHAVE_CK_LIMPEZA, val);
+        editor.commit();
+    }
+    public void salvarCkPezinho(String val) {
+        editor.putString(CHAVE_CK_PEZINHO, val);
+        editor.commit();
+    }
+    public void salvarCkLuzes(String val) {
+        editor.putString(CHAVE_CK_LUZES, val);
+        editor.commit();
+    }
+    public void salvaCkSombrancelha(String val ) {
+        editor.putString(CHAVE_CK_SOMBRANCELHA, val);
+        editor.commit();
+    }
 
 
 
@@ -64,5 +115,25 @@ public class Preferencias {
     public String getData() { return preferences.getString(CHAVE_DATA, null);}
 
     public String getHora() { return preferences.getString(CHAVE_HORA, null);}
+
+    public String getCheckCorte() {return  preferences.getString(CHAVE_CK_CORTE, null);}
+
+    public String getCheckBarba() {return  preferences.getString(CHAVE_CK_BARBA, null);}
+
+    public String getCheckCorBar() {return  preferences.getString(CHAVE_CK_CORBAR, null);}
+
+    public String getCheckCorProg() {return  preferences.getString(CHAVE_CK_CORPROG, null);}
+
+    public String getCheckCorRel() {return  preferences.getString(CHAVE_CK_CORREL, null);}
+
+    public String getCheckCorInfantil() {return  preferences.getString(CHAVE_CK_CORINFANTIL, null);}
+
+    public String getCheckLimpeza() {return  preferences.getString(CHAVE_CK_LIMPEZA, null);}
+
+    public String getCheckLuzes() {return  preferences.getString(CHAVE_CK_LUZES, null);}
+
+    public String getCheckPezinho() {return  preferences.getString(CHAVE_CK_PEZINHO, null);}
+
+    public String getCheckSombrancelha() {return  preferences.getString(CHAVE_CK_SOMBRANCELHA, null);}
 
 }

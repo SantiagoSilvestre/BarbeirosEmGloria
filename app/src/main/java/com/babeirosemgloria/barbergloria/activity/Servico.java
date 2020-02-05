@@ -31,18 +31,18 @@ public class Servico extends AppCompatActivity {
     private CheckBox pezinho;
     private CheckBox limpeza;
     private CheckBox corRela;
+    private CheckBox sombrancelha;
     private TextView txtValor;
+    Preferencias preferencias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servico);
+        encontrarElementos();
+        preferencias = new Preferencias(Servico.this);
 
-        btnCancelar = findViewById(R.id.btnCancelar);
-        txtValor = findViewById(R.id.txtValor);
-        btnConfirmar = findViewById(R.id.btnConfimar);
-
-        final Preferencias preferencias = new Preferencias(Servico.this);
+        if(preferencias.getValor() != null ) {  txtValor.setText(preferencias.getValor()); }
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,18 +62,7 @@ public class Servico extends AppCompatActivity {
     }
 
     public void recuperaValor(View view) {
-        // Aqui será feita a lógica para recuperar os serviços
-        barba = findViewById(R.id.checkBarba);
-        corte = findViewById(R.id.checkCorte);
-        corBarb = findViewById(R.id.checkCorBar);
-        corProg = findViewById(R.id.checkCorProg);
-        corRela = findViewById(R.id.checkCorRelax);
-        corInfantil = findViewById(R.id.checkcorteinfantil);
-        luzes = findViewById(R.id.checkLuzes);
-        limpeza = findViewById(R.id.checkLimpeza);
-        pezinho = findViewById(R.id.checkpezinho);
-        txtValor = findViewById(R.id.txtValor);
-
+        preferencias = new Preferencias(Servico.this);
 
         // Aqui recebe as strings do activity
         String valBarba = barba.getText().toString();
@@ -85,6 +74,7 @@ public class Servico extends AppCompatActivity {
         String valLuzes = luzes.getText().toString();
         String valLimpesa = limpeza.getText().toString();
         String valPezinho = pezinho.getText().toString();
+        String valSombrancelha = sombrancelha.getText().toString();
 
         // Aqui substitui as vírgulas pelo ponto
         String vBarba = valBarba.replace(",", ".");
@@ -96,6 +86,7 @@ public class Servico extends AppCompatActivity {
         String vLuzes = valLuzes.replace(",", ".");
         String vLimpeza = valLimpesa.replace(",", ".");
         String vPezinho = valPezinho.replace(",", ".");
+        String vSombrancelha = valSombrancelha.replace(",", ".");
 
 
         // aqui pega os valores e transforma em double
@@ -108,15 +99,18 @@ public class Servico extends AppCompatActivity {
         double valorLuzes = Double.parseDouble(vLuzes);
         double valorLimpeza = Double.parseDouble(vLimpeza);
         double valorPezinho = Double.parseDouble(vPezinho);
+        double valorSombrancelha = Double.parseDouble(vSombrancelha);
 
         double valor = 0;
 
 
         // Aqui faz a somatório dos valores escolhidos
         if (barba.isChecked()) {
+            preferencias.salvarCkBarba("1");
             valor += valorBarba;
             txtValor.setText(transformaString(valor));
         } else {
+            preferencias.salvarCkBarba("0");
             if (valor == 0) {
                 txtValor.setText("00,00");
             } else {
@@ -125,36 +119,74 @@ public class Servico extends AppCompatActivity {
             }
         }
         if (corte.isChecked()) {
+            preferencias.salvarCkCorte("1");
             valor += valorCorte;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkCorte("0");
         }
         if (corBarb.isChecked()) {
+            preferencias.salvarCkCorBar("1");
             valor += valorCorBarba;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkCorBar("0");
         }
+
         if (corProg.isChecked()) {
+            preferencias.salvarCkCorProg("1");
             valor += valorCorProg;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkCorProg("0");
         }
+
         if (corRela.isChecked()){
+            preferencias.salvarCkCorRel("1");
             valor += valorCorRel;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkCorRel("0");
         }
+
         if(corInfantil.isChecked()){
+            preferencias.salvarCkCorteInfantil("1");
             valor += valorCorInfantil;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkCorteInfantil("0");
         }
+
         if(luzes.isChecked()){
+            preferencias.salvarCkLuzes("1");
             valor += valorLuzes;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkLuzes("0");
         }
+
         if(limpeza.isChecked()){
+            preferencias.salvarCkLimpeza("1");
             valor += valorLimpeza;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkLimpeza("0");
         }
+
         if(pezinho.isChecked()){
+            preferencias.salvarCkPezinho("1");
             valor += valorPezinho;
             txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvarCkPezinho("0");
+        }
+
+        if(sombrancelha.isChecked()) {
+            preferencias.salvaCkSombrancelha("1");
+            valor += valorSombrancelha;
+            txtValor.setText(transformaString(valor));
+        } else {
+            preferencias.salvaCkSombrancelha("0");
         }
 
 
@@ -167,5 +199,39 @@ public class Servico extends AppCompatActivity {
         variavelFormat += "0";
 
         return variavelFormat;
+    }
+
+    public void verificaCheckBox(){
+        preferencias = new Preferencias(Servico.this);
+        if(preferencias.getCheckCorte() == "1") { corte.setChecked(true); }
+        if(preferencias.getCheckBarba() == "1") { barba.setChecked(true); }
+        if(preferencias.getCheckCorBar() == "1") { corBarb.setChecked(true); }
+        if(preferencias.getCheckCorProg() == "1") { corProg.setChecked(true); }
+        if(preferencias.getCheckCorRel() == "1") { corRela.setChecked(true); }
+        if(preferencias.getCheckCorInfantil() == "1") { corInfantil.setChecked(true); }
+        if(preferencias.getCheckLimpeza() == "1") { limpeza.setChecked(true); }
+        if(preferencias.getCheckLuzes() == "1") { luzes.setChecked(true); }
+        if(preferencias.getCheckPezinho() == "1") { pezinho.setChecked(true); }
+        if(preferencias.getCheckSombrancelha() == "1") { sombrancelha.setChecked(true); }
+    }
+
+    public void encontrarElementos() {
+        preferencias = new Preferencias(Servico.this);
+        // Aqui será feita a lógica para recuperar os serviços
+        barba = findViewById(R.id.checkBarba);
+        corte = findViewById(R.id.checkCorte);
+        corBarb = findViewById(R.id.checkCorBar);
+        corProg = findViewById(R.id.checkCorProg);
+        corRela = findViewById(R.id.checkCorRelax);
+        corInfantil = findViewById(R.id.checkcorteinfantil);
+        luzes = findViewById(R.id.checkLuzes);
+        limpeza = findViewById(R.id.checkLimpeza);
+        pezinho = findViewById(R.id.checkpezinho);
+        sombrancelha = findViewById(R.id.checkSobrancelha);
+        txtValor = findViewById(R.id.txtValor);
+        btnCancelar = findViewById(R.id.btnCancelar);
+        txtValor = findViewById(R.id.txtValor);
+        btnConfirmar = findViewById(R.id.btnConfimar);
+        verificaCheckBox();
     }
 }

@@ -60,7 +60,8 @@ public class DataHora extends AppCompatActivity {
         txtValor = findViewById(R.id.txtValor);
 
         // set o valor na view
-        txtValor.setText(preferencias.getValor());
+
+        if(preferencias.getValor() != null ) {  txtValor.setText(preferencias.getValor()); }
 
         // Define a localidade sendo como Brasl
         Locale brasil = new Locale("pt", "BR");
