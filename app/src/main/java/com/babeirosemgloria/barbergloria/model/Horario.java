@@ -1,20 +1,22 @@
 package com.babeirosemgloria.barbergloria.model;
 
 import android.provider.ContactsContract;
+import android.text.BoringLayout;
 
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
-public class Agenda {
+public class Horario {
 
     private String id;
     private String user;
     private String data;
     private String hora;
     private String barbeiro;
+    private Boolean disponibilidade = true ;
 
-    public Agenda() {
+    public Horario() {
 
     }
 
@@ -63,4 +65,8 @@ public class Agenda {
     public void setBarbeiro(String barbeiro) {
         this.barbeiro = barbeiro;
     }
+
+    public Boolean getDisponibilidade() {return disponibilidade; }
+
+    public void setDisponibilidade(Boolean disponibilidade) { this.disponibilidade = disponibilidade; }
 }

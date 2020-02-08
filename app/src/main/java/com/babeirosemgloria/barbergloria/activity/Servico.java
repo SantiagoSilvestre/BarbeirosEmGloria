@@ -2,6 +2,8 @@ package com.babeirosemgloria.barbergloria.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,6 +45,7 @@ public class Servico extends AppCompatActivity {
         preferencias = new Preferencias(Servico.this);
 
         if(preferencias.getValor() != null ) {  txtValor.setText(preferencias.getValor()); }
+        preferencias.salvarValor(null);
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,9 +57,27 @@ public class Servico extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferencias.salvarValor(txtValor.getText().toString());
-                Intent intent = new Intent(getApplication(), DataHora.class);
-                startActivity(intent);
+                String d = txtValor.getText().toString();
+                d = d.replace(",", "");
+                int vl = Integer.parseInt(d);
+                if (vl > 0) {
+                    preferencias.salvarValor(txtValor.getText().toString());
+                    Intent intent = new Intent(getApplication(), DataHora.class);
+                    startActivity(intent);
+                } else {
+                android.app.AlertDialog.Builder alert = new AlertDialog.Builder(Servico.this);
+                alert.setTitle("Atenção");
+                alert.setMessage("Nenhum Serviço selecionado");
+                alert.setCancelable(false);
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                alert.show();
+                }
+
             }
         });
     }

@@ -110,6 +110,8 @@ public class DataHora extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Aqui vai fazer toda a lógica que recuperar todos os dados e manda para o objeto
+                Intent intent = new Intent(DataHora.this, ListaHorarios.class);
+                startActivity(intent);
             }
         });
 
