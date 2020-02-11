@@ -15,7 +15,10 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.babeirosemgloria.barbergloria.R;
+import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.babeirosemgloria.barbergloria.helper.Preferencias;
+import com.babeirosemgloria.barbergloria.model.ListaDeHorarios;
+import com.google.firebase.database.DatabaseReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -33,11 +36,10 @@ public class DataHora extends AppCompatActivity {
     private DatePickerDialog DatePickerDialog;
     private Button btnData;
     private Button btnHorario;
-    private SimpleDateFormat timeFormatter;
-    private TimePickerDialog EntradaTimePickerDialog;
     private TextView displayDate;
-    private TextView tvHorarioEntrada;
     private TextView txtValor;
+    private DatabaseReference firebase;
+    private ListaDeHorarios lisHoras;
 
 
 
@@ -47,12 +49,13 @@ public class DataHora extends AppCompatActivity {
         setContentView(R.layout.activity_data_hora);
 
         final Preferencias preferencias = new Preferencias(DataHora.this);
+        firebase = ConfiguracaoFirebase.getFirebase();
+        lisHoras = new ListaDeHorarios();
 
         // Recuperando Elementos da view
         btnData = findViewById(R.id.btnData);
         btnHorario = findViewById(R.id.btnHorario);
         displayDate = findViewById(R.id.displayDate);
-        tvHorarioEntrada = findViewById(R.id.tvHorarioEntrada);
         btnServico = findViewById(R.id.btnServico);
         btnBarbeiro = findViewById(R.id.btnBarbeiro);
         btnCancelar = findViewById(R.id.btnCancelar);
@@ -67,7 +70,6 @@ public class DataHora extends AppCompatActivity {
         Locale brasil = new Locale("pt", "BR");
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy", brasil);
-        timeFormatter = new SimpleDateFormat("HH:mm", brasil);
 
         btnData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,9 +81,10 @@ public class DataHora extends AppCompatActivity {
         btnHorario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tempo = "entrada";
-                setTimeField(tempo);
-                EntradaTimePickerDialog.show();
+                Intent intent = new Intent(DataHora.this, ListaHorarios.class);
+                preferencias.salvarData(displayDate.getText().toString());
+                firebase.child(preferencias.getData()).setValue(lisHoras);
+                startActivity(intent);
             }
         });
 
@@ -110,8 +113,7 @@ public class DataHora extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Aqui vai fazer toda a lógica que recuperar todos os dados e manda para o objeto
-                Intent intent = new Intent(DataHora.this, ListaHorarios.class);
-                startActivity(intent);
+
             }
         });
 
@@ -127,21 +129,6 @@ public class DataHora extends AppCompatActivity {
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
-    public void setTimeField(String tempo) {
-        Calendar newCalendar = Calendar.getInstance();
 
-        if (tempo.equals("entrada")) {
-            EntradaTimePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-                @Override
-                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    Calendar newTime = Calendar.getInstance();
-                    newTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                    newTime.set(Calendar.MINUTE, minute);
-                    tvHorarioEntrada.setText(timeFormatter.format(newTime.getTime()));
-                }
-            }, newCalendar.get(Calendar.HOUR_OF_DAY), newCalendar.get(Calendar.MINUTE), true);
-        }
-
-    }
 
 }

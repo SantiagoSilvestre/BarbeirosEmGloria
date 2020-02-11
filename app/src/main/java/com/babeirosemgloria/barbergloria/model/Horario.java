@@ -7,6 +7,8 @@ import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
+import java.util.ArrayList;
+
 public class Horario {
 
     private String id;
@@ -15,15 +17,11 @@ public class Horario {
     private String hora;
     private String barbeiro;
     private Boolean disponibilidade = true ;
+    private ArrayList<String> horarios ;
 
     public Horario() {
-
     }
 
-    public void salvar() {
-        DatabaseReference refereciaFirebase = ConfiguracaoFirebase.getFirebase();
-        refereciaFirebase.child("data").child( getId() ).setValue( this );
-    }
 
     @Exclude
     public String getId() {
@@ -69,4 +67,9 @@ public class Horario {
     public Boolean getDisponibilidade() {return disponibilidade; }
 
     public void setDisponibilidade(Boolean disponibilidade) { this.disponibilidade = disponibilidade; }
+
+    @Exclude
+    public ArrayList<String> getHorarios() {return horarios; }
+
+    public void setHorarios(String horarios) { this.horarios.add(horarios); }
 }

@@ -1,18 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#cecece"
     tools:context=".activity.ListaHorarios">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/selectHour"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_gravity="center"/>
+
     <ListView
         android:id="@+id/lv_horarios"
+        android:layout_width="398dp"
+        android:layout_height="500dp"
         android:layout_gravity="center_horizontal|top"
-        android:dividerHeight="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginBottom="10dp"
+        android:dividerHeight="1dp" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="50dp">
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/ic_action_arrow_left"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark"
+            />
+        <Button
+            android:id="@+id/btnConfimar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/ic_check_circle"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="30dp"
+            android:textColorLink="@color/colorPrimaryDark"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

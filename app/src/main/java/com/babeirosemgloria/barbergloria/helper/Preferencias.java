@@ -52,9 +52,8 @@ public class Preferencias {
         editor.putString(CHAVE_BARBEIRO, barbeiro);
         editor.commit();
     }
-    public void salvarData(String data, String hora) {
+    public void salvarData(String data) {
         editor.putString(CHAVE_DATA, data);
-        editor.putString(CHAVE_HORA, hora);
         editor.commit();
     }
     public void salvarCkCorte(String val) {
