@@ -83,7 +83,6 @@ public class DataHora extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DataHora.this, ListaHorarios.class);
                 preferencias.salvarData(displayDate.getText().toString());
-                firebase.child(preferencias.getData()).setValue(lisHoras);
                 startActivity(intent);
             }
         });

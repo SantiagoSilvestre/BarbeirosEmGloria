@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="#cecece"
     tools:context=".activity.ListaHorarios">
 
@@ -14,16 +14,208 @@
         android:layout_height="wrap_content"
         android:text="@string/selectHour"
         android:textColor="@color/colorPrimaryDark"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center"/>
 
-    <ListView
-        android:id="@+id/lv_horarios"
-        android:layout_width="398dp"
-        android:layout_height="500dp"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_marginBottom="10dp"
-        android:dividerHeight="1dp" />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical"
+    android:id="@+id/LinearHour1"
+    android:layout_marginBottom="0dp">
+    <TextView
+        android:id="@+id/tx10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:text="@string/hora1"
+        android:textColor="@color/colorPrimaryDark"/>
+    <TextView
+        android:id="@+id/txtHora1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Disponibilidade"
+        android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour2"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora2"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour3"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora3"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour4"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora4"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour5"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora5"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour6"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora6"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour7"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora7"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour8"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora8"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:id="@+id/LinearHour9"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:id="@+id/tx18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="@string/hora9"
+            android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+            android:id="@+id/txtHora9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Disponibilidade"
+            android:textColor="@color/colorPrimaryDark"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -32,6 +224,7 @@
 
         <Button
             android:id="@+id/btnCancelar"
+            android:onClick="backMain"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:background="@drawable/ic_action_arrow_left"

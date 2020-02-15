@@ -12,16 +12,21 @@ import java.util.ArrayList;
 public class Horario {
 
     private String id;
-    private String user;
+    private String cliente;
     private String data;
     private String hora;
-    private String barbeiro;
-    private Boolean disponibilidade = true ;
-    private ArrayList<String> horarios ;
+    private String disponibilidade  ;
+
+
+    private ArrayList<String> servicos;
 
     public Horario() {
     }
 
+    public void salvar(String barbeiro) {
+        DatabaseReference refereciaFirebase = ConfiguracaoFirebase.getFirebase();
+        refereciaFirebase.child(barbeiro).child(getData()).child("Agendamento").child( getHora() ).setValue( this );
+    }
 
     @Exclude
     public String getId() {
@@ -32,12 +37,12 @@ public class Horario {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public String getData() {
@@ -56,20 +61,17 @@ public class Horario {
         this.hora = hora;
     }
 
-    public String getBarbeiro() {
-        return barbeiro;
+    public String getDisponibilidade() {return disponibilidade; }
+
+    public void setDisponibilidade(String disponibilidade) { this.disponibilidade = disponibilidade; }
+
+    public ArrayList<String> getServicos() {
+        return servicos;
     }
 
-    public void setBarbeiro(String barbeiro) {
-        this.barbeiro = barbeiro;
+    public void setServicos(ArrayList<String> servicos) {
+        this.servicos = servicos;
     }
 
-    public Boolean getDisponibilidade() {return disponibilidade; }
 
-    public void setDisponibilidade(Boolean disponibilidade) { this.disponibilidade = disponibilidade; }
-
-    @Exclude
-    public ArrayList<String> getHorarios() {return horarios; }
-
-    public void setHorarios(String horarios) { this.horarios.add(horarios); }
 }

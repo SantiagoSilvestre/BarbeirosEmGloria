@@ -27,6 +27,7 @@ public class Preferencias {
     private String CHAVE_CK_LIMPEZA= "chaveCkLimpeza";
     private String CHAVE_CK_PEZINHO= "chaveCkPezinho";
     private String CHAVE_CK_SOMBRANCELHA = "chaveCkSombrancelha";
+    private String CHAVE_DISP = "chaveDisp";
 
     public Preferencias( Context contextoParemetro ) {
 
@@ -42,6 +43,11 @@ public class Preferencias {
         editor.putString(CHAVE_NOME, nomeUsuario);
         editor.commit();
 
+    }
+
+    public void salvarDisp(String disp){
+        editor.putString(CHAVE_DISP, disp);
+        editor.commit();
     }
 
     public void salvarValor(String valor) {
@@ -134,5 +140,7 @@ public class Preferencias {
     public String getCheckPezinho() {return  preferences.getString(CHAVE_CK_PEZINHO, null);}
 
     public String getCheckSombrancelha() {return  preferences.getString(CHAVE_CK_SOMBRANCELHA, null);}
+
+    public String getChaveDisp() { return preferences.getString(CHAVE_DISP,  null);}
 
 }

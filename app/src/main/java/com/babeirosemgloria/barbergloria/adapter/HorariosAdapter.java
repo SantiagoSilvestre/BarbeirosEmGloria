@@ -56,19 +56,6 @@ public class HorariosAdapter extends ArrayAdapter<ListaDeHorarios> {
             // Monta view a partir do xml
             view = inflater.inflate(R.layout.list_horarios, parent, false);
 
-            valueEventListener  = new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for(DataSnapshot dados: dataSnapshot.getChildren()) {
-                        database.getKey();
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            }
 
             // recupera elemento para exibição
             TextView hora = (TextView) view.findViewById(R.id.tv_hora);
