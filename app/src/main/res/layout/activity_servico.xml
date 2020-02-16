@@ -8,6 +8,9 @@
     android:background="@mipmap/fundolocalizacao"
     tools:context=".activity.Servico">
 
+    <include android:id="@+id/toolbar_principal"
+        layout="@layout/toolbar"/>
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"

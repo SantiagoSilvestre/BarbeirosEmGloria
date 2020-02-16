@@ -1,11 +1,16 @@
 package com.babeirosemgloria.barbergloria.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -18,6 +23,7 @@ import com.babeirosemgloria.barbergloria.R;
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.babeirosemgloria.barbergloria.helper.Preferencias;
 import com.babeirosemgloria.barbergloria.model.ListaDeHorarios;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +46,7 @@ public class DataHora extends AppCompatActivity {
     private TextView txtValor;
     private DatabaseReference firebase;
     private ListaDeHorarios lisHoras;
+    private FirebaseAuth usuarioAutenticacao;
 
 
 
@@ -51,6 +58,10 @@ public class DataHora extends AppCompatActivity {
         final Preferencias preferencias = new Preferencias(DataHora.this);
         firebase = ConfiguracaoFirebase.getFirebase();
         lisHoras = new ListaDeHorarios();
+
+        Toolbar toolbar = findViewById(R.id.toolbar_principal);
+        toolbar.setTitle("Barbeiros em Glórias");
+        setSupportActionBar( toolbar );
 
         // Recuperando Elementos da view
         btnData = findViewById(R.id.btnData);
@@ -132,5 +143,39 @@ public class DataHora extends AppCompatActivity {
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch ( item.getItemId() ) {
+            case R.id.item_sair:
+                deslogarUsuario();
+                return true;
+            case R.id.item_mensagens:
+                abrirContatosMensagens();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+    }
+
+    private void deslogarUsuario() {
+        usuarioAutenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        usuarioAutenticacao.signOut();
+        Intent intent = new Intent(DataHora.this, Login.class);
+        startActivity(intent);
+        finish();
+    }
+    private void abrirContatosMensagens(){
+        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
+        //startActivity(intent);
+    }
 }
