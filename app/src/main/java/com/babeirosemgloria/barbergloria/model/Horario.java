@@ -65,13 +65,7 @@ public class Horario {
 
     public void setDisponibilidade(String disponibilidade) { this.disponibilidade = disponibilidade; }
 
-    public ArrayList<String> getServicos() {
-        return servicos;
-    }
 
-    public void setServicos(ArrayList<String> servicos) {
-        this.servicos = servicos;
-    }
 
 
 }

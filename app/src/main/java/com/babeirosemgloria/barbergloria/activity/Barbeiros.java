@@ -91,7 +91,19 @@ public class Barbeiros extends AppCompatActivity {
                 TextView valueTxtBarb = findViewById(R.id.txtBarb);
                 String valString = valueTxtBarb.getText().toString();
                 if (! verificaMudança.equals(valString)){
-                    preferencias.salvarBarbeiro(txtBarb.getText().toString());
+                    String barb = "O";
+                    String testeBar = valString.substring(0,1);
+                    if (testeBar.equals("K")) {
+                        barb = valString.substring(0, 6);
+                    } else if (testeBar.equals("D")){
+                        barb = valString.substring(0, 6);
+                    } else if (testeBar.equals("I")){
+                        barb = valString.substring(0, 4);
+                    } else {
+                        barb = "O Barbeiro Disponível irá te atender";
+                    }
+
+                    preferencias.salvarBarbeiro(barb);
                     Intent intent = new Intent(getApplication(),DataHora.class);
                     startActivity(intent);
                 } else{

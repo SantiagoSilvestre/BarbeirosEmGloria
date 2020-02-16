@@ -3,7 +3,9 @@ package com.babeirosemgloria.barbergloria.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.bluetooth.le.AdvertisingSetParameters;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.Adapter;
 import android.widget.AdapterViewAnimator;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,7 +37,6 @@ public class ListaHorarios extends AppCompatActivity {
     private Button btnConfirmar;
     private String dataEscolhida;
     private DatabaseReference firebase;
-    private String disp;
     private TextView hora1;
     private TextView hora2;
     private TextView hora3;
@@ -44,19 +46,9 @@ public class ListaHorarios extends AppCompatActivity {
     private TextView hora7;
     private TextView hora8;
     private TextView hora9;
-    private TextView tx10;
-    private TextView tx11;
-    private TextView tx12;
-    private TextView tx13;
-    private TextView tx14;
-    private TextView tx15;
-    private TextView tx16;
-    private TextView tx17;
-    private TextView tx18;
     Preferencias preferencias;
     private ValueEventListener eventListener;
     Horario horario = new Horario();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +61,8 @@ public class ListaHorarios extends AppCompatActivity {
 
         Intent intent = getIntent();
         dataEscolhida = intent.getStringExtra("data");
+
+
     }
 
     public void backMain(View view) {
@@ -80,8 +74,8 @@ public class ListaHorarios extends AppCompatActivity {
 
     public void verificaDisponibilidade(final TextView txt, String hora) {
         firebase = ConfiguracaoFirebase.getFirebase()
-                .child("Barbeiro")
-                .child( "02-11-2020" )
+                .child("Igor")
+                .child("17-02-2020")
                 .child("Agendamento" )
                 .child(hora);
         eventListener = new ValueEventListener(){
@@ -90,7 +84,7 @@ public class ListaHorarios extends AppCompatActivity {
                 if (dataSnapshot.exists() ) {
 
                     horario = dataSnapshot.getValue( Horario.class );
-                    if(horario.getDisponibilidade().equals("não")) {
+                    if(horario.getDisponibilidade().equals("Não")) {
                         preferencias.salvarDisp("");
                         txt.setText("Não Disponível");
                     }
@@ -119,15 +113,7 @@ public class ListaHorarios extends AppCompatActivity {
         hora8 = findViewById(R.id.txtHora8);
         hora9 = findViewById(R.id.txtHora9);
         btnConfirmar = findViewById(R.id.btnConfimar);
-        tx10 = findViewById(R.id.tx10);
-        tx11 = findViewById(R.id.tx11);
-        tx12 = findViewById(R.id.tx12);
-        tx13 = findViewById(R.id.tx13);
-        tx14 = findViewById(R.id.tx14);
-        tx15 = findViewById(R.id.tx15);
-        tx16 = findViewById(R.id.tx16);
-        tx17 = findViewById(R.id.tx17);
-        tx18 = findViewById(R.id.tx18);
+
     }
 
 
@@ -148,5 +134,113 @@ public class ListaHorarios extends AppCompatActivity {
 
     }
 
+    public void agendar1(View view) {
+
+        TextView txtHora = findViewById(R.id.tx10);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        setDisponiblidade();
+
+    }
+    public void agendar2(View view) {
+
+        TextView txtHora = findViewById(R.id.tx11);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora2,hora);
+
+    }
+    public void agendar3(View view) {
+
+        TextView txtHora = findViewById(R.id.tx12);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora3,hora);
+
+    }
+    public void agendar4(View view) {
+
+        TextView txtHora = findViewById(R.id.tx13);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora4,hora);
+
+    }
+    public void agendar5(View view) {
+
+        TextView txtHora = findViewById(R.id.tx14);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora5,hora);
+
+    }
+    public void agendar6(View view) {
+
+        TextView txtHora = findViewById(R.id.tx15);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora6,hora);
+
+    }
+    public void agendar7(View view) {
+
+        TextView txtHora = findViewById(R.id.tx16);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora7,hora);
+
+    }
+    public void agendar8(View view) {
+
+        TextView txtHora = findViewById(R.id.tx17);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora8,hora);
+
+    }
+    public void agendar9(View view) {
+
+        TextView txtHora = findViewById(R.id.tx18);
+        String hora = txtHora.getText().toString();
+        horario.setCliente(preferencias.getNome());
+        horario.setDisponibilidade("Não");
+        horario.setHora(hora);
+        horario.setData(dataEscolhida);
+        horario.salvar(preferencias.getBarbeiro());
+        verificaDisponibilidade(hora9,hora);
+
+    }
 }
 

@@ -22,6 +22,7 @@
     android:layout_height="50dp"
     android:orientation="vertical"
     android:id="@+id/LinearHour1"
+    android:onClick="agendar1"
     android:layout_marginBottom="0dp">
     <TextView
         android:id="@+id/tx10"
@@ -45,6 +46,7 @@
         android:layout_height="50dp"
         android:orientation="vertical"
         android:id="@+id/LinearHour2"
+        android:onClick="agendar2"
         android:layout_marginBottom="0dp">
         <TextView
             android:id="@+id/tx11"
@@ -67,6 +69,7 @@
         android:layout_height="50dp"
         android:orientation="vertical"
         android:id="@+id/LinearHour3"
+        android:onClick="agendar3"
         android:layout_marginBottom="0dp">
         <TextView
             android:id="@+id/tx12"
@@ -88,6 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="vertical"
+        android:onClick="agendar4"
         android:id="@+id/LinearHour4"
         android:layout_marginBottom="0dp">
         <TextView
@@ -111,6 +115,7 @@
         android:layout_height="50dp"
         android:orientation="vertical"
         android:id="@+id/LinearHour5"
+        android:onClick="agendar5"
         android:layout_marginBottom="0dp">
         <TextView
             android:id="@+id/tx14"
@@ -132,6 +137,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="vertical"
+        android:onClick="agendar6"
         android:id="@+id/LinearHour6"
         android:layout_marginBottom="0dp">
         <TextView
@@ -154,6 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="vertical"
+        android:onClick="agendar7"
         android:id="@+id/LinearHour7"
         android:layout_marginBottom="0dp">
         <TextView
@@ -176,6 +183,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="vertical"
+        android:onClick="agendar8"
         android:id="@+id/LinearHour8"
         android:layout_marginBottom="0dp">
         <TextView
@@ -199,6 +207,7 @@
         android:layout_height="50dp"
         android:orientation="vertical"
         android:id="@+id/LinearHour9"
+        android:onClick="agendar9"
         android:layout_marginBottom="0dp">
         <TextView
             android:id="@+id/tx18"

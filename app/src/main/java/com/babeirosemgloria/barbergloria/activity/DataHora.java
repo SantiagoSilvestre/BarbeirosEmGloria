@@ -82,7 +82,10 @@ public class DataHora extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DataHora.this, ListaHorarios.class);
-                preferencias.salvarData(displayDate.getText().toString());
+                String date = displayDate.getText().toString();
+                date = date.replace("/", "-");
+                preferencias.salvarData(date);
+                intent.putExtra("data", preferencias.getData());
                 startActivity(intent);
             }
         });
