@@ -1,26 +1,31 @@
 package com.babeirosemgloria.barbergloria.model;
 
 import android.provider.ContactsContract;
+import android.text.BoringLayout;
 
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
-public class Agenda {
+import java.util.ArrayList;
+
+public class Horario {
 
     private String id;
-    private String user;
+    private String cliente;
     private String data;
     private String hora;
-    private String barbeiro;
+    private String disponibilidade  ;
 
-    public Agenda() {
 
+    private ArrayList<String> servicos;
+
+    public Horario() {
     }
 
-    public void salvar() {
+    public void salvar(String barbeiro) {
         DatabaseReference refereciaFirebase = ConfiguracaoFirebase.getFirebase();
-        refereciaFirebase.child("data").child( getId() ).setValue( this );
+        refereciaFirebase.child(barbeiro).child(getData()).child("Agendamento").child( getHora() ).setValue( this );
     }
 
     @Exclude
@@ -32,12 +37,12 @@ public class Agenda {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public String getData() {
@@ -56,11 +61,11 @@ public class Agenda {
         this.hora = hora;
     }
 
-    public String getBarbeiro() {
-        return barbeiro;
-    }
+    public String getDisponibilidade() {return disponibilidade; }
 
-    public void setBarbeiro(String barbeiro) {
-        this.barbeiro = barbeiro;
-    }
+    public void setDisponibilidade(String disponibilidade) { this.disponibilidade = disponibilidade; }
+
+
+
+
 }

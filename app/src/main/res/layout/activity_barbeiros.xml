@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@mipmap/fundobarb"
     tools:context=".activity.Barbeiros">
 
+    <include android:id="@+id/toolbar_principal"
+        layout="@layout/toolbar"/>
+
+    <TextView
+        android:id="@+id/txtBarb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selecioneBarb"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="130dp"
+        android:textSize="18dp"></TextView>
     <LinearLayout
         android:layout_width="417dp"
         android:layout_height="405dp"
@@ -53,21 +68,36 @@
             android:background="@mipmap/spreferencia"
             android:text="4" />
 
-        <Button
-            android:id="@+id/btnCancelar"
-            android:layout_width="278dp"
-            android:layout_height="52dp"
-            android:background="@mipmap/designbranco"
-            android:text="FECHAR"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark"
-            android:textColorLink="@color/colorPrimaryDark"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.962" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:background="@drawable/ic_action_arrow_left"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorLink="@color/colorPrimaryDark"
+                />
+            <Button
+                android:id="@+id/btnConfimar"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:background="@drawable/ic_check_circle"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="30dp"
+                android:textColorLink="@color/colorPrimaryDark"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 

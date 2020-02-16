@@ -19,6 +19,7 @@ public class Splash extends AppCompatActivity {
 
     DatabaseReference firebase;
     DatabaseReference reference;
+    DatabaseReference firebases;
     private FirebaseAuth autenticacao;
 
 
@@ -34,84 +35,13 @@ public class Splash extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
-            verifica();
+            Intent intent = new Intent(Splash.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 
 
-
     }
 
-    public void verifica(){
-        /*
 
-        //Recuperar contatos do firebase
-        Preferencias preferencias = new Preferencias(this);
-        String identificadorUsuarioLogado = preferencias.getIdentificador();
-
-        //identificadorUsuarioLogado = "c2FudGhpYWdvOTlAaG90bWFpbC5jb20=";
-
-        firebase = ConfiguracaoFirebase.getFirebase()
-                .child("usuarios")
-                .child( identificadorUsuarioLogado ).child("nivel_acesso");
-
-
-        firebase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-
-
-                String i =  dataSnapshot.getValue().toString();
-
-                if (i.equals("usuario")) {
-                    verificaPg();
-                } else {
-                    Intent intent = new Intent(Splash.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        */
-        Intent intent = new Intent(Splash.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-    public void verificaPg(){
-
-        //Recuperar contatos do firebase
-        Preferencias preferencias = new Preferencias(this);
-        String identificadorUsuarioLogado = preferencias.getIdentificador();
-        reference = ConfiguracaoFirebase.getFirebase()
-                .child("contatos").child("c2FuQGdtYWlsLmNvbQ==")
-                .child(identificadorUsuarioLogado).child("status");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String i =  dataSnapshot.getValue().toString();
-                if (i.equals("true")) {
-                    Intent intent = new Intent(Splash.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Intent intent = new Intent(Splash.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-    }
 }

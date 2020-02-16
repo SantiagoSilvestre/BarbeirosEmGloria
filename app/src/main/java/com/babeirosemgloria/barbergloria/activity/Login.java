@@ -101,7 +101,6 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
 
-                        Log.i("verificaMetodo", "metodo validar Login ativado");
                         identificarUsuarioLogado = Base64Custom.codificarBase64(user.getEmail());
 
                         referenceFirebase = ConfiguracaoFirebase.getFirebase().child("usuarios")

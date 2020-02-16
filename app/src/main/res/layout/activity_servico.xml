@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,20 +8,20 @@
     android:background="@mipmap/fundolocalizacao"
     tools:context=".activity.Servico">
 
+    <include android:id="@+id/toolbar_principal"
+        layout="@layout/toolbar"/>
+
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="389dp"
-        android:layout_height="634dp"
-        android:layout_marginTop="92dp"
+        android:layout_width="match_parent"
+        android:layout_height="605dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="2dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -52,7 +53,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -83,7 +84,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -115,7 +116,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -146,7 +147,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -178,7 +179,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -208,7 +209,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -238,7 +239,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -269,7 +270,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:orientation="horizontal">
 
             <TextView
@@ -300,7 +301,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="46dp"
             android:orientation="horizontal">
 
             <TextView
@@ -333,14 +334,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="399dp"
-        android:layout_height="58dp"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="7dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/btnCancelar"
@@ -348,7 +345,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@mipmap/designbranco"
-            android:text="<"
+            android:text="@string/back"
             android:textColor="@color/colorPrimaryDark" />
 
         <TextView

@@ -5,8 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/fundohomeapp"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".activity.MainActivity">
+
+    <include android:id="@+id/toolbar_principal"
+        layout="@layout/toolbar"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
