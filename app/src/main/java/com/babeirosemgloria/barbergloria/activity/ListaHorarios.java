@@ -46,6 +46,7 @@ public class ListaHorarios extends AppCompatActivity {
     private TextView hora7;
     private TextView hora8;
     private TextView hora9;
+    private TextView horaDisp;
     Preferencias preferencias;
     private ValueEventListener eventListener;
     Horario horario = new Horario();
@@ -61,7 +62,31 @@ public class ListaHorarios extends AppCompatActivity {
 
         Intent intent = getIntent();
         dataEscolhida = intent.getStringExtra("data");
+        String dt = horaDisp.getText().toString() + " Para: " + dataEscolhida;
+        horaDisp.setText(dt);
 
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(preferencias.getHora().equals("")) {
+                    android.app.AlertDialog.Builder alert = new AlertDialog.Builder(ListaHorarios.this);
+                    alert.setTitle("Atenção");
+                    alert.setMessage("Nenhum Horário foi Selecionado");
+                    alert.setCancelable(false);
+                    alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    alert.show();
+                } else {
+                    Intent intent1 = new Intent(ListaHorarios.this, DataHora.class);
+                    startActivity(intent1);
+                    finish();
+                }
+            }
+        });
 
     }
 
@@ -74,8 +99,8 @@ public class ListaHorarios extends AppCompatActivity {
 
     public void verificaDisponibilidade(final TextView txt, String hora) {
         firebase = ConfiguracaoFirebase.getFirebase()
-                .child("Igor")
-                .child("17-02-2020")
+                .child(preferencias.getBarbeiro())
+                .child(preferencias.getData())
                 .child("Agendamento" )
                 .child(hora);
         eventListener = new ValueEventListener(){
@@ -112,6 +137,7 @@ public class ListaHorarios extends AppCompatActivity {
         hora7 = findViewById(R.id.txtHora7);
         hora8 = findViewById(R.id.txtHora8);
         hora9 = findViewById(R.id.txtHora9);
+        horaDisp = findViewById(R.id.horaDisponivel);
         btnConfirmar = findViewById(R.id.btnConfimar);
 
     }
@@ -138,108 +164,62 @@ public class ListaHorarios extends AppCompatActivity {
 
         TextView txtHora = findViewById(R.id.tx10);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        setDisponiblidade();
+        preferencias.salvarHora(hora);
 
     }
     public void agendar2(View view) {
 
         TextView txtHora = findViewById(R.id.tx11);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora2,hora);
+        preferencias.salvarHora(hora);
 
     }
     public void agendar3(View view) {
 
         TextView txtHora = findViewById(R.id.tx12);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora3,hora);
+        preferencias.salvarHora(hora);
 
     }
     public void agendar4(View view) {
 
         TextView txtHora = findViewById(R.id.tx13);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora4,hora);
+        preferencias.salvarHora(hora);
 
     }
     public void agendar5(View view) {
 
         TextView txtHora = findViewById(R.id.tx14);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora5,hora);
+        preferencias.salvarHora(hora);
 
     }
     public void agendar6(View view) {
 
         TextView txtHora = findViewById(R.id.tx15);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora6,hora);
+        preferencias.salvarHora(hora);
 
     }
     public void agendar7(View view) {
 
         TextView txtHora = findViewById(R.id.tx16);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora7,hora);
+        preferencias.salvarHora(hora);
 
     }
     public void agendar8(View view) {
 
         TextView txtHora = findViewById(R.id.tx17);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora8,hora);
-
+        preferencias.salvarHora(hora);
     }
     public void agendar9(View view) {
 
         TextView txtHora = findViewById(R.id.tx18);
         String hora = txtHora.getText().toString();
-        horario.setCliente(preferencias.getNome());
-        horario.setDisponibilidade("Não");
-        horario.setHora(hora);
-        horario.setData(dataEscolhida);
-        horario.salvar(preferencias.getBarbeiro());
-        verificaDisponibilidade(hora9,hora);
+        preferencias.salvarHora(hora);
 
     }
 }

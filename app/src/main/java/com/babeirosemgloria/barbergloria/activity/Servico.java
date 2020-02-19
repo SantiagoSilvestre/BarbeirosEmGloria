@@ -77,18 +77,18 @@ public class Servico extends AppCompatActivity {
                     Intent intent = new Intent(getApplication(), DataHora.class);
                     startActivity(intent);
                 } else {
-                android.app.AlertDialog.Builder alert = new AlertDialog.Builder(Servico.this);
-                alert.setTitle("Atenção");
-                alert.setMessage("Nenhum Serviço selecionado");
-                alert.setCancelable(false);
-                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
+                    android.app.AlertDialog.Builder alert = new AlertDialog.Builder(Servico.this);
+                    alert.setTitle("Atenção");
+                    alert.setMessage("Nenhum Serviço selecionado");
+                    alert.setCancelable(false);
+                    alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    alert.show();
                     }
-                });
-                alert.show();
-                }
 
             }
         });

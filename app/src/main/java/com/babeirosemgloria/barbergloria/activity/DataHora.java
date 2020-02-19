@@ -22,6 +22,7 @@ import android.widget.TimePicker;
 import com.babeirosemgloria.barbergloria.R;
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.babeirosemgloria.barbergloria.helper.Preferencias;
+import com.babeirosemgloria.barbergloria.model.Horario;
 import com.babeirosemgloria.barbergloria.model.ListaDeHorarios;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -47,6 +48,7 @@ public class DataHora extends AppCompatActivity {
     private DatabaseReference firebase;
     private ListaDeHorarios lisHoras;
     private FirebaseAuth usuarioAutenticacao;
+    private Horario horario;
 
 
 
@@ -126,7 +128,13 @@ public class DataHora extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Aqui vai fazer toda a lógica que recuperar todos os dados e manda para o objeto
-
+                horario = new Horario();
+                horario.setData(preferencias.getData());
+                horario.setDisponibilidade("Não");
+                horario.setCliente(preferencias.getNome());
+                horario.setHora(preferencias.getHora());
+                horario.salvar(preferencias.getBarbeiro());
+                preferencias.clearPreferencias();
             }
         });
 

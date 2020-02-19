@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@mipmap/fundocad"
     android:id="@+id/ContainerPrincipal"
     tools:context=".activity.Login">
@@ -12,7 +13,8 @@
     <RelativeLayout
         android:id="@+id/relativoPrincipal"
         android:layout_width="match_parent"
-        android:layout_height="439dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -27,9 +29,13 @@
 
         <LinearLayout
             android:id="@+id/linear1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_width="395dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -120,11 +126,13 @@
     </RelativeLayout>
 
     <TextView
+
         android:id="@+id/text_cadastrar"
         android:layout_width="95dp"
-        android:layout_height="33dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_below="@+id/relativoPrincipal"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="0dp"
         android:onClick="abrirCadastroUsuario"
         android:text="@string/txtCadastrar"
         android:textAlignment="center"
@@ -138,6 +146,7 @@
         android:id="@+id/textView3"
         android:layout_width="167dp"
         android:layout_height="24dp"
+        android:layout_gravity="center"
         android:layout_below="@+id/relativoPrincipal"
         android:text="Ainda não tem cadastro?"
         android:textAlignment="center"

@@ -62,6 +62,11 @@ public class Preferencias {
         editor.putString(CHAVE_DATA, data);
         editor.commit();
     }
+
+    public void salvarHora(String hora) {
+        editor.putString(CHAVE_HORA, hora);
+        editor.commit();
+    }
     public void salvarCkCorte(String val) {
         editor.putString(CHAVE_CK_CORTE, val);
         editor.commit();
@@ -100,6 +105,25 @@ public class Preferencias {
     }
     public void salvaCkSombrancelha(String val ) {
         editor.putString(CHAVE_CK_SOMBRANCELHA, val);
+        editor.commit();
+    }
+
+    public void clearPreferencias(){
+        editor.putString(CHAVE_DISP, "");
+        editor.putString(CHAVE_VALOR, "");
+        editor.putString(CHAVE_BARBEIRO, "");
+        editor.putString(CHAVE_CK_CORTE, "");
+        editor.putString(CHAVE_CK_BARBA, "");
+        editor.putString(CHAVE_CK_CORBAR, "");
+        editor.putString(CHAVE_CK_CORPROG, "");
+        editor.putString(CHAVE_CK_SOMBRANCELHA, "");
+        editor.putString(CHAVE_CK_CORREL, "");
+        editor.putString(CHAVE_CK_CORINFANTIL, "");
+        editor.putString(CHAVE_CK_LUZES, "");
+        editor.putString(CHAVE_CK_LIMPEZA, "");
+        editor.putString(CHAVE_CK_PEZINHO, "");
+        editor.putString(CHAVE_DATA, "");
+        editor.putString(CHAVE_HORA, "");
         editor.commit();
     }
 
