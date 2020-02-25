@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -49,6 +50,7 @@ public class DataHora extends AppCompatActivity {
     private ListaDeHorarios lisHoras;
     private FirebaseAuth usuarioAutenticacao;
     private Horario horario;
+    private Preferencias preferencias;
 
 
 
@@ -133,6 +135,8 @@ public class DataHora extends AppCompatActivity {
                 horario.setDisponibilidade("Não");
                 horario.setCliente(preferencias.getNome());
                 horario.setHora(preferencias.getHora());
+                horario.setServicos(servicosArray());
+                horario.setTotal(txtValor.getText().toString());
                 horario.salvar(preferencias.getBarbeiro());
                 preferencias.clearPreferencias();
             }
@@ -185,5 +189,25 @@ public class DataHora extends AppCompatActivity {
     private void abrirContatosMensagens(){
         //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
         //startActivity(intent);
+    }
+
+    private ArrayList<String> servicosArray () {
+
+        preferencias = new Preferencias(this);
+
+        ArrayList<String> servicos = new ArrayList<>();
+        if(preferencias.getCheckBarba().equals("1")) {
+            servicos.add(preferencias.getCheTXBarba());
+        }
+        if(preferencias.getCheckCorte().equals("1")) {
+            servicos.add(preferencias.getCheTXCorte());
+        }
+        if(preferencias.getCheckCorBar().equals("1")) {
+            servicos.add(preferencias.getCheTXCorBar());
+        }
+
+
+
+        return servicos;
     }
 }

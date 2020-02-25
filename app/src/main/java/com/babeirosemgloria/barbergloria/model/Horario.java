@@ -15,8 +15,26 @@ public class Horario {
     private String cliente;
     private String data;
     private String hora;
-    private String disponibilidade  ;
+    private String disponibilidade;
 
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    private String total;
+
+
+    public ArrayList<String> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(ArrayList<String> servicos) {
+        this.servicos = servicos;
+    }
 
     private ArrayList<String> servicos;
 

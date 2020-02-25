@@ -42,6 +42,16 @@ public class Servico extends AppCompatActivity {
     private CheckBox corRela;
     private CheckBox sombrancelha;
     private TextView txtValor;
+    private TextView textoBarba;
+    private TextView textoCorte;
+    private TextView textoCorteBarba;
+    private TextView textoCorteRelaxamento;
+    private TextView textoCorteProg;
+    private TextView textoSombrancelha;
+    private TextView textoLimpeza;
+    private TextView textoPezinho;
+    private TextView textoInfantil;
+    private TextView textoLuzes;
     Preferencias preferencias;
     private FirebaseAuth usuarioAutenticacao;
 
@@ -139,11 +149,11 @@ public class Servico extends AppCompatActivity {
 
         // Aqui faz a somatório dos valores escolhidos
         if (barba.isChecked()) {
-            preferencias.salvarCkBarba("1");
+            preferencias.salvarCkBarba("1", textoBarba.getText().toString() );
             valor += valorBarba;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkBarba("0");
+            preferencias.salvarCkBarba("0", textoBarba.getText().toString());
             if (valor == 0) {
                 txtValor.setText("00,00");
             } else {
@@ -152,74 +162,74 @@ public class Servico extends AppCompatActivity {
             }
         }
         if (corte.isChecked()) {
-            preferencias.salvarCkCorte("1");
+            preferencias.salvarCkCorte("1", textoCorte.getText().toString());
             valor += valorCorte;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkCorte("0");
+            preferencias.salvarCkCorte("0", textoCorte.getText().toString());
         }
         if (corBarb.isChecked()) {
-            preferencias.salvarCkCorBar("1");
+            preferencias.salvarCkCorBar("1", textoCorteBarba.getText().toString());
             valor += valorCorBarba;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkCorBar("0");
+            preferencias.salvarCkCorBar("0", textoCorteBarba.getText().toString());
         }
 
         if (corProg.isChecked()) {
-            preferencias.salvarCkCorProg("1");
+            preferencias.salvarCkCorProg("1", textoCorteProg.getText().toString());
             valor += valorCorProg;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkCorProg("0");
+            preferencias.salvarCkCorProg("0", textoCorteProg.getText().toString());
         }
 
         if (corRela.isChecked()){
-            preferencias.salvarCkCorRel("1");
+            preferencias.salvarCkCorRel("1", textoCorteRelaxamento.getText().toString());
             valor += valorCorRel;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkCorRel("0");
+            preferencias.salvarCkCorRel("0", textoCorteRelaxamento.getText().toString());
         }
 
         if(corInfantil.isChecked()){
-            preferencias.salvarCkCorteInfantil("1");
+            preferencias.salvarCkCorteInfantil("1", textoInfantil.getText().toString());
             valor += valorCorInfantil;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkCorteInfantil("0");
+            preferencias.salvarCkCorteInfantil("0", textoInfantil.getText().toString());
         }
 
         if(luzes.isChecked()){
-            preferencias.salvarCkLuzes("1");
+            preferencias.salvarCkLuzes("1", textoLuzes.getText().toString());
             valor += valorLuzes;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkLuzes("0");
+            preferencias.salvarCkLuzes("0", textoLuzes.getText().toString());
         }
 
         if(limpeza.isChecked()){
-            preferencias.salvarCkLimpeza("1");
+            preferencias.salvarCkLimpeza("1", textoLimpeza.getText().toString());
             valor += valorLimpeza;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkLimpeza("0");
+            preferencias.salvarCkLimpeza("0", textoLimpeza.getText().toString());
         }
 
         if(pezinho.isChecked()){
-            preferencias.salvarCkPezinho("1");
+            preferencias.salvarCkPezinho("1", textoPezinho.getText().toString());
             valor += valorPezinho;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkPezinho("0");
+            preferencias.salvarCkPezinho("0", textoPezinho.getText().toString());
         }
 
         if(sombrancelha.isChecked()) {
-            preferencias.salvaCkSombrancelha("1");
+            preferencias.salvaCkSombrancelha("1", textoSombrancelha.getText().toString());
             valor += valorSombrancelha;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvaCkSombrancelha("0");
+            preferencias.salvaCkSombrancelha("0", textoSombrancelha.getText().toString());
         }
 
 
@@ -264,7 +274,17 @@ public class Servico extends AppCompatActivity {
         txtValor = findViewById(R.id.txtValor);
         btnCancelar = findViewById(R.id.btnCancelar);
         txtValor = findViewById(R.id.txtValor);
+        textoBarba = findViewById(R.id.textoBarba);
+        textoCorte = findViewById(R.id.textoCorte);
+        textoCorteProg = findViewById(R.id.textoCorteProgessiva);
+        textoCorteRelaxamento = findViewById(R.id.textoCorteRela);
+        textoSombrancelha = findViewById(R.id.textoSombrancelha);
+        textoPezinho = findViewById(R.id.textoPezinho);
+        textoInfantil = findViewById(R.id.textoInfantil);
+        textoLuzes = findViewById(R.id.textoLuzes);
+        textoLimpeza = findViewById(R.id.textoLimpeza);
         btnConfirmar = findViewById(R.id.btnConfimar);
+        textoCorteBarba = findViewById(R.id.textoCorteBarba);
         verificaCheckBox();
     }
 

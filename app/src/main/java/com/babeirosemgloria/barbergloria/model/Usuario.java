@@ -15,6 +15,16 @@ public class Usuario {
     private String senha;
     private String telefone;
 
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    private String dataNascimento;
+
     public Usuario(){
 
     }
