@@ -39,6 +39,7 @@ public class Cadastro extends AppCompatActivity {
     private EditText area;
     private EditText ddd;
     private EditText telefone;
+    private EditText dtNasc;
     private Button btn_cadastrar;
     private Usuario usuario;
 
@@ -57,6 +58,7 @@ public class Cadastro extends AppCompatActivity {
         area = findViewById(R.id.edit_codArea);
         ddd = findViewById(R.id.edit_ddd);
         telefone = findViewById(R.id.edit_telefone);
+        dtNasc = findViewById(R.id.edit_dtNasc);
 
         SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("NNNNN-NNNN");
         SimpleMaskFormatter simpleMaskArea = new SimpleMaskFormatter("+NN");
@@ -88,6 +90,7 @@ public class Cadastro extends AppCompatActivity {
                 usuario.setNome( nome.getText().toString() );
                 usuario.setEmail( email.getText().toString());
                 usuario.setSenha( senha.getText().toString() );
+                usuario.setDataNascimento(dtNasc.getText().toString());
                 usuario.setTelefone(telefoneSemFormatacao);
 
 
