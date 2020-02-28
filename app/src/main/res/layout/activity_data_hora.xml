@@ -108,7 +108,7 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="47dp"
             android:orientation="horizontal"
@@ -117,23 +117,28 @@
 
             <Button
                 android:id="@+id/btnCancelar"
-                android:layout_width="34dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@mipmap/designbranco"
-                android:text="@string/back"
-                android:textColor="@color/colorPrimaryDark" />
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:background="@drawable/ic_action_arrow_left"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorLink="@color/colorPrimaryDark"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:text="R$"
                 android:textColor="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/txtValor"
-                android:layout_width="10dp"
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/textValor"
@@ -141,12 +146,15 @@
 
             <Button
                 android:id="@+id/btnConfimar"
-                android:layout_width="wrap_content"
+                android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:layout_weight="1"
-                android:background="@mipmap/designbranco"
-                android:text="CONFIRMAR"
-                android:textColor="@color/colorPrimaryDark" />
+                android:background="@drawable/ic_check_circle"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="30dp"
+                android:textColorLink="@color/colorPrimaryDark"
+                />
         </LinearLayout>
 
 

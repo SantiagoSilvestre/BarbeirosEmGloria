@@ -196,6 +196,7 @@ public class DataHora extends AppCompatActivity {
         preferencias = new Preferencias(this);
 
         ArrayList<String> servicos = new ArrayList<>();
+
         if(preferencias.getCheckBarba().equals("1")) {
             servicos.add(preferencias.getCheTXBarba());
         }
@@ -205,6 +206,28 @@ public class DataHora extends AppCompatActivity {
         if(preferencias.getCheckCorBar().equals("1")) {
             servicos.add(preferencias.getCheTXCorBar());
         }
+        if(preferencias.getCheckSombrancelha().equals("1")) {
+            servicos.add(preferencias.getCheTXSombrancelha());
+        }
+        if(preferencias.getCheckCorRel().equals("1")) {
+            servicos.add(preferencias.getCheTXCorRel());
+        }
+        if(preferencias.getCheckCorProg().equals("1")) {
+            servicos.add(preferencias.getCheTXCorProg());
+        }
+        if(preferencias.getCheckLimpeza().equals("1")) {
+            servicos.add(preferencias.getCheTXLimpeza());
+        }
+        if(preferencias.getCheckPezinho().equals("1")) {
+            servicos.add(preferencias.getCheTXPezinho());
+        }
+        if(preferencias.getCheckCorInfantil().equals("1")) {
+            servicos.add(preferencias.getCheTxCorInfantil());
+        }
+        if(preferencias.getCheckLuzes().equals("1")) {
+            servicos.add(preferencias.getCheTXLuzes());
+        }
+
 
 
 
