@@ -38,6 +38,7 @@ public class Preferencias {
     private String CHAVE_TX_PEZINHO= "chaveTXPezinho";
     private String CHAVE_TX_SOMBRANCELHA = "chaveTXSombrancelha";
     private String CHAVE_DISP = "chaveDisp";
+    private String CHAVE_COD_BAR = "chaveCod";
 
     public Preferencias( Context contextoParemetro ) {
 
@@ -66,6 +67,10 @@ public class Preferencias {
     }
     public void salvarBarbeiro(String barbeiro){
         editor.putString(CHAVE_BARBEIRO, barbeiro);
+        editor.commit();
+    }
+    public void salvarCod(String codigo){
+        editor.putString(CHAVE_COD_BAR, codigo);
         editor.commit();
     }
     public void salvarData(String data) {
@@ -207,4 +212,5 @@ public class Preferencias {
 
     public String getChaveDisp() { return preferences.getString(CHAVE_DISP,  null);}
 
+    public String getCHAVE_COD_BAR() {return  preferences.getString(CHAVE_COD_BAR, null);};
 }

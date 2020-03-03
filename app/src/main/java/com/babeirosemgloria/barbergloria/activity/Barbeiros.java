@@ -91,20 +91,26 @@ public class Barbeiros extends AppCompatActivity {
                 TextView valueTxtBarb = findViewById(R.id.txtBarb);
                 String valString = valueTxtBarb.getText().toString();
                 if (! verificaMudança.equals(valString)){
-                    String barb = "O";
+                    String barb;
+                    String cod;
                     String testeBar = valString.substring(0,1);
                     if (testeBar.equals("K")) {
+                        cod = "3";
                         barb = valString.substring(0, 6);
                     } else if (testeBar.equals("D")){
+                        cod = "1";
                         barb = valString.substring(0, 6);
                     } else if (testeBar.equals("I")){
+                        cod = "2";
                         barb = valString.substring(0, 4);
                     } else {
+                        cod = "4";
                         barb = "O Barbeiro Disponível irá te atender";
                     }
 
                     preferencias.salvarBarbeiro(barb);
-                    Intent intent = new Intent(getApplication(),DataHora.class);
+                    preferencias.salvarCod(cod);
+                    Intent intent = new Intent(getApplication(),ListaHorarios.class);
                     startActivity(intent);
                 } else{
                     android.app.AlertDialog.Builder alert = new AlertDialog.Builder(Barbeiros.this);

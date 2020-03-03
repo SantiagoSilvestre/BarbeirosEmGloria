@@ -13,7 +13,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.ListaHorarios"></activity>
         <activity android:name=".activity.Login" />
-        <activity android:name=".activity.DataHora" />
         <activity android:name=".activity.Barbeiros" />
         <activity android:name=".activity.Servico" />
         <activity android:name=".activity.Cadastro" />

@@ -2,18 +2,24 @@ package com.babeirosemgloria.barbergloria.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.bluetooth.le.AdvertisingSetParameters;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterViewAnimator;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,13 +30,17 @@ import com.babeirosemgloria.barbergloria.helper.Preferencias;
 import com.babeirosemgloria.barbergloria.model.Horario;
 import com.babeirosemgloria.barbergloria.model.ListaDeHorarios;
 import com.babeirosemgloria.barbergloria.model.Usuario;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class ListaHorarios extends AppCompatActivity {
 
@@ -47,6 +57,12 @@ public class ListaHorarios extends AppCompatActivity {
     private TextView hora8;
     private TextView hora9;
     private TextView horaDisp;
+    private TextView displayDate;
+    private Button btnData;
+    private SimpleDateFormat dateFormatter;
+    private DatePickerDialog DatePickerDialog;
+    private FirebaseAuth usuarioAutenticacao;
+    private TextView txtValor;
     Preferencias preferencias;
     private ValueEventListener eventListener;
     Horario horario = new Horario();
@@ -56,14 +72,29 @@ public class ListaHorarios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_horarios);
 
+        Toolbar toolbar = findViewById(R.id.toolbar_principal);
+        toolbar.setTitle("Barbeiros em Glórias");
+        setSupportActionBar( toolbar );
+
         preferencias = new Preferencias(ListaHorarios.this);
         recuperaValores();
-        setDisponiblidade();
+        if(preferencias.getValor() != null ) {  txtValor.setText(preferencias.getValor()); }
 
-        Intent intent = getIntent();
-        dataEscolhida = intent.getStringExtra("data");
-        String dt = horaDisp.getText().toString() + " Para: " + dataEscolhida;
-        horaDisp.setText(dt);
+        // Define a localidade sendo como Brasl
+        Locale brasil = new Locale("pt", "BR");
+
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", brasil);
+
+        btnData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDateTimeField();
+                DatePickerDialog.show();
+                preferencias.salvarData(displayDate.getText().toString());
+
+
+            }
+        });
 
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +112,9 @@ public class ListaHorarios extends AppCompatActivity {
                     });
                     alert.show();
                 } else {
-                    Intent intent1 = new Intent(ListaHorarios.this, DataHora.class);
+
+                    agendarHorario();
+                    Intent intent1 = new Intent(ListaHorarios.this, MainActivity.class);
                     startActivity(intent1);
                     finish();
                 }
@@ -92,15 +125,22 @@ public class ListaHorarios extends AppCompatActivity {
 
     public void backMain(View view) {
 
-        Intent intent = new Intent(this,DataHora.class);
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
 
     }
 
-    public void verificaDisponibilidade(final TextView txt, String hora) {
+    public void verificaDisponibilidade(final TextView txt, String hora, String barbeiro, String data) {
+
+        if(preferencias.getCHAVE_COD_BAR().equals("4")) {
+            preferencias.salvarBarbeiro("Danilo");
+            barbeiro = preferencias.getBarbeiro();
+        }
+
+
         firebase = ConfiguracaoFirebase.getFirebase()
-                .child(preferencias.getBarbeiro())
-                .child(preferencias.getData())
+                .child(barbeiro)
+                .child(data)
                 .child("Agendamento" )
                 .child(hora);
         eventListener = new ValueEventListener(){
@@ -110,6 +150,11 @@ public class ListaHorarios extends AppCompatActivity {
 
                     horario = dataSnapshot.getValue( Horario.class );
                     if(horario.getDisponibilidade().equals("Não")) {
+                        if(preferencias.getCHAVE_COD_BAR().equals("4")) {
+                            preferencias.salvarBarbeiro("Igor");
+                            firebase.addValueEventListener(eventListener);
+                        }
+
                         preferencias.salvarDisp("");
                         txt.setText("Não Disponível");
                     }
@@ -139,15 +184,17 @@ public class ListaHorarios extends AppCompatActivity {
         hora9 = findViewById(R.id.txtHora9);
         horaDisp = findViewById(R.id.horaDisponivel);
         btnConfirmar = findViewById(R.id.btnConfimar);
+        btnData = findViewById(R.id.btnData);
+        displayDate = findViewById(R.id.displayDate);
+        txtValor = findViewById(R.id.txtValor);
 
     }
 
 
-    public void setDisponiblidade(){
+    public void setDisponiblidade(String data){
 
-
-
-        verificaDisponibilidade(hora1,"10:00");
+        verificaDisponibilidade(hora1,"10:00", preferencias.getBarbeiro(), data);
+        /*
         verificaDisponibilidade(hora2,"11:00");
         verificaDisponibilidade(hora3,"12:00");
         verificaDisponibilidade(hora4,"13:00");
@@ -156,6 +203,8 @@ public class ListaHorarios extends AppCompatActivity {
         verificaDisponibilidade(hora7,"16:00");
         verificaDisponibilidade(hora8,"17:00");
         verificaDisponibilidade(hora9,"18:00");
+
+         */
 
 
     }
@@ -221,6 +270,117 @@ public class ListaHorarios extends AppCompatActivity {
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
 
+    }
+
+    public void setDateTimeField() {
+        Calendar newCalendar = Calendar.getInstance();
+        DatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                displayDate.setText(dateFormatter.format(newDate.getTime()));
+                String dt = displayDate.getText().toString();
+                dt = dt.replace("/","-");
+                preferencias.salvarData(dt);
+                String data = preferencias.getData();
+                setDisponiblidade(data);
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch ( item.getItemId() ) {
+            case R.id.item_sair:
+                deslogarUsuario();
+                return true;
+            case R.id.item_mensagens:
+                abrirContatosMensagens();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+    }
+
+    private void deslogarUsuario() {
+        usuarioAutenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        usuarioAutenticacao.signOut();
+        Intent intent = new Intent(ListaHorarios.this, Login.class);
+        startActivity(intent);
+        finish();
+    }
+    private void abrirContatosMensagens(){
+        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
+        //startActivity(intent);
+    }
+
+    private ArrayList<String> servicosArray () {
+
+        preferencias = new Preferencias(this);
+
+        ArrayList<String> servicos = new ArrayList<>();
+
+        if(preferencias.getCheckBarba().equals("1")) {
+            servicos.add(preferencias.getCheTXBarba());
+        }
+        if(preferencias.getCheckCorte().equals("1")) {
+            servicos.add(preferencias.getCheTXCorte());
+        }
+        if(preferencias.getCheckCorBar().equals("1")) {
+            servicos.add(preferencias.getCheTXCorBar());
+        }
+        if(preferencias.getCheckSombrancelha().equals("1")) {
+            servicos.add(preferencias.getCheTXSombrancelha());
+        }
+        if(preferencias.getCheckCorRel().equals("1")) {
+            servicos.add(preferencias.getCheTXCorRel());
+        }
+        if(preferencias.getCheckCorProg().equals("1")) {
+            servicos.add(preferencias.getCheTXCorProg());
+        }
+        if(preferencias.getCheckLimpeza().equals("1")) {
+            servicos.add(preferencias.getCheTXLimpeza());
+        }
+        if(preferencias.getCheckPezinho().equals("1")) {
+            servicos.add(preferencias.getCheTXPezinho());
+        }
+        if(preferencias.getCheckCorInfantil().equals("1")) {
+            servicos.add(preferencias.getCheTxCorInfantil());
+        }
+        if(preferencias.getCheckLuzes().equals("1")) {
+            servicos.add(preferencias.getCheTXLuzes());
+        }
+
+
+
+
+        return servicos;
+    }
+
+    private void agendarHorario(){
+        // Aqui vai fazer toda a lógica que recuperar todos os dados e manda para o objeto
+        horario = new Horario();
+
+        String data = preferencias.getData();
+        data = data.replace("/", "-");
+        horario.setData(data);
+        horario.setDisponibilidade("Não");
+        horario.setCliente(preferencias.getNome());
+        horario.setHora(preferencias.getHora());
+        horario.setServicos(servicosArray());
+        horario.setTotal(txtValor.getText().toString());
+        horario.salvar(preferencias.getBarbeiro());
+        preferencias.clearPreferencias();
     }
 }
 

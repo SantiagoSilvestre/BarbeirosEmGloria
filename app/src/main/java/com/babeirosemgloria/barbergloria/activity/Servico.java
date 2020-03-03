@@ -84,7 +84,7 @@ public class Servico extends AppCompatActivity {
                 int vl = Integer.parseInt(d);
                 if (vl > 0) {
                     preferencias.salvarValor(txtValor.getText().toString());
-                    Intent intent = new Intent(getApplication(), DataHora.class);
+                    Intent intent = new Intent(getApplication(), ListaHorarios.class);
                     startActivity(intent);
                 } else {
                     android.app.AlertDialog.Builder alert = new AlertDialog.Builder(Servico.this);
