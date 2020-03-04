@@ -45,8 +45,8 @@ import java.util.Locale;
 public class ListaHorarios extends AppCompatActivity {
 
     private Button btnConfirmar;
-    private String dataEscolhida;
     private DatabaseReference firebase;
+    private DatabaseReference referencia;
     private TextView hora1;
     private TextView hora2;
     private TextView hora3;
@@ -66,6 +66,7 @@ public class ListaHorarios extends AppCompatActivity {
     Preferencias preferencias;
     private ValueEventListener eventListener;
     Horario horario = new Horario();
+    Horario hor = new Horario();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,42 +135,135 @@ public class ListaHorarios extends AppCompatActivity {
 
         if(preferencias.getCHAVE_COD_BAR().equals("4")) {
             preferencias.salvarBarbeiro("Danilo");
-            barbeiro = preferencias.getBarbeiro();
+            String barb = preferencias.getBarbeiro();
+
+
+
+            referencia = ConfiguracaoFirebase.getFirebase()
+                    .child(barb)
+                    .child(data)
+                    .child("Agendamento")
+                    .child(hora);
+            //Log.i("testeRefe", teste);
+
+            referencia.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists() ) {
+                        hor = dataSnapshot.getValue( Horario.class );
+                        if(hor.getDisponibilidade().equals("Não")) {
+
+                            Log.i("testeRefe", "entrou no danilo");
+
+                            preferencias.salvarBarbeiro("Igor");
+
+                            referencia = ConfiguracaoFirebase.getFirebase().child(preferencias.getBarbeiro())
+                                    .child(hor.getData())
+                                    .child("Agendamento")
+                                    .child(hor.getHora());
+
+                            referencia.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists() ) {
+                                        Horario h = new Horario();
+                                        h = dataSnapshot.getValue( Horario.class );
+                                        if(h.getDisponibilidade().equals("Não")) {
+                                            Log.i("testeRefe", "Entrou no Igor");
+                                            preferencias.salvarBarbeiro("Kaique");
+
+                                            referencia = ConfiguracaoFirebase.getFirebase().child(preferencias.getBarbeiro())
+                                                    .child(h.getData())
+                                                    .child("Agendamento")
+                                                    .child(h.getHora());
+
+                                            referencia.addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    if (dataSnapshot.exists()) {
+                                                        Log.i("testeRefe", "Entrou no Kaique");
+                                                        txt.setText("Não diponível");
+                                                    } else {
+                                                        preferencias.salvarBarbeiro("Kaique");
+                                                        Log.i("testeRefe", "Entrou no Kaique disponivel");
+                                                        Log.i("testeRefe", preferencias.getBarbeiro());
+                                                        txt.setText("Dísponivel");
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                }
+                                            });
+                                        }
+
+                                    }else {
+                                        Log.i("testeRefe", "Entrou no Igor disponivel");
+                                        txt.setText("Diponível");
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
+
+                    }else {
+                        Log.i("testeRefe", "Entrou no Danilo disponivel");
+                        txt.setText("Diponível");
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        } else  {
+
+            firebase = ConfiguracaoFirebase.getFirebase()
+                    .child(barbeiro)
+                    .child(data)
+                    .child("Agendamento" )
+                    .child(hora);
+            eventListener = new ValueEventListener(){
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists() ) {
+
+                        horario = dataSnapshot.getValue( Horario.class );
+                        if(horario.getDisponibilidade().equals("Não")) {
+                            if(preferencias.getCHAVE_COD_BAR().equals("4")) {
+                                preferencias.salvarBarbeiro("Igor");
+                                firebase.addValueEventListener(eventListener);
+                            }
+
+                            preferencias.salvarDisp("");
+                            txt.setText("Não Disponível");
+                        }
+
+                    }else {
+                        txt.setText("Diponível");
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            };
+            firebase.addListenerForSingleValueEvent(eventListener);
+
         }
 
 
-        firebase = ConfiguracaoFirebase.getFirebase()
-                .child(barbeiro)
-                .child(data)
-                .child("Agendamento" )
-                .child(hora);
-        eventListener = new ValueEventListener(){
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists() ) {
 
-                    horario = dataSnapshot.getValue( Horario.class );
-                    if(horario.getDisponibilidade().equals("Não")) {
-                        if(preferencias.getCHAVE_COD_BAR().equals("4")) {
-                            preferencias.salvarBarbeiro("Igor");
-                            firebase.addValueEventListener(eventListener);
-                        }
 
-                        preferencias.salvarDisp("");
-                        txt.setText("Não Disponível");
-                    }
 
-                }else {
-                    txt.setText("Diponível");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        };
-        firebase.addListenerForSingleValueEvent(eventListener);
     }
 
     public void recuperaValores() {
