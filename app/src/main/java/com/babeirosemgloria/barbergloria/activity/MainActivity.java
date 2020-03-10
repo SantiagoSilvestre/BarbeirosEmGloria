@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Servico.class);
                 startActivity(intent);
-
             }
         });
         btnBarbeiro.setOnClickListener(new View.OnClickListener() {
@@ -67,16 +66,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /*
-        btnlocalizacao.setOnClickListener(new View.OnClickListener(){
+
+        btnLocalizacao.setOnClickListener(new View.OnClickListener(){
             @Override
                     public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), MapActivity.class);
-                startActivity(intent);
+               // Intent intent = new Intent(getBaseContext(), Localizacao.class);
+              //  startActivity(intent);
             }
         });
 
-         */
+
         btnpromocoes.setOnClickListener(new View.OnClickListener() {
             @Override
                      public void onClick(View v) {

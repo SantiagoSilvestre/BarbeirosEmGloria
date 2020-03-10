@@ -1,8 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/fundopromocoes01"
-    android:orientation="vertical" />
+    android:background="@mipmap/fundolocalizacao"
+    tools:context=".activity.Promocoes">
+
+    <include android:id="@+id/toolbar_principal"
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="463dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_principal"
+        tools:layout_editor_absoluteX="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textoCorteBarba"
+                    android:layout_width="214dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txtCorBar"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="59dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txtSimbolo"
+                    android:textColor="@color/colorAccent" />
+
+                <CheckBox
+                    android:id="@+id/checkCorBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="21dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorAccent"
+                    android:onClick="recuperaValor"
+                    android:text="@string/valCorEBarba"
+                    android:textColor="@color/colorAccent" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textoCorteRela"
+                    android:layout_width="214dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txtCorRela"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="59dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txtSimbolo"
+                    android:textColor="@color/colorAccent" />
+
+                <CheckBox
+                    android:id="@+id/checkCorRelax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="21dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorAccent"
+                    android:onClick="recuperaValor"
+                    android:text="@string/valCorERela"
+                    android:textColor="@color/colorAccent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textoCorteProgessiva"
+                    android:layout_width="214dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txtProgressiva"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="59dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/txtSimbolo"
+                    android:textColor="@color/colorAccent" />
+
+                <CheckBox
+                    android:id="@+id/checkCorProg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="21dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/colorAccent"
+                    android:checked="false"
+                    android:onClick="recuperaValor"
+                    android:text="@string/valCorEProg"
+                    android:textColor="@color/colorAccent" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/ic_action_arrow_left"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark"
+            />
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="21dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/txtSimbolo"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/txtValor"
+            android:layout_width="54dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="@string/textValor"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/btnConfimar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/ic_check_circle"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="30dp"
+            android:textColorLink="@color/colorPrimaryDark"
+            />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

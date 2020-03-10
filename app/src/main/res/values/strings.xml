@@ -18,6 +18,8 @@
     <string name="txtCorRela">Corte + Relaxamento</string>
     <string name="txtCorProg">Corte + Progressiva</string>
     <string name="txtsobrancelha">Sobrancelha</string>
+    <string name="txtRelaxamento">Relaxamento</string>
+    <string name="txtProgressiva">Progressiva</string>
     <string name="txtCorp">POR SANBEZ</string>
     <string name="btnentrarfc">ENTRAR</string>
     <string name="editTextelefone">DDD+TELEFONE</string>
@@ -60,5 +62,7 @@
     <string name="hora9"> 18:00 </string>
     <string name="back"> } </string>
     <string name="selecioneBarb">Selecione o Barbeiro</string>
+    <string name="title_activity_barbe_localizao">Map</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.babeirosemgloria.barbergloria.R;
@@ -131,7 +132,7 @@ public class ListaHorarios extends AppCompatActivity {
 
     }
 
-    public void verificaDisponibilidade(final TextView txt, String hora, String barbeiro, String data) {
+    public void verificaDisponibilidade(final TextView txt, final String hora, String barbeiro, String data) {
 
         if(preferencias.getCHAVE_COD_BAR().equals("4")) {
             preferencias.salvarBarbeiro("Danilo");
@@ -237,12 +238,19 @@ public class ListaHorarios extends AppCompatActivity {
 
                         horario = dataSnapshot.getValue( Horario.class );
                         if(horario.getDisponibilidade().equals("Não")) {
-                            if(preferencias.getCHAVE_COD_BAR().equals("4")) {
-                                preferencias.salvarBarbeiro("Igor");
-                                firebase.addValueEventListener(eventListener);
-                            }
+                            if(horario.getServicos().size() > 1 ){
+                                String val = hora.replace(":", "");
+                                val = val.substring(0, 2);
+                                int i = Integer.parseInt(val);
+                                int d = 1;
+                                while( d < horario.getServicos().size()){
+                                    i += 1;
+                                    LinearLayout linearLayout = recuperaLinear(i);
+                                    linearLayout.setVisibility(View.GONE);
+                                    d++;
+                                }
 
-                            preferencias.salvarDisp("");
+                            }
                             txt.setText("Não Disponível");
                         }
 
@@ -259,10 +267,6 @@ public class ListaHorarios extends AppCompatActivity {
             firebase.addListenerForSingleValueEvent(eventListener);
 
         }
-
-
-
-
 
     }
 
@@ -286,20 +290,23 @@ public class ListaHorarios extends AppCompatActivity {
 
 
     public void setDisponiblidade(String data){
+        int cont = 10;
+        while(cont < 18){
+            LinearLayout linearLayout = recuperaLinear(cont);
+            linearLayout.setVisibility(View.VISIBLE);
+            cont ++;
+        }
+
 
         verificaDisponibilidade(hora1,"10:00", preferencias.getBarbeiro(), data);
-        /*
-        verificaDisponibilidade(hora2,"11:00");
-        verificaDisponibilidade(hora3,"12:00");
-        verificaDisponibilidade(hora4,"13:00");
-        verificaDisponibilidade(hora5,"14:00");
-        verificaDisponibilidade(hora6,"15:00");
-        verificaDisponibilidade(hora7,"16:00");
-        verificaDisponibilidade(hora8,"17:00");
-        verificaDisponibilidade(hora9,"18:00");
-
-         */
-
+        verificaDisponibilidade(hora2,"11:00", preferencias.getBarbeiro(), data);
+        verificaDisponibilidade(hora3,"12:00", preferencias.getBarbeiro(), data);
+        verificaDisponibilidade(hora4,"13:00", preferencias.getBarbeiro(), data);
+        verificaDisponibilidade(hora5,"14:00", preferencias.getBarbeiro(), data);
+        verificaDisponibilidade(hora6,"15:00", preferencias.getBarbeiro(), data);
+        verificaDisponibilidade(hora7,"16:00", preferencias.getBarbeiro(), data);
+        verificaDisponibilidade(hora8,"17:00", preferencias.getBarbeiro(), data);
+        verificaDisponibilidade(hora9,"18:00", preferencias.getBarbeiro(), data);
 
     }
 
@@ -436,11 +443,11 @@ public class ListaHorarios extends AppCompatActivity {
         if(preferencias.getCheckSombrancelha().equals("1")) {
             servicos.add(preferencias.getCheTXSombrancelha());
         }
-        if(preferencias.getCheckCorRel().equals("1")) {
-            servicos.add(preferencias.getCheTXCorRel());
+        if(preferencias.getCheckRel().equals("1")) {
+            servicos.add(preferencias.getCheTXRel());
         }
-        if(preferencias.getCheckCorProg().equals("1")) {
-            servicos.add(preferencias.getCheTXCorProg());
+        if(preferencias.getCheckProg().equals("1")) {
+            servicos.add(preferencias.getCheTXProg());
         }
         if(preferencias.getCheckLimpeza().equals("1")) {
             servicos.add(preferencias.getCheTXLimpeza());
@@ -474,7 +481,50 @@ public class ListaHorarios extends AppCompatActivity {
         horario.setServicos(servicosArray());
         horario.setTotal(txtValor.getText().toString());
         horario.salvar(preferencias.getBarbeiro());
+
+        //LinearHour2.setVisibility(View.GONE);
+
+        int i = horario.getServicos().size() * 60;
+        Log.i("Teste de tamanho", String.valueOf(i));
+        //for(String h : horario.getServicos()) {
+
+        //}
+
+
         preferencias.clearPreferencias();
+    }
+
+    public LinearLayout recuperaLinear(int i ){
+        LinearLayout linearLayout;
+        switch(i) {
+            case 10:
+                linearLayout = findViewById(R.id.LinearHour1);
+                break;
+            case 11:
+                linearLayout = findViewById(R.id.LinearHour2);
+                break;
+            case 12:
+                linearLayout = findViewById(R.id.LinearHour3);
+                break;
+            case 13:
+                linearLayout = findViewById(R.id.LinearHour4);
+                break;
+            case 14:
+                linearLayout = findViewById(R.id.LinearHour5);
+                break;
+            case 15:
+                linearLayout = findViewById(R.id.LinearHour6);
+                break;
+            case 16:
+                linearLayout = findViewById(R.id.LinearHour7);
+                break;
+            case 17:
+                linearLayout = findViewById(R.id.LinearHour8);
+                break;
+            default:
+                linearLayout = findViewById(R.id.LinearHour9);
+        }
+        return linearLayout;
     }
 }
 

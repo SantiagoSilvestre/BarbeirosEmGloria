@@ -21,7 +21,9 @@ public class Preferencias {
     private String CHAVE_CK_BARBA= "chaveCkBarba";
     private String CHAVE_CK_CORBAR= "chaveCkCorBar";
     private String CHAVE_CK_CORPROG= "chaveCkCorProg";
-    private String CHAVE_CK_CORREL= "chaveCkCorRel";
+    private String CHAVE_CK_CORREL= "chaveCkRel";
+    private String CHAVE_CK_PROG= "chaveCkProg";
+    private String CHAVE_CK_REL= "chaveCkCorRel";
     private String CHAVE_CK_CORINFANTIL= "chaveCkCorInfantil";
     private String CHAVE_CK_LUZES= "chaveCkLuzes";
     private String CHAVE_CK_LIMPEZA= "chaveCkLimpeza";
@@ -32,6 +34,8 @@ public class Preferencias {
     private String CHAVE_TX_CORBAR= "chaveTXCorBar";
     private String CHAVE_TX_CORPROG= "chaveTXCorProg";
     private String CHAVE_TX_CORREL= "chaveTXCorRel";
+    private String CHAVE_TX_PROG= "chaveTXProg";
+    private String CHAVE_TX_REL= "chaveTXRel";
     private String CHAVE_TX_CORINFANTIL= "chaveTXCorInfantil";
     private String CHAVE_TX_LUZES= "chaveTXLuzes";
     private String CHAVE_TX_LIMPEZA= "chaveTXLimpeza";
@@ -92,6 +96,7 @@ public class Preferencias {
         editor.putString(CHAVE_TX_BARBA, barba);
         editor.commit();
     }
+
     public void salvarCkCorBar(String val, String corBar) {
         editor.putString(CHAVE_CK_CORBAR, val);
         editor.putString(CHAVE_TX_CORBAR, corBar);
@@ -102,11 +107,23 @@ public class Preferencias {
         editor.putString(CHAVE_TX_CORPROG, corProg);
         editor.commit();
     }
+    public void salvarCkRel(String val, String corRel) {
+        editor.putString(CHAVE_CK_REL, val);
+        editor.putString(CHAVE_TX_REL, corRel);
+        editor.commit();
+    }
+
+    public void salvarCkProg(String val, String corProg) {
+        editor.putString(CHAVE_CK_PROG, val);
+        editor.putString(CHAVE_TX_PROG, corProg);
+        editor.commit();
+    }
     public void salvarCkCorRel(String val, String corRel) {
         editor.putString(CHAVE_CK_CORREL, val);
         editor.putString(CHAVE_TX_CORREL, corRel);
         editor.commit();
     }
+
     public void salvarCkCorteInfantil(String val, String infantil) {
         editor.putString(CHAVE_CK_CORINFANTIL, val);
         editor.putString(CHAVE_TX_CORINFANTIL, infantil);
@@ -180,6 +197,10 @@ public class Preferencias {
 
     public String getCheTXCorRel() {return  preferences.getString(CHAVE_TX_CORREL, null);}
 
+    public String getCheTXProg() {return  preferences.getString(CHAVE_TX_PROG, null);}
+
+    public String getCheTXRel() {return  preferences.getString(CHAVE_TX_REL, null);}
+
     public String getCheckCorInfantil() {return  preferences.getString(CHAVE_CK_CORINFANTIL, null);}
 
     public String getCheTXLimpeza() {return  preferences.getString(CHAVE_TX_LIMPEZA, null);}
@@ -197,6 +218,10 @@ public class Preferencias {
     public String getCheckCorBar() {return  preferences.getString(CHAVE_CK_CORBAR, null);}
 
     public String getCheckCorProg() {return  preferences.getString(CHAVE_CK_CORPROG, null);}
+
+    public String getCheckRel() {return  preferences.getString(CHAVE_CK_REL, null);}
+
+    public String getCheckProg() {return  preferences.getString(CHAVE_CK_PROG, null);}
 
     public String getCheckCorRel() {return  preferences.getString(CHAVE_CK_CORREL, null);}
 

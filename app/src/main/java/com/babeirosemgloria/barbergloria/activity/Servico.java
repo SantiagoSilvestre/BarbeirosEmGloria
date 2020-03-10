@@ -33,8 +33,8 @@ public class Servico extends AppCompatActivity {
     private Button btnConfirmar;
     private CheckBox barba;
     private CheckBox corte;
-    private CheckBox corBarb;
-    private CheckBox corProg;
+    private CheckBox prog;
+    private CheckBox relaxamento;
     private CheckBox luzes;
     private CheckBox corInfantil;
     private CheckBox pezinho;
@@ -44,9 +44,8 @@ public class Servico extends AppCompatActivity {
     private TextView txtValor;
     private TextView textoBarba;
     private TextView textoCorte;
-    private TextView textoCorteBarba;
-    private TextView textoCorteRelaxamento;
-    private TextView textoCorteProg;
+    private TextView textoRelaxamento;
+    private TextView textoProgressiva;
     private TextView textoSombrancelha;
     private TextView textoLimpeza;
     private TextView textoPezinho;
@@ -110,9 +109,8 @@ public class Servico extends AppCompatActivity {
         // Aqui recebe as strings do activity
         String valBarba = barba.getText().toString();
         String valCorte = corte.getText().toString();
-        String valCorBar = corBarb.getText().toString();
-        String valCorProg = corProg.getText().toString();
-        String valCorRel = corRela.getText().toString();
+        String valProg = prog.getText().toString();
+        String valRel = relaxamento.getText().toString();
         String valCorInfantil = corInfantil.getText().toString();
         String valLuzes = luzes.getText().toString();
         String valLimpesa = limpeza.getText().toString();
@@ -122,9 +120,8 @@ public class Servico extends AppCompatActivity {
         // Aqui substitui as vírgulas pelo ponto
         String vBarba = valBarba.replace(",", ".");
         String vCorte = valCorte.replace(",", ".");
-        String vCorteBar = valCorBar.replace(",", ".");
-        String vCorteProg = valCorProg.replace(",", ".");
-        String vCorterel = valCorRel.replace(",", ".");
+        String vProg = valProg.replace(",", ".");
+        String vRel = valRel.replace(",", ".");
         String vCorIntantil = valCorInfantil.replace(",", ".");
         String vLuzes = valLuzes.replace(",", ".");
         String vLimpeza = valLimpesa.replace(",", ".");
@@ -133,11 +130,10 @@ public class Servico extends AppCompatActivity {
 
 
         // aqui pega os valores e transforma em double
-        Double valorBarba = Double.parseDouble(vBarba);
+        double valorBarba = Double.parseDouble(vBarba);
         double valorCorte = Double.parseDouble(vCorte);
-        double valorCorBarba = Double.parseDouble(vCorteBar);
-        double valorCorProg = Double.parseDouble(vCorteProg);
-        double valorCorRel = Double.parseDouble(vCorterel);
+        double valorProg = Double.parseDouble(vProg);
+        double valorRel = Double.parseDouble(vRel);
         double valorCorInfantil = Double.parseDouble(vCorIntantil);
         double valorLuzes = Double.parseDouble(vLuzes);
         double valorLimpeza = Double.parseDouble(vLimpeza);
@@ -148,6 +144,7 @@ public class Servico extends AppCompatActivity {
 
 
         // Aqui faz a somatório dos valores escolhidos
+
         if (barba.isChecked()) {
             preferencias.salvarCkBarba("1", textoBarba.getText().toString() );
             valor += valorBarba;
@@ -168,28 +165,21 @@ public class Servico extends AppCompatActivity {
         } else {
             preferencias.salvarCkCorte("0", textoCorte.getText().toString());
         }
-        if (corBarb.isChecked()) {
-            preferencias.salvarCkCorBar("1", textoCorteBarba.getText().toString());
-            valor += valorCorBarba;
+
+        if (prog.isChecked()) {
+            preferencias.salvarCkProg("1", textoProgressiva.getText().toString());
+            valor += valorProg;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkCorBar("0", textoCorteBarba.getText().toString());
+            preferencias.salvarCkProg("0", textoProgressiva.getText().toString());
         }
 
-        if (corProg.isChecked()) {
-            preferencias.salvarCkCorProg("1", textoCorteProg.getText().toString());
-            valor += valorCorProg;
+        if (relaxamento.isChecked()){
+            preferencias.salvarCkRel("1", textoRelaxamento.getText().toString());
+            valor += valorRel;
             txtValor.setText(transformaString(valor));
         } else {
-            preferencias.salvarCkCorProg("0", textoCorteProg.getText().toString());
-        }
-
-        if (corRela.isChecked()){
-            preferencias.salvarCkCorRel("1", textoCorteRelaxamento.getText().toString());
-            valor += valorCorRel;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkCorRel("0", textoCorteRelaxamento.getText().toString());
+            preferencias.salvarCkRel("0", textoRelaxamento.getText().toString());
         }
 
         if(corInfantil.isChecked()){
@@ -247,10 +237,8 @@ public class Servico extends AppCompatActivity {
     public void verificaCheckBox(){
         preferencias = new Preferencias(Servico.this);
         if(preferencias.getCheckCorte() == "1") { corte.setChecked(true); }
-        if(preferencias.getCheckBarba() == "1") { barba.setChecked(true); }
-        if(preferencias.getCheckCorBar() == "1") { corBarb.setChecked(true); }
-        if(preferencias.getCheckCorProg() == "1") { corProg.setChecked(true); }
-        if(preferencias.getCheckCorRel() == "1") { corRela.setChecked(true); }
+        if(preferencias.getCheckProg() == "1") { prog.setChecked(true); }
+        if(preferencias.getCheckRel() == "1") { corRela.setChecked(true); }
         if(preferencias.getCheckCorInfantil() == "1") { corInfantil.setChecked(true); }
         if(preferencias.getCheckLimpeza() == "1") { limpeza.setChecked(true); }
         if(preferencias.getCheckLuzes() == "1") { luzes.setChecked(true); }
@@ -263,9 +251,8 @@ public class Servico extends AppCompatActivity {
         // Aqui será feita a lógica para recuperar os serviços
         barba = findViewById(R.id.checkBarba);
         corte = findViewById(R.id.checkCorte);
-        corBarb = findViewById(R.id.checkCorBar);
-        corProg = findViewById(R.id.checkCorProg);
-        corRela = findViewById(R.id.checkCorRelax);
+        prog = findViewById(R.id.checkProg);
+        relaxamento = findViewById(R.id.checkRelax);
         corInfantil = findViewById(R.id.checkcorteinfantil);
         luzes = findViewById(R.id.checkLuzes);
         limpeza = findViewById(R.id.checkLimpeza);
@@ -276,15 +263,14 @@ public class Servico extends AppCompatActivity {
         txtValor = findViewById(R.id.txtValor);
         textoBarba = findViewById(R.id.textoBarba);
         textoCorte = findViewById(R.id.textoCorte);
-        textoCorteProg = findViewById(R.id.textoCorteProgessiva);
-        textoCorteRelaxamento = findViewById(R.id.textoCorteRela);
+        textoProgressiva = findViewById(R.id.textoProgessiva);
+        textoRelaxamento = findViewById(R.id.textoRelaxamento);
         textoSombrancelha = findViewById(R.id.textoSombrancelha);
         textoPezinho = findViewById(R.id.textoPezinho);
         textoInfantil = findViewById(R.id.textoInfantil);
         textoLuzes = findViewById(R.id.textoLuzes);
         textoLimpeza = findViewById(R.id.textoLimpeza);
         btnConfirmar = findViewById(R.id.btnConfimar);
-        textoCorteBarba = findViewById(R.id.textoCorteBarba);
         verificaCheckBox();
     }
 
