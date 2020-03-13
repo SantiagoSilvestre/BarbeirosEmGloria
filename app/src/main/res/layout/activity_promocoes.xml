@@ -5,18 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/fundolocalizacao"
+    android:background="@mipmap/fundopromocoes01"
     tools:context=".activity.Promocoes">
 
     <include android:id="@+id/toolbar_principal"
         layout="@layout/toolbar"/>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="463dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_principal"
-        tools:layout_editor_absoluteX="5dp">
+        app:layout_constraintVertical_bias="0.577"
+        tools:layout_editor_absoluteX="-154dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -48,7 +51,7 @@
                     android:layout_height="21dp"
                     android:layout_weight="1"
                     android:buttonTint="@color/colorAccent"
-                    android:onClick="recuperaValor"
+                    android:onClick="recuperaValorCorBar"
                     android:text="@string/valCorEBarba"
                     android:textColor="@color/colorAccent" />
 
@@ -81,7 +84,7 @@
                     android:layout_height="21dp"
                     android:layout_weight="1"
                     android:buttonTint="@color/colorAccent"
-                    android:onClick="recuperaValor"
+                    android:onClick="recuperaValorRel"
                     android:text="@string/valCorERela"
                     android:textColor="@color/colorAccent" />
 
@@ -97,7 +100,7 @@
                     android:layout_width="214dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/txtProgressiva"
+                    android:text="@string/txtCorProg"
                     android:textColor="@color/colorAccent" />
 
                 <TextView
@@ -114,7 +117,7 @@
                     android:layout_weight="1"
                     android:buttonTint="@color/colorAccent"
                     android:checked="false"
-                    android:onClick="recuperaValor"
+                    android:onClick="recuperaValorProg"
                     android:text="@string/valCorEProg"
                     android:textColor="@color/colorAccent" />
 
@@ -125,8 +128,6 @@
 
 
     </ScrollView>
-
-
 
     <LinearLayout
         android:id="@+id/linearLayout2"

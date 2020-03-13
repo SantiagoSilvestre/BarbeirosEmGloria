@@ -51,6 +51,8 @@ public class Servico extends AppCompatActivity {
     private TextView textoPezinho;
     private TextView textoInfantil;
     private TextView textoLuzes;
+    private Double valorPref = 0.0;
+    private double valor = valorPref;
     Preferencias preferencias;
     private FirebaseAuth usuarioAutenticacao;
 
@@ -58,11 +60,12 @@ public class Servico extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servico);
-        encontrarElementos();
         preferencias = new Preferencias(Servico.this);
+        encontrarElementos();
+        verificaCheckBox();
+
 
         if(preferencias.getValor() != null ) {  txtValor.setText(preferencias.getValor()); }
-        preferencias.salvarValor(null);
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
         toolbar.setTitle("Barbeiros em Glórias");
@@ -103,128 +106,6 @@ public class Servico extends AppCompatActivity {
         });
     }
 
-    public void recuperaValor(View view) {
-        preferencias = new Preferencias(Servico.this);
-
-        // Aqui recebe as strings do activity
-        String valBarba = barba.getText().toString();
-        String valCorte = corte.getText().toString();
-        String valProg = prog.getText().toString();
-        String valRel = relaxamento.getText().toString();
-        String valCorInfantil = corInfantil.getText().toString();
-        String valLuzes = luzes.getText().toString();
-        String valLimpesa = limpeza.getText().toString();
-        String valPezinho = pezinho.getText().toString();
-        String valSombrancelha = sombrancelha.getText().toString();
-
-        // Aqui substitui as vírgulas pelo ponto
-        String vBarba = valBarba.replace(",", ".");
-        String vCorte = valCorte.replace(",", ".");
-        String vProg = valProg.replace(",", ".");
-        String vRel = valRel.replace(",", ".");
-        String vCorIntantil = valCorInfantil.replace(",", ".");
-        String vLuzes = valLuzes.replace(",", ".");
-        String vLimpeza = valLimpesa.replace(",", ".");
-        String vPezinho = valPezinho.replace(",", ".");
-        String vSombrancelha = valSombrancelha.replace(",", ".");
-
-
-        // aqui pega os valores e transforma em double
-        double valorBarba = Double.parseDouble(vBarba);
-        double valorCorte = Double.parseDouble(vCorte);
-        double valorProg = Double.parseDouble(vProg);
-        double valorRel = Double.parseDouble(vRel);
-        double valorCorInfantil = Double.parseDouble(vCorIntantil);
-        double valorLuzes = Double.parseDouble(vLuzes);
-        double valorLimpeza = Double.parseDouble(vLimpeza);
-        double valorPezinho = Double.parseDouble(vPezinho);
-        double valorSombrancelha = Double.parseDouble(vSombrancelha);
-
-        double valor = 0;
-
-
-        // Aqui faz a somatório dos valores escolhidos
-
-        if (barba.isChecked()) {
-            preferencias.salvarCkBarba("1", textoBarba.getText().toString() );
-            valor += valorBarba;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkBarba("0", textoBarba.getText().toString());
-            if (valor == 0) {
-                txtValor.setText("00,00");
-            } else {
-                valor -= valorBarba;
-                txtValor.setText(transformaString(valor));
-            }
-        }
-        if (corte.isChecked()) {
-            preferencias.salvarCkCorte("1", textoCorte.getText().toString());
-            valor += valorCorte;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkCorte("0", textoCorte.getText().toString());
-        }
-
-        if (prog.isChecked()) {
-            preferencias.salvarCkProg("1", textoProgressiva.getText().toString());
-            valor += valorProg;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkProg("0", textoProgressiva.getText().toString());
-        }
-
-        if (relaxamento.isChecked()){
-            preferencias.salvarCkRel("1", textoRelaxamento.getText().toString());
-            valor += valorRel;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkRel("0", textoRelaxamento.getText().toString());
-        }
-
-        if(corInfantil.isChecked()){
-            preferencias.salvarCkCorteInfantil("1", textoInfantil.getText().toString());
-            valor += valorCorInfantil;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkCorteInfantil("0", textoInfantil.getText().toString());
-        }
-
-        if(luzes.isChecked()){
-            preferencias.salvarCkLuzes("1", textoLuzes.getText().toString());
-            valor += valorLuzes;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkLuzes("0", textoLuzes.getText().toString());
-        }
-
-        if(limpeza.isChecked()){
-            preferencias.salvarCkLimpeza("1", textoLimpeza.getText().toString());
-            valor += valorLimpeza;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkLimpeza("0", textoLimpeza.getText().toString());
-        }
-
-        if(pezinho.isChecked()){
-            preferencias.salvarCkPezinho("1", textoPezinho.getText().toString());
-            valor += valorPezinho;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvarCkPezinho("0", textoPezinho.getText().toString());
-        }
-
-        if(sombrancelha.isChecked()) {
-            preferencias.salvaCkSombrancelha("1", textoSombrancelha.getText().toString());
-            valor += valorSombrancelha;
-            txtValor.setText(transformaString(valor));
-        } else {
-            preferencias.salvaCkSombrancelha("0", textoSombrancelha.getText().toString());
-        }
-
-
-    }
-
     public String transformaString(double valor) {
 
         String stringValor = String.valueOf(valor);
@@ -237,8 +118,9 @@ public class Servico extends AppCompatActivity {
     public void verificaCheckBox(){
         preferencias = new Preferencias(Servico.this);
         if(preferencias.getCheckCorte() == "1") { corte.setChecked(true); }
+        if(preferencias.getCheckBarba() == "1") { barba.setChecked(true); }
         if(preferencias.getCheckProg() == "1") { prog.setChecked(true); }
-        if(preferencias.getCheckRel() == "1") { corRela.setChecked(true); }
+        if(preferencias.getCheckRel() == "1") { relaxamento.setChecked(true); }
         if(preferencias.getCheckCorInfantil() == "1") { corInfantil.setChecked(true); }
         if(preferencias.getCheckLimpeza() == "1") { limpeza.setChecked(true); }
         if(preferencias.getCheckLuzes() == "1") { luzes.setChecked(true); }
@@ -309,4 +191,250 @@ public class Servico extends AppCompatActivity {
         //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
         //startActivity(intent);
     }
+
+    public void recuperaValorBarba(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valBarba = barba.getText().toString();
+
+        String vBarba = valBarba.replace(",", ".");
+        double valorBarba = Double.parseDouble(vBarba);
+
+
+        if (barba.isChecked()) {
+            preferencias.salvarCkBarba("1", textoBarba.getText().toString());
+            valor = valorBarba + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!barba.isChecked()){
+            preferencias.salvarCkBarba("0", textoBarba.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorBarba;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorCorte(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valCorte = corte.getText().toString();
+
+        String vCorte = valCorte.replace(",", ".");
+        double valorCorte = Double.parseDouble(vCorte);
+
+
+        if (corte.isChecked()) {
+            preferencias.salvarCkCorte("1", textoCorte.getText().toString());
+            valor = valorCorte + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!corte.isChecked()){
+            preferencias.salvarCkCorte("0", textoCorte.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorCorte;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorRelaxamento(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valRelaxamento = relaxamento.getText().toString();
+
+        String vRelamento = valRelaxamento.replace(",", ".");
+        double valorRelamento = Double.parseDouble(vRelamento);
+
+
+        if (relaxamento.isChecked()) {
+            preferencias.salvarCkRel("1", textoRelaxamento.getText().toString());
+            valor = valorRelamento + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!relaxamento.isChecked()){
+            preferencias.salvarCkRel("0", textoRelaxamento.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorRelamento;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorProg(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valprog = prog.getText().toString();
+
+        String vProg = valprog.replace(",", ".");
+        double valorProg = Double.parseDouble(vProg);
+
+
+        if (prog.isChecked()) {
+            preferencias.salvarCkProg("1", textoProgressiva.getText().toString());
+            valor = valorProg + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!prog.isChecked()){
+            preferencias.salvarCkProg("0", textoProgressiva.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorProg;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorSomb(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valSomb = sombrancelha.getText().toString();
+
+        String vSomb = valSomb.replace(",", ".");
+        double valorSomb = Double.parseDouble(vSomb);
+
+
+        if (sombrancelha.isChecked()) {
+            preferencias.salvaCkSombrancelha("1", textoSombrancelha.getText().toString());
+            valor = valorSomb + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!sombrancelha.isChecked()){
+            preferencias.salvaCkSombrancelha("0", textoSombrancelha.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorSomb;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorLimp(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valLimp = limpeza.getText().toString();
+
+        String vLimp = valLimp.replace(",", ".");
+        double valorLimp = Double.parseDouble(vLimp);
+
+
+        if (limpeza.isChecked()) {
+            preferencias.salvarCkLimpeza("1", textoLimpeza.getText().toString());
+            valor = valorLimp + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!limpeza.isChecked()){
+            preferencias.salvarCkLimpeza("0", textoLimpeza.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorLimp;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorPezinho(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valPezinho = pezinho.getText().toString();
+
+        String vPezinho = valPezinho.replace(",", ".");
+        double valorPezinho = Double.parseDouble(vPezinho);
+
+
+        if (pezinho.isChecked()) {
+            preferencias.salvarCkPezinho("1", textoPezinho.getText().toString());
+            valor = valorPezinho + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!pezinho.isChecked()){
+            preferencias.salvarCkPezinho("0", textoPezinho.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorPezinho;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorInfantil(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valInfantil = corInfantil.getText().toString();
+
+        String vInfantil = valInfantil.replace(",", ".");
+        double valorInfantil = Double.parseDouble(vInfantil);
+
+
+        if (corInfantil.isChecked()) {
+            preferencias.salvarCkCorteInfantil("1", textoInfantil.getText().toString());
+            valor = valorInfantil + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!corInfantil.isChecked()){
+            preferencias.salvarCkCorteInfantil("0", textoInfantil.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorInfantil;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+    public void recuperaValorLuzes(View view) {
+
+        preferencias = new Preferencias(this);
+
+        String valLuzes = luzes.getText().toString();
+
+        String vLuzes = valLuzes.replace(",", ".");
+        double valorLuzes = Double.parseDouble(vLuzes);
+
+
+        if (luzes.isChecked()) {
+            preferencias.salvarCkLuzes("1", textoLuzes.getText().toString());
+            valor = valorLuzes + recuperaValPreferencia(preferencias.getValor());
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+        if(!luzes.isChecked()){
+            preferencias.salvarCkLuzes("0", textoLuzes.getText().toString());
+            valor = recuperaValPreferencia(preferencias.getValor());
+            valor -= valorLuzes;
+            txtValor.setText(transformaString(valor));
+            preferencias.salvarValor(txtValor.getText().toString());
+        }
+
+    }
+
+    private Double recuperaValPreferencia(String val){
+
+
+        val = txtValor.getText().toString();
+        val = val.replace(",", ".");
+
+        valorPref = Double.parseDouble(val);
+        return valorPref;
+    }
+
 }

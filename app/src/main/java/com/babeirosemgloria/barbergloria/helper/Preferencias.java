@@ -152,7 +152,7 @@ public class Preferencias {
 
     public void clearPreferencias(){
         editor.putString(CHAVE_DISP, "");
-        editor.putString(CHAVE_VALOR, "");
+        editor.putString(CHAVE_VALOR, "00,00");
         editor.putString(CHAVE_BARBEIRO, "");
         editor.putString(CHAVE_CK_CORTE, "");
         editor.putString(CHAVE_CK_BARBA, "");
@@ -160,8 +160,10 @@ public class Preferencias {
         editor.putString(CHAVE_CK_CORPROG, "");
         editor.putString(CHAVE_CK_SOMBRANCELHA, "");
         editor.putString(CHAVE_CK_CORREL, "");
+        editor.putString(CHAVE_CK_REL, "");
         editor.putString(CHAVE_CK_CORINFANTIL, "");
         editor.putString(CHAVE_CK_LUZES, "");
+        editor.putString(CHAVE_CK_PROG, "");
         editor.putString(CHAVE_CK_LIMPEZA, "");
         editor.putString(CHAVE_CK_PEZINHO, "");
         editor.putString(CHAVE_DATA, "");

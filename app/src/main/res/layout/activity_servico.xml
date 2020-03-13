@@ -48,7 +48,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorBarba"
                 android:text="@string/valBarba"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/colorAccent" />
@@ -81,7 +81,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorCorte"
                 android:text="@string/valCorte"
                 android:textColor="@color/colorAccent" />
 
@@ -113,7 +113,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorRelaxamento"
                 android:text="@string/valCorERela"
                 android:textColor="@color/colorAccent" />
 
@@ -146,7 +146,7 @@
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
                 android:checked="false"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorProg"
                 android:text="@string/valCorEProg"
                 android:textColor="@color/colorAccent" />
 
@@ -178,7 +178,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorSomb"
                 android:text="@string/valSobrancelha"
                 android:textColor="@color/colorAccent" />
         </LinearLayout>
@@ -209,7 +209,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorLimp"
                 android:text="@string/valLimpeza"
                 android:textColor="@color/colorAccent" />
         </LinearLayout>
@@ -240,7 +240,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorPezinho"
                 android:text="@string/valPezinho"
                 android:textColor="@color/colorAccent" />
 
@@ -272,7 +272,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorInfantil"
                 android:text="@string/valCorteInfantil"
                 android:textColor="@color/colorAccent" />
 
@@ -304,7 +304,7 @@
                 android:layout_height="21dp"
                 android:layout_weight="1"
                 android:buttonTint="@color/colorAccent"
-                android:onClick="recuperaValor"
+                android:onClick="recuperaValorLuzes"
                 android:text="@string/valLuzes"
                 android:textColor="@color/colorAccent" />
 

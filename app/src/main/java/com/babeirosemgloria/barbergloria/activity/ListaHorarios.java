@@ -461,6 +461,14 @@ public class ListaHorarios extends AppCompatActivity {
         if(preferencias.getCheckLuzes().equals("1")) {
             servicos.add(preferencias.getCheTXLuzes());
         }
+        if(preferencias.getCheckCorProg().equals("1")) {
+            servicos.add(preferencias.getCheTXCorProg());
+        }
+
+        if(preferencias.getCheckCorRel().equals("1")) {
+            servicos.add(preferencias.getCheTXCorRel());
+        }
+
 
 
 
