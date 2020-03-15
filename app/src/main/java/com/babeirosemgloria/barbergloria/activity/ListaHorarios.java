@@ -28,6 +28,7 @@ import android.widget.TextView;
 import com.babeirosemgloria.barbergloria.R;
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.babeirosemgloria.barbergloria.helper.Preferencias;
+import com.babeirosemgloria.barbergloria.model.Agendamentos;
 import com.babeirosemgloria.barbergloria.model.Horario;
 import com.babeirosemgloria.barbergloria.model.ListaDeHorarios;
 import com.babeirosemgloria.barbergloria.model.Usuario;
@@ -479,6 +480,7 @@ public class ListaHorarios extends AppCompatActivity {
     private void agendarHorario(){
         // Aqui vai fazer toda a lógica que recuperar todos os dados e manda para o objeto
         horario = new Horario();
+        Agendamentos ag = new Agendamentos();
 
         String data = preferencias.getData();
         data = data.replace("/", "-");
@@ -490,13 +492,17 @@ public class ListaHorarios extends AppCompatActivity {
         horario.setTotal(txtValor.getText().toString());
         horario.salvar(preferencias.getBarbeiro());
 
-        //LinearHour2.setVisibility(View.GONE);
+        ag.setBarbaeiro(preferencias.getBarbeiro());
+        ag.setData(preferencias.getData());
+        ag.setHora(preferencias.getHora());
+        ag.setTotal(preferencias.getValor());
+        ag.setId(preferencias.getIdentificadorTel());
+        ag.setServicos(servicosArray());
 
-        int i = horario.getServicos().size() * 60;
-        Log.i("Teste de tamanho", String.valueOf(i));
-        //for(String h : horario.getServicos()) {
+        DatabaseReference refereciaFirebase = ConfiguracaoFirebase.getFirebase();
+        refereciaFirebase.child("Agendamentos").child(preferencias.getIdentificador())
+        .child(preferencias.getIdentificadorTel()).setValue(ag);
 
-        //}
 
 
         preferencias.clearPreferencias();

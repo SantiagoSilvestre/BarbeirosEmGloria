@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnServicos;
     private Button btnBarbeiro;
     private Button btnData;
-    private Button btnLocalizacao;
+    private Button btnMinhaAgenda;
     private Button btnpromocoes;
     private FirebaseAuth usuarioAutenticacao;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btnServicos = findViewById(R.id.btnServico);
         btnBarbeiro = findViewById(R.id.btnBarbeiro);
         btnData = findViewById(R.id.btnData);
-        btnLocalizacao = findViewById(R.id.btnLocalizacao);
+        btnMinhaAgenda = findViewById(R.id.btnMinhaAgenda);
         btnpromocoes = findViewById(R.id.btnPromocoes);
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
@@ -67,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnLocalizacao.setOnClickListener(new View.OnClickListener(){
+        btnMinhaAgenda.setOnClickListener(new View.OnClickListener(){
             @Override
                     public void onClick(View v) {
-               // Intent intent = new Intent(getBaseContext(), Localizacao.class);
-              //  startActivity(intent);
+               Intent intent = new Intent(getBaseContext(), MeusAgendamentos.class);
+               startActivity(intent);
             }
         });
 

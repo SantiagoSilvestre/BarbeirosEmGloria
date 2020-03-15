@@ -129,6 +129,7 @@ public class Cadastro extends AppCompatActivity {
                     FirebaseUser usuarioFirebase = task.getResult().getUser();
 
                     String identificadorUsuario = Base64Custom.codificarBase64( usuario.getEmail() );
+                    String identificadorUsuarioLogadoTel = Base64Custom.codificarBase64((usuario.getTelefone()));
 
 
                     usuario.setId( identificadorUsuario );
@@ -137,7 +138,7 @@ public class Cadastro extends AppCompatActivity {
 
 
                     Preferencias preferencias = new Preferencias(Cadastro.this);
-                    preferencias.salvarDados(identificadorUsuario, usuario.getNome());
+                    preferencias.salvarDados(identificadorUsuario, usuario.getNome(), identificadorUsuarioLogadoTel);
 
                     abrirLoginUsuario();
 

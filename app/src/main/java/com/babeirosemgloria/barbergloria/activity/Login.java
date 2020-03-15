@@ -39,6 +39,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth auth;
     private ValueEventListener eventListener;
     private String identificarUsuarioLogado;
+    private String identificarUsuarioLogadoTel;
     private TextView txtNaoTemConta;
 
     @Override
@@ -113,7 +114,8 @@ public class Login extends AppCompatActivity {
                                 Usuario usuarioRecuperado = dataSnapshot.getValue( Usuario.class );
 
                                 Preferencias preferencias = new Preferencias(Login.this);
-                                preferencias.salvarDados(identificarUsuarioLogado, usuarioRecuperado.getNome());
+                                identificarUsuarioLogadoTel = Base64Custom.codificarBase64(usuarioRecuperado.getTelefone());
+                                preferencias.salvarDados(identificarUsuarioLogado, usuarioRecuperado.getNome(),identificarUsuarioLogadoTel);
                             }
 
                             @Override

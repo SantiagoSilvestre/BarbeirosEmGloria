@@ -12,6 +12,7 @@ public class Preferencias {
     private SharedPreferences.Editor editor;
 
     private String CHAVE_IDENTIFICADOR = "identificadorUsuarioLogado";
+    private String CHAVE_IDENTIFICADORTEL = "identificadorUsuarioLogadoTel";
     private String CHAVE_NOME = "nomeUsuarioLogado";
     private String CHAVE_VALOR = "valorTotal";
     private String CHAVE_DATA = "chaveData";
@@ -52,10 +53,11 @@ public class Preferencias {
 
     }
 
-    public void salvarDados( String identificadorUsuario, String nomeUsuario) {
+    public void salvarDados( String identificadorUsuario, String nomeUsuario, String tel) {
 
         editor.putString(CHAVE_IDENTIFICADOR, identificadorUsuario);
         editor.putString(CHAVE_NOME, nomeUsuario);
+        editor.putString(CHAVE_IDENTIFICADORTEL,tel );
         editor.commit();
 
     }
@@ -175,6 +177,10 @@ public class Preferencias {
 
     public String getIdentificador() {
         return preferences.getString(CHAVE_IDENTIFICADOR, null);
+    }
+
+    public String getIdentificadorTel() {
+        return preferences.getString(CHAVE_IDENTIFICADORTEL, null);
     }
 
     public String getNome() {

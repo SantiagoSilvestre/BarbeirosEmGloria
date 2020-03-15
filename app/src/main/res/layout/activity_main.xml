@@ -36,7 +36,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnLocalizacao"
+                    android:id="@+id/btnMinhaAgenda"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:background="@mipmap/btnlocalizacao"
