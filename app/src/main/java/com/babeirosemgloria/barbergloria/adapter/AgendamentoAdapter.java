@@ -42,12 +42,14 @@ public class AgendamentoAdapter extends ArrayAdapter<Agendamentos> {
             TextView data = (TextView) view.findViewById(R.id.tv_data);
             TextView hora = (TextView) view.findViewById(R.id.tv_hora);
             TextView total = (TextView) view.findViewById(R.id.tv_total);
+            TextView barbeiro = (TextView) view.findViewById(R.id.tv_barbeiro);
 
             Agendamentos ag = agendamentos.get(position);
 
             data.setText(ag.getData());
             hora.setText(ag.getHora());
             total.setText(ag.getTotal());
+            barbeiro.setText(ag.getBarbaeiro());
         }
 
         return view;

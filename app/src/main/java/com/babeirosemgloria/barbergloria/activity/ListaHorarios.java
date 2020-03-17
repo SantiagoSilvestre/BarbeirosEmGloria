@@ -501,7 +501,7 @@ public class ListaHorarios extends AppCompatActivity {
 
         DatabaseReference refereciaFirebase = ConfiguracaoFirebase.getFirebase();
         refereciaFirebase.child("Agendamentos").child(preferencias.getIdentificador())
-        .child(preferencias.getIdentificadorTel()).setValue(ag);
+        .child(preferencias.getHora()).setValue(ag);
 
 
 

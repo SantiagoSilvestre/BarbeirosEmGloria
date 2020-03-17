@@ -2,9 +2,16 @@ package com.babeirosemgloria.barbergloria.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -13,6 +20,7 @@ import com.babeirosemgloria.barbergloria.adapter.AgendamentoAdapter;
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.babeirosemgloria.barbergloria.helper.Preferencias;
 import com.babeirosemgloria.barbergloria.model.Agendamentos;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +36,7 @@ public class MeusAgendamentos extends AppCompatActivity {
     private ArrayList<Agendamentos> agendamentos;
     DatabaseReference firebase;
     private ValueEventListener valueEventListener;
+    private FirebaseAuth usuarioAutenticacao;
 
     @Override
     protected  void onStart() {
@@ -45,6 +54,10 @@ public class MeusAgendamentos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meus_agendamentos);
+
+        Toolbar toolbar = findViewById(R.id.toolbar_principal);
+        toolbar.setTitle("Barbeiros em Glórias");
+        setSupportActionBar( toolbar );
 
         listView = findViewById(R.id.lv_agendamento);
 
@@ -88,5 +101,40 @@ public class MeusAgendamentos extends AppCompatActivity {
             }
         };
         firebase.addValueEventListener(valueEventListener);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch ( item.getItemId() ) {
+            case R.id.item_sair:
+                deslogarUsuario();
+                return true;
+            case R.id.item_mensagens:
+                abrirContatosMensagens();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+    }
+    private void deslogarUsuario() {
+        usuarioAutenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        usuarioAutenticacao.signOut();
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+        finish();
+    }
+    private void abrirContatosMensagens(){
+        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
+        //startActivity(intent);
     }
 }
