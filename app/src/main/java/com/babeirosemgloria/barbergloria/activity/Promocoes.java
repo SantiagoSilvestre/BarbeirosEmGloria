@@ -68,7 +68,7 @@ public class Promocoes extends AppCompatActivity {
                 int vl = Integer.parseInt(d);
                 if (vl > 0) {
                     preferencias.salvarValor(txtValor.getText().toString());
-                    Intent intent = new Intent(getApplication(), ListaHorarios.class);
+                    Intent intent = new Intent(getApplication(), MainActivity.class);
                     startActivity(intent);
                 } else {
                     android.app.AlertDialog.Builder alert = new AlertDialog.Builder(Promocoes.this);

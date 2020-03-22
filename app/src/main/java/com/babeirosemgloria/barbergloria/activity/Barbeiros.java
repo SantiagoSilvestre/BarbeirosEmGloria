@@ -67,6 +67,8 @@ public class Barbeiros extends AppCompatActivity {
             public void onClick(View v) {
                 id = 1;
                 txtBarb.setText("Danilo selecionado");
+                Toast.makeText(getApplication(), "Danilo Selecionado", Toast.LENGTH_SHORT).show();
+
             }
         });
         btnIgor.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +76,7 @@ public class Barbeiros extends AppCompatActivity {
             public void onClick(View v) {
                 id = 2;
                 txtBarb.setText("Igor selecionado");
+                Toast.makeText(getApplication(), "Igor selecionado!", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -82,6 +85,7 @@ public class Barbeiros extends AppCompatActivity {
             public void onClick(View v) {
                 id = 3;
                 txtBarb.setText("Kaique selecionado");
+                Toast.makeText(getApplication(), "Kaique selecionado!", Toast.LENGTH_SHORT).show();
             }
         });
         btnSemPref.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +93,7 @@ public class Barbeiros extends AppCompatActivity {
             public void onClick(View v) {
                 id = 4;
                 txtBarb.setText("O barbeiro disponível irá te atender");
+                Toast.makeText(getApplication(), "O Barbeiro disponível irá te atender!", Toast.LENGTH_SHORT).show();
             }
         });
 

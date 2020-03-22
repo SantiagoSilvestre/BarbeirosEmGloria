@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.babeirosemgloria.barbergloria.R;
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
@@ -102,20 +103,19 @@ public class ListaHorarios extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(preferencias.getHora().equals("")) {
-                    android.app.AlertDialog.Builder alert = new AlertDialog.Builder(ListaHorarios.this);
-                    alert.setTitle("Atenção");
-                    alert.setMessage("Nenhum Horário foi Selecionado");
-                    alert.setCancelable(false);
-                    alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    });
-                    alert.show();
-                } else {
-
+                String i = preferencias.getValor();
+                i = i.replace(",", ".");
+                Log.i("testeValor", i);
+                double val = Double.parseDouble(i);
+                if (preferencias.getHora().equals("")) {
+                    msgVazio("Nenhum horário foi selecionado");
+                } else if (preferencias.getBarbeiro().equals("")) {
+                    msgVazio("Por favor selecione um Barbeiro antes de agendar um horário");
+                } else if (val == 0) {
+                    msgVazio("Selecione pelo menos um serviço");
+                } else if (preferencias.getData().equals("")){
+                    msgVazio("Secione uma data antes de agendar");
+                }else  {
                     agendarHorario();
                     Intent intent1 = new Intent(ListaHorarios.this, MainActivity.class);
                     startActivity(intent1);
@@ -316,6 +316,7 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx10);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
     public void agendar2(View view) {
@@ -323,6 +324,7 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx11);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
     public void agendar3(View view) {
@@ -330,6 +332,7 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx12);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
     public void agendar4(View view) {
@@ -337,6 +340,7 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx13);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
     public void agendar5(View view) {
@@ -344,6 +348,7 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx14);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
     public void agendar6(View view) {
@@ -351,6 +356,7 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx15);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
     public void agendar7(View view) {
@@ -358,6 +364,7 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx16);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
     public void agendar8(View view) {
@@ -365,12 +372,14 @@ public class ListaHorarios extends AppCompatActivity {
         TextView txtHora = findViewById(R.id.tx17);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
     }
     public void agendar9(View view) {
 
         TextView txtHora = findViewById(R.id.tx18);
         String hora = txtHora.getText().toString();
         preferencias.salvarHora(hora);
+        Toast.makeText(getApplication(), "Você escolheu as "+hora, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -540,5 +549,20 @@ public class ListaHorarios extends AppCompatActivity {
         }
         return linearLayout;
     }
+
+    public void msgVazio(String msg){
+        android.app.AlertDialog.Builder alert = new AlertDialog.Builder(ListaHorarios.this);
+        alert.setTitle("Atenção");
+        alert.setMessage(msg);
+        alert.setCancelable(false);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        alert.show();
+    }
+
 }
 

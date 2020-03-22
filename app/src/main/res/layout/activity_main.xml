@@ -67,14 +67,13 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnData"
+                    android:id="@+id/btnServico"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center"
-                    android:background="@mipmap/btndataehora01"
-                    tools:layout_editor_absoluteX="237dp"
+                    android:background="@mipmap/btnservico"
+                    tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="16dp" />
-
                 <Button
                     android:id="@+id/btnBarbeiro"
                     android:layout_width="110dp"
@@ -85,12 +84,12 @@
                     tools:layout_editor_absoluteY="16dp" />
 
                 <Button
-                    android:id="@+id/btnServico"
+                    android:id="@+id/btnData"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center"
-                    android:background="@mipmap/btnservico"
-                    tools:layout_editor_absoluteX="0dp"
+                    android:background="@mipmap/btndataehora01"
+                    tools:layout_editor_absoluteX="237dp"
                     tools:layout_editor_absoluteY="16dp" />
 
             </LinearLayout>
