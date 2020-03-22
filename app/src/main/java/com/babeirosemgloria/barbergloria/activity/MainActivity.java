@@ -111,9 +111,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
-            case R.id.item_mensagens:
-                abrirContatosMensagens();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -128,8 +125,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    private void abrirContatosMensagens(){
-        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
-        //startActivity(intent);
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

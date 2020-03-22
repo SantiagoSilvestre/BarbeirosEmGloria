@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -45,9 +46,12 @@ public class Promocoes extends AppCompatActivity {
 
         encontrarElementos();
 
-        if(preferencias.getValor() != null ) {
-            txtValor.setText(preferencias.getValor());
-        }
+        //Verificando valores de preferencias
+        if(preferencias.getValor() != null ) {txtValor.setText(preferencias.getValor());}
+        if(preferencias.getCheckCorBar().equals("1")){corBarb.setChecked(true);}
+        if(preferencias.getCheckCorRel().equals("1")){corRela.setChecked(true);}
+        if(preferencias.getCheckCorProg().equals("1")){corProg.setChecked(true);}
+        //Fim da verificação
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
         toolbar.setTitle("Promoções");
@@ -187,9 +191,6 @@ public class Promocoes extends AppCompatActivity {
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
-            case R.id.item_mensagens:
-                abrirContatosMensagens();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -203,10 +204,6 @@ public class Promocoes extends AppCompatActivity {
         Intent intent = new Intent(Promocoes.this, Login.class);
         startActivity(intent);
         finish();
-    }
-    private void abrirContatosMensagens(){
-        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
-        //startActivity(intent);
     }
 
     public void recuperaValorCorBar(View view) {

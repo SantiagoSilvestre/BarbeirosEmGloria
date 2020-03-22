@@ -88,7 +88,7 @@ public class MeusAgendamentos extends AppCompatActivity {
                 // listar
                 agendamentos.clear();
                 for (DataSnapshot dados: dataSnapshot.getChildren()){
-
+                    Log.i("testeDados", dados.getValue().toString());
                     Agendamentos ag = dados.getValue(Agendamentos.class);
                     agendamentos.add(ag);
                 }
@@ -117,9 +117,6 @@ public class MeusAgendamentos extends AppCompatActivity {
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
-            case R.id.item_mensagens:
-                abrirContatosMensagens();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -132,9 +129,5 @@ public class MeusAgendamentos extends AppCompatActivity {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
         finish();
-    }
-    private void abrirContatosMensagens(){
-        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
-        //startActivity(intent);
     }
 }

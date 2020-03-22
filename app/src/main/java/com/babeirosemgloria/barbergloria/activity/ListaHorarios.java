@@ -44,6 +44,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.UUID;
 
 public class ListaHorarios extends AppCompatActivity {
 
@@ -413,9 +414,6 @@ public class ListaHorarios extends AppCompatActivity {
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
-            case R.id.item_mensagens:
-                abrirContatosMensagens();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -430,11 +428,6 @@ public class ListaHorarios extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    private void abrirContatosMensagens(){
-        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
-        //startActivity(intent);
-    }
-
     private ArrayList<String> servicosArray () {
 
         preferencias = new Preferencias(this);
@@ -501,16 +494,18 @@ public class ListaHorarios extends AppCompatActivity {
         horario.setTotal(txtValor.getText().toString());
         horario.salvar(preferencias.getBarbeiro());
 
+
+        String a = UUID.randomUUID().toString().substring(0,16);
         ag.setBarbaeiro(preferencias.getBarbeiro());
         ag.setData(preferencias.getData());
         ag.setHora(preferencias.getHora());
         ag.setTotal(preferencias.getValor());
-        ag.setId(preferencias.getIdentificadorTel());
+        ag.setId(a);
         ag.setServicos(servicosArray());
 
         DatabaseReference refereciaFirebase = ConfiguracaoFirebase.getFirebase();
         refereciaFirebase.child("Agendamentos").child(preferencias.getIdentificador())
-        .child(preferencias.getHora()).setValue(ag);
+        .child(ag.getId()).setValue(ag);
 
 
 
@@ -563,6 +558,7 @@ public class ListaHorarios extends AppCompatActivity {
         });
         alert.show();
     }
+
 
 }
 

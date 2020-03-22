@@ -10,14 +10,7 @@
         android:orderInCategory="200"
         android:title="@string/txtitem_sair"
         app:showAsAction="never" />
-
-
-    <item
-        android:id="@+id/item_mensagens"
-        android:icon="@drawable/ic_action_gmail"
-        android:orderInCategory="400"
-        android:title="MSG"
-        app:showAsAction="ifRoom" />
+    
 
 
 </menu>

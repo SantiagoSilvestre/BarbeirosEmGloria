@@ -15,6 +15,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="463dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_principal"
         app:layout_constraintVertical_bias="0.577"
@@ -150,18 +151,16 @@
             />
 
         <TextView
-            android:layout_width="36dp"
+            android:layout_width="50dp"
             android:layout_height="21dp"
-            android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/txtSimbolo"
             android:textColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/txtValor"
-            android:layout_width="54dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="@string/textValor"
             android:textColor="@color/colorAccent" />

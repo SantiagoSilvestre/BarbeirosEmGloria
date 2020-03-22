@@ -39,7 +39,6 @@ public class Servico extends AppCompatActivity {
     private CheckBox corInfantil;
     private CheckBox pezinho;
     private CheckBox limpeza;
-    private CheckBox corRela;
     private CheckBox sombrancelha;
     private TextView txtValor;
     private TextView textoBarba;
@@ -65,7 +64,16 @@ public class Servico extends AppCompatActivity {
         verificaCheckBox();
 
 
-        if(preferencias.getValor() != null ) {  txtValor.setText(preferencias.getValor()); }
+        if(preferencias.getValor() != null ) {txtValor.setText(preferencias.getValor());}
+        if(preferencias.getCheckBarba().equals("1")){ barba.setChecked(true); }
+        if(preferencias.getCheckCorte().equals("1")){ corte.setChecked(true); }
+        if(preferencias.getCheckRel().equals("1")){ relaxamento.setChecked(true); }
+        if(preferencias.getCheckProg().equals("1")){ prog.setChecked(true); }
+        if(preferencias.getCheckSombrancelha().equals("1")){ sombrancelha.setChecked(true); }
+        if(preferencias.getCheckLimpeza().equals("1")){ limpeza.setChecked(true); }
+        if(preferencias.getCheckPezinho().equals("1")){ pezinho.setChecked(true); }
+        if(preferencias.getCheckCorInfantil().equals("1")){ corInfantil.setChecked(true); }
+        if(preferencias.getCheckLuzes().equals("1")){ luzes.setChecked(true); }
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
         toolbar.setTitle("Serviços Oferecidos");
@@ -170,9 +178,6 @@ public class Servico extends AppCompatActivity {
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
-            case R.id.item_mensagens:
-                abrirContatosMensagens();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -187,10 +192,7 @@ public class Servico extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    private void abrirContatosMensagens(){
-        //Intent intent = new Intent(MainActivity.this, MensagemGerencia.class );
-        //startActivity(intent);
-    }
+
 
     public void recuperaValorBarba(View view) {
 

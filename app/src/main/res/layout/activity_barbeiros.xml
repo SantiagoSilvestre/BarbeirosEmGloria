@@ -1,104 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@mipmap/fundobarb"
     tools:context=".activity.Barbeiros">
 
-    <include android:id="@+id/toolbar_principal"
-        layout="@layout/toolbar"/>
-
-    <TextView
-        android:id="@+id/txtBarb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/selecioneBarb"
-        android:textColor="#FFF"
-        android:textAlignment="center"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="130dp"
-        android:textSize="18dp"></TextView>
     <LinearLayout
-        android:layout_width="417dp"
-        android:layout_height="405dp"
-        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/fundobarb"
         android:orientation="vertical"
-        android:layout_gravity="bottom"
-        app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="402dp"
-            android:layout_height="183dp"
-            android:orientation="horizontal">
+        <include
+            android:id="@+id/toolbar_principal"
+            layout="@layout/toolbar" />
 
-            <Button
-                android:id="@+id/btnDvscuts"
-                android:layout_width="128dp"
-                android:layout_height="165dp"
-                android:background="@mipmap/danilo"
-                android:text="1" />
-
-            <Button
-                android:id="@+id/btnIgor"
-                android:layout_width="128dp"
-                android:layout_height="165dp"
-                android:background="@mipmap/igor"
-                android:text="2" />
-
-            <Button
-                android:id="@+id/btnKaique"
-                android:layout_width="128dp"
-                android:layout_height="165dp"
-                android:background="@mipmap/kaique"
-                android:text="3" />
-
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnSemPref"
-            android:layout_width="128dp"
-            android:layout_height="165dp"
-            android:background="@mipmap/spreferencia"
-            android:text="4" />
+        <TextView
+            android:id="@+id/txtBarb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/selecioneBarb"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textSize="18dp"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_height="405dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp">
+
+            <LinearLayout
+                android:layout_width="402dp"
+                android:layout_height="183dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDvscuts"
+                    android:layout_width="128dp"
+                    android:layout_height="165dp"
+                    android:background="@mipmap/danilo"
+                    android:text="1" />
+
+                <Button
+                    android:id="@+id/btnIgor"
+                    android:layout_width="128dp"
+                    android:layout_height="165dp"
+                    android:background="@mipmap/igor"
+                    android:text="2" />
+
+                <Button
+                    android:id="@+id/btnKaique"
+                    android:layout_width="128dp"
+                    android:layout_height="165dp"
+                    android:background="@mipmap/kaique"
+                    android:text="3" />
+
+
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btnCancelar"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:background="@drawable/ic_action_arrow_left"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="30dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHighlight="@color/colorPrimaryDark"
-                android:textColorLink="@color/colorPrimaryDark"
-                />
-            <Button
-                android:id="@+id/btnConfimar"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:background="@drawable/ic_check_circle"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHighlight="@color/colorPrimaryDark"
-                android:layout_marginLeft="100dp"
-                android:layout_marginRight="30dp"
-                android:textColorLink="@color/colorPrimaryDark"
-                />
+                android:id="@+id/btnSemPref"
+                android:layout_width="128dp"
+                android:layout_height="165dp"
+                android:background="@mipmap/spreferencia"
+                android:text="4" />
+
 
         </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/ic_action_arrow_left"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/btnConfimar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/ic_check_circle"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
