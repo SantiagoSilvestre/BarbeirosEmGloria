@@ -33,14 +33,14 @@
 
                 <TextView
                     android:id="@+id/textoCorteBarba"
-                    android:layout_width="214dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/txtCorBar"
                     android:textColor="@color/colorAccent" />
 
                 <TextView
-                    android:layout_width="59dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/txtSimbolo"
@@ -66,14 +66,14 @@
 
                 <TextView
                     android:id="@+id/textoCorteRela"
-                    android:layout_width="214dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/txtCorRela"
                     android:textColor="@color/colorAccent" />
 
                 <TextView
-                    android:layout_width="59dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/txtSimbolo"
@@ -98,14 +98,14 @@
 
                 <TextView
                     android:id="@+id/textoCorteProgessiva"
-                    android:layout_width="214dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/txtCorProg"
                     android:textColor="@color/colorAccent" />
 
                 <TextView
-                    android:layout_width="59dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/txtSimbolo"
@@ -144,22 +144,22 @@
             android:layout_height="72dp"
             android:background="@drawable/ic_action_arrow_left"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:textColor="@color/colorPrimaryDark"
             android:textColorHighlight="@color/colorPrimaryDark"
             android:textColorLink="@color/colorPrimaryDark"
             />
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="21dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
             android:layout_weight="1"
             android:text="@string/txtSimbolo"
             android:textColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/txtValor"
-            android:layout_width="70dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/textValor"
@@ -172,7 +172,7 @@
             android:background="@drawable/ic_check_circle"
             android:textColor="@color/colorPrimaryDark"
             android:textColorHighlight="@color/colorPrimaryDark"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:textColorLink="@color/colorPrimaryDark"
             />

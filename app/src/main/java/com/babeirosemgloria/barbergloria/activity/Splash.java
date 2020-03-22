@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 
 import com.babeirosemgloria.barbergloria.R;
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
@@ -31,13 +33,24 @@ public class Splash extends AppCompatActivity {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
         if (autenticacao.getCurrentUser() == null) {
-            Intent intent = new Intent(Splash.this, Login.class);
-            startActivity(intent);
-            finish();
+            final int MILISEGUNDOS = 3000;
+            new Handler().postDelayed(new Runnable(){
+                @Override
+                public void run() {
+                    Intent i = new Intent(Splash.this, Login.class);
+                    Splash.this.startActivity(i);
+                }
+            }, MILISEGUNDOS);
         } else {
-            Intent intent = new Intent(Splash.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+
+            final int MILISEGUNDOS = 3000;
+            new Handler().postDelayed(new Runnable(){
+                @Override
+                public void run() {
+                    Intent i = new Intent(Splash.this, MainActivity.class);
+                    Splash.this.startActivity(i);
+                }
+            }, MILISEGUNDOS);
         }
 
 

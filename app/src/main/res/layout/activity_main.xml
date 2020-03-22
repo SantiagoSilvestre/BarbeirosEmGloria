@@ -18,9 +18,9 @@
         <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
-            android:layout_height="522dp"
+            android:layout_height="294dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="-5dp"
+            android:layout_marginBottom="70dp"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -74,6 +74,7 @@
                     android:background="@mipmap/btnservico"
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="16dp" />
+
                 <Button
                     android:id="@+id/btnBarbeiro"
                     android:layout_width="110dp"

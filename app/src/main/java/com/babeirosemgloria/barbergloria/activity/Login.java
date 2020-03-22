@@ -166,44 +166,4 @@ public class Login extends AppCompatActivity {
         finish();
     }
 
-    /*
-    public void verifica(){
-
-        firebase = ConfiguracaoFirebase.getFirebase()
-                .child("usuarios")
-                .child( identificarUsuarioLogado );
-
-        Intent intent = new Intent(Login.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-
-
-        firebase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String i =  dataSnapshot.getValue().toString();
-                if (i.equals("usuario")) {
-                    Log.i("testeVariavel", identificarUsuarioLogado);
-                    verificaPg();
-                } if (i.equals("administrador")) {
-                    Log.i("testeVariavel", identificarUsuarioLogado);
-                    Intent intent = new Intent(Login.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
-
-     */
-
 }

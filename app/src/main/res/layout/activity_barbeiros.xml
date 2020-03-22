@@ -25,7 +25,7 @@
             android:id="@+id/txtBarb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
             android:text="@string/selecioneBarb"
             android:textAlignment="center"
@@ -35,7 +35,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="405dp"
-            android:layout_gravity="bottom"
+            android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/btnCancelar"
