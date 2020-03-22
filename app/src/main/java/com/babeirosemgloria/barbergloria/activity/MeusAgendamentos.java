@@ -56,7 +56,7 @@ public class MeusAgendamentos extends AppCompatActivity {
         setContentView(R.layout.activity_meus_agendamentos);
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
-        toolbar.setTitle("Barbeiros em Glórias");
+        toolbar.setTitle("Meus agendamentos");
         setSupportActionBar( toolbar );
 
         listView = findViewById(R.id.lv_agendamento);

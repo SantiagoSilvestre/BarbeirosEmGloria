@@ -50,7 +50,7 @@ public class Promocoes extends AppCompatActivity {
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
-        toolbar.setTitle("Barbeiros em Glórias");
+        toolbar.setTitle("Promoções");
         setSupportActionBar( toolbar );
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {

@@ -25,6 +25,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 
 public class Login extends AppCompatActivity {
 
@@ -41,6 +44,7 @@ public class Login extends AppCompatActivity {
     private String identificarUsuarioLogado;
     private String identificarUsuarioLogadoTel;
     private TextView txtNaoTemConta;
+    private Button btnFace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +66,7 @@ public class Login extends AppCompatActivity {
         usuarioL = findViewById(R.id.edit_login_email);
         senhaL = findViewById(R.id.edit_login_senha);
         btn_logar = findViewById(R.id.btnLogar);
-
+        btnFace = findViewById(R.id.btnFace);
 
         btn_logar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +83,15 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
+        btnFace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
 
     }
     private void verificarUsuarioLogado(){

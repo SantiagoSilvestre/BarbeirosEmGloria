@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.babeirosemgloria.barbergloria.config.ConfiguracaoFirebase;
 import com.babeirosemgloria.barbergloria.helper.Base64Custom;
+import com.babeirosemgloria.barbergloria.helper.Mask;
 import com.babeirosemgloria.barbergloria.helper.Preferencias;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
@@ -60,6 +61,8 @@ public class Cadastro extends AppCompatActivity {
         telefone = findViewById(R.id.edit_telefone);
         dtNasc = findViewById(R.id.edit_dtNasc);
 
+        dtNasc.addTextChangedListener(Mask.insert(Mask.DT_NASC, dtNasc));
+
         SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("NNNNN-NNNN");
         SimpleMaskFormatter simpleMaskArea = new SimpleMaskFormatter("+NN");
         SimpleMaskFormatter simpleMaskDdd = new SimpleMaskFormatter("NN");
@@ -90,7 +93,8 @@ public class Cadastro extends AppCompatActivity {
                 usuario.setNome( nome.getText().toString() );
                 usuario.setEmail( email.getText().toString());
                 usuario.setSenha( senha.getText().toString() );
-                usuario.setDataNascimento(dtNasc.getText().toString());
+                String nascimento = dtNasc.getText().toString();
+                usuario.setDataNascimento(nascimento.replace("/", "-"));
                 usuario.setTelefone(telefoneSemFormatacao);
 
 

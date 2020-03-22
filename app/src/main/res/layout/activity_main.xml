@@ -52,7 +52,7 @@
                     tools:layout_editor_absoluteY="138dp" />
 
                 <Button
-                    android:id="@+id/btnCredito"
+                    android:id="@+id/btnSugestoes"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:background="@mipmap/btncredito"

@@ -76,7 +76,7 @@ public class ListaHorarios extends AppCompatActivity {
         setContentView(R.layout.activity_lista_horarios);
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
-        toolbar.setTitle("Barbeiros em Glórias");
+        toolbar.setTitle("Horários");
         setSupportActionBar( toolbar );
 
         preferencias = new Preferencias(ListaHorarios.this);

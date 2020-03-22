@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnData;
     private Button btnMinhaAgenda;
     private Button btnpromocoes;
+    private Button btnSugestoes;
     private FirebaseAuth usuarioAutenticacao;
 
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btnData = findViewById(R.id.btnData);
         btnMinhaAgenda = findViewById(R.id.btnMinhaAgenda);
         btnpromocoes = findViewById(R.id.btnPromocoes);
+        btnSugestoes = findViewById(R.id.btnSugestoes);
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
         toolbar.setTitle("Barbeiros em Glórias");
@@ -83,7 +85,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // databaseReference.child("pontos").setValue(100);
+        btnSugestoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), Sugestoes.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

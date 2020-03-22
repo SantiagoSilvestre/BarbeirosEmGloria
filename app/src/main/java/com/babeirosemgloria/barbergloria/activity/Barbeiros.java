@@ -40,7 +40,7 @@ public class Barbeiros extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barbeiros);
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
-        toolbar.setTitle("Barbeiros em Glórias");
+        toolbar.setTitle("Barbeiros");
         setSupportActionBar( toolbar );
 
         final Preferencias preferencias = new Preferencias(Barbeiros.this);

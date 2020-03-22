@@ -68,7 +68,7 @@ public class Servico extends AppCompatActivity {
         if(preferencias.getValor() != null ) {  txtValor.setText(preferencias.getValor()); }
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
-        toolbar.setTitle("Barbeiros em Glórias");
+        toolbar.setTitle("Serviços Oferecidos");
         setSupportActionBar( toolbar );
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {

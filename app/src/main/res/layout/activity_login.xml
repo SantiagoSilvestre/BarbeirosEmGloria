@@ -114,7 +114,7 @@
                 android:textColor="@color/colorAccent" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnFace"
                 android:layout_width="83dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
