@@ -64,5 +64,8 @@
     <string name="selecioneBarb">Selecione o Barbeiro</string>
     <string name="title_activity_barbe_localizao">Map</string>
     <string name="title_activity_maps">Map</string>
+    <string name="facebook_app_id">1132621780423479</string>
+    <string name="fb_login_protocol_scheme">fb1132621780423479</string>
+
 
 </resources>
