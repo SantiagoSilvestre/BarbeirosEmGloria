@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -42,10 +43,11 @@ import com.facebook.appevents.AppEventsLogger;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static java.lang.reflect.Modifier.FINAL;
+
 
 public class Login extends AppCompatActivity {
-
-    private DatabaseReference firebase;
+    DatabaseReference firebase;
     private DatabaseReference reference;
     private DatabaseReference referenceFirebase;
 
@@ -105,7 +107,6 @@ public class Login extends AppCompatActivity {
         btnFace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //LoginManager.getInstance().logInWithReadPermissions(Login.this,Arrays.asList("email", "public_profile"));
                 LoginManager.getInstance().logInWithReadPermissions(Login.this,Arrays.asList("email", "public_profile"));
                 LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
                     @Override
@@ -222,7 +223,33 @@ public class Login extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("dsjvcbfhj", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(Login.this, MainActivity.class));
+
+                            Preferencias preferencias = new Preferencias(Login.this);
+
+                            Usuario usuario = new Usuario();
+                            usuario.setEmail(user.getEmail());
+                            usuario.setNome(user.getDisplayName());
+                            usuario.setDataNascimento("Não Informado");
+                            usuario.setTelefone(user.getPhoneNumber());
+                            String identificador = Base64Custom.codificarBase64(user.getEmail());
+                            String tel = user.getPhoneNumber();
+                            String telefone;
+                            if (tel != null){
+                                telefone = Base64Custom.codificarBase64(tel);
+                            } else {
+                                telefone = Base64Custom.codificarBase64("55117070-7070");
+                            }
+
+                            preferencias.salvarDados(identificador,
+                                    user.getDisplayName(), telefone);
+                            usuario.setId(identificador);
+
+                            verificaNascimento();
+
+                            //usuario.salvar();
+
+
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("dsjvcbfhj", "signInWithCredential:failure", task.getException());
@@ -234,5 +261,42 @@ public class Login extends AppCompatActivity {
                     }
                 });
     }
+
+    private void verificaNascimento(){
+        //Recuperar contatos do firebase
+        Preferencias preferencias = new Preferencias(this);
+        String identificadorUsuarioLogado = preferencias.getIdentificador();
+        //identificadorUsuarioLogado = "c2FudGhpYWdvOTlAaG90bWFpbC5jb20=";
+        firebase = ConfiguracaoFirebase.getFirebase()
+                .child("usuarios")
+                .child( identificadorUsuarioLogado ).child("dataNascimento");
+
+
+        firebase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    Log.i("apenasTEste", dataSnapshot.getValue().toString());
+
+                    if(dataSnapshot.getValue().toString().equals("Não Informado")) {
+                        startActivity(new Intent(Login.this, CadastroFace.class));
+                        finish();
+                    } else {
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                    }
+                } else {
+                    startActivity(new Intent(Login.this, CadastroFace.class));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
 
 }

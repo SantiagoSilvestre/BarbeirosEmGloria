@@ -19,7 +19,6 @@ public class Agendamentos {
 
     }
 
-    @Exclude
     public String getId() {
         return id;
     }

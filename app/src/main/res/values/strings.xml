@@ -66,6 +66,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="facebook_app_id">1132621780423479</string>
     <string name="fb_login_protocol_scheme">fb1132621780423479</string>
+    <string name="fbCadastro">Quase lá, que tal inserir alguns
+        dados para concluir o cadastro e ficar
+        por dentro das nossas promoções?</string>
 
 
 </resources>
