@@ -65,15 +65,19 @@ public class Servico extends AppCompatActivity {
 
 
         if(preferencias.getValor() != null ) {txtValor.setText(preferencias.getValor());}
-        if(preferencias.getCheckBarba().equals("1")){ barba.setChecked(true); }
-        if(preferencias.getCheckCorte().equals("1")){ corte.setChecked(true); }
-        if(preferencias.getCheckRel().equals("1")){ relaxamento.setChecked(true); }
-        if(preferencias.getCheckProg().equals("1")){ prog.setChecked(true); }
-        if(preferencias.getCheckSombrancelha().equals("1")){ sombrancelha.setChecked(true); }
-        if(preferencias.getCheckLimpeza().equals("1")){ limpeza.setChecked(true); }
-        if(preferencias.getCheckPezinho().equals("1")){ pezinho.setChecked(true); }
-        if(preferencias.getCheckCorInfantil().equals("1")){ corInfantil.setChecked(true); }
-        if(preferencias.getCheckLuzes().equals("1")){ luzes.setChecked(true); }
+        if(preferencias.getCheckBarba() != null && preferencias.getCheckBarba().equals("1")){
+            barba.setChecked(true);
+        }
+        if(preferencias.getCheckCorte() != null && preferencias.getCheckCorte().equals("1")){ corte.setChecked(true); }
+        if(preferencias.getCheckRel() != null && preferencias.getCheckRel().equals("1") ){ relaxamento.setChecked(true); }
+        if(preferencias.getCheckCorProg() != null && preferencias.getCheckProg().equals("1")){ prog.setChecked(true); }
+        if(preferencias.getCheckSombrancelha() != null && preferencias.getCheckSombrancelha().equals("1")){
+            sombrancelha.setChecked(true);
+        }
+        if(preferencias.getCheckLimpeza() != null && preferencias.getCheckLimpeza().equals("1")){ limpeza.setChecked(true); }
+        if(preferencias.getCheckPezinho() != null && preferencias.getCheckPezinho().equals("1")){ pezinho.setChecked(true); }
+        if(preferencias.getCheckCorInfantil() != null && preferencias.getCheckCorInfantil().equals("1")){ corInfantil.setChecked(true); }
+        if(preferencias.getCheckLuzes() != null && preferencias.getCheckLuzes().equals("1")){ luzes.setChecked(true); }
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
         toolbar.setTitle("Serviços Oferecidos");

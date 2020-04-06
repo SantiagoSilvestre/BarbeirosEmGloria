@@ -299,4 +299,7 @@ public class Login extends AppCompatActivity {
     }
 
 
+    public void recuperarSenha(View view) {
+        startActivity(new Intent(getApplicationContext(), ResetSenha.class));
+    }
 }

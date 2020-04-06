@@ -49,7 +49,11 @@ public class Preferencias {
 
         contexto = contextoParemetro;
         preferences = contexto.getSharedPreferences( NOME_ARQUIVO, MODE );
+
+
+
         editor = preferences.edit();
+
 
     }
 

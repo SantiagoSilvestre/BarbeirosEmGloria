@@ -10,11 +10,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:icon="@mipmap/ic_launcher"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CadastroFace"></activity>
+        <activity android:name=".activity.ResetSenha"></activity>
+        <activity android:name=".activity.CadastroFace" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

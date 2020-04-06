@@ -45,12 +45,11 @@ public class Promocoes extends AppCompatActivity {
         preferencias = new Preferencias(this);
 
         encontrarElementos();
-
         //Verificando valores de preferencias
         if(preferencias.getValor() != null ) {txtValor.setText(preferencias.getValor());}
-        if(preferencias.getCheckCorBar().equals("1")){corBarb.setChecked(true);}
-        if(preferencias.getCheckCorRel().equals("1")){corRela.setChecked(true);}
-        if(preferencias.getCheckCorProg().equals("1")){corProg.setChecked(true);}
+        if((preferencias.getCheckCorBar() != null) && (preferencias.getCheckCorBar().equals("1"))){corBarb.setChecked(true);}
+        if((preferencias.getCheckCorRel() != null) && (preferencias.getCheckCorRel().equals("1"))){corRela.setChecked(true);}
+        if((preferencias.getCheckCorProg() != null) && (preferencias.getCheckCorProg().equals("1"))){corProg.setChecked(true);}
         //Fim da verificação
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);

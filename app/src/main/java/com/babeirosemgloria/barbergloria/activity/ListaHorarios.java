@@ -136,7 +136,7 @@ public class ListaHorarios extends AppCompatActivity {
 
     public void verificaDisponibilidade(final TextView txt, final String hora, String barbeiro, String data) {
 
-        if(preferencias.getCHAVE_COD_BAR().equals("4")) {
+        if(preferencias.getCHAVE_COD_BAR() != null && preferencias.getCHAVE_COD_BAR().equals("4")) {
             preferencias.salvarBarbeiro("Danilo");
             String barb = preferencias.getBarbeiro();
 
@@ -228,45 +228,62 @@ public class ListaHorarios extends AppCompatActivity {
 
         } else  {
 
-            firebase = ConfiguracaoFirebase.getFirebase()
-                    .child(barbeiro)
-                    .child(data)
-                    .child("Agendamento" )
-                    .child(hora);
-            eventListener = new ValueEventListener(){
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists() ) {
-
-                        horario = dataSnapshot.getValue( Horario.class );
-                        if(horario.getDisponibilidade().equals("Não")) {
-                            if(horario.getServicos().size() > 1 ){
-                                String val = hora.replace(":", "");
-                                val = val.substring(0, 2);
-                                int i = Integer.parseInt(val);
-                                int d = 1;
-                                while( d < horario.getServicos().size()){
-                                    i += 1;
-                                    LinearLayout linearLayout = recuperaLinear(i);
-                                    linearLayout.setVisibility(View.GONE);
-                                    d++;
-                                }
-
-                            }
-                            txt.setText("Não Disponível");
-                        }
-
-                    }else {
-                        txt.setText("Diponível");
+            if (barbeiro == null) {
+                android.app.AlertDialog.Builder alert = new AlertDialog.Builder(ListaHorarios.this);
+                alert.setTitle("Atenção");
+                alert.setMessage("Atenção selecione antes um barbeiro para verficar a disponibilidade");
+                alert.setCancelable(false);
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        startActivity(new Intent(getApplication(), Barbeiros.class));
                     }
-                }
+                });
+                alert.show();
+            } else {
+                firebase = ConfiguracaoFirebase.getFirebase()
+                        .child(barbeiro)
+                        .child(data)
+                        .child("Agendamento" )
+                        .child(hora);
+                eventListener = new ValueEventListener(){
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists() ) {
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+                            horario = dataSnapshot.getValue( Horario.class );
+                            if(horario.getDisponibilidade().equals("Não")) {
+                                if(horario.getServicos().size() > 1 ){
+                                    String val = hora.replace(":", "");
+                                    val = val.substring(0, 2);
+                                    int i = Integer.parseInt(val);
+                                    int d = 1;
+                                    while( d < horario.getServicos().size()){
+                                        i += 1;
+                                        LinearLayout linearLayout = recuperaLinear(i);
+                                        linearLayout.setVisibility(View.GONE);
+                                        d++;
+                                    }
 
-                }
-            };
-            firebase.addListenerForSingleValueEvent(eventListener);
+                                }
+                                txt.setText("Não Disponível");
+                            }
+
+                        }else {
+                            txt.setText("Diponível");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                };
+                firebase.addListenerForSingleValueEvent(eventListener);
+            }
+
+
 
         }
 
@@ -558,7 +575,6 @@ public class ListaHorarios extends AppCompatActivity {
         });
         alert.show();
     }
-
 
 }
 
