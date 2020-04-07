@@ -3,10 +3,12 @@ package com.babeirosemgloria.barbergloria.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,6 +19,8 @@ import com.babeirosemgloria.barbergloria.helper.Preferencias;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import com.babeirosemgloria.barbergloria.R;
 import com.babeirosemgloria.barbergloria.model.Usuario;
@@ -47,6 +51,8 @@ public class Cadastro extends AppCompatActivity {
     private FirebaseAuth autenticacao;
     private DatabaseReference firebase;
     private DatabaseReference reference;
+    private SimpleDateFormat dateFormatter;
+    private DatePickerDialog DatePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +67,22 @@ public class Cadastro extends AppCompatActivity {
         telefone = findViewById(R.id.edit_telefone);
         dtNasc = findViewById(R.id.edit_dtNasc);
 
+
+        // Define a localidade sendo como Brasl
+        Locale brasil = new Locale("pt", "BR");
+
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", brasil);
+
         dtNasc.addTextChangedListener(Mask.insert(Mask.DT_NASC, dtNasc));
+
+        dtNasc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDateTimeField();
+                DatePickerDialog.show();
+                DatePickerDialog.show();
+            }
+        });
 
         SimpleMaskFormatter simpleMaskTelefone = new SimpleMaskFormatter("NNNNN-NNNN");
         SimpleMaskFormatter simpleMaskArea = new SimpleMaskFormatter("+NN");
@@ -187,5 +208,16 @@ public class Cadastro extends AppCompatActivity {
         startActivity(intent);
         finish();
 
+    }
+
+    public void setDateTimeField() {
+        Calendar newCalendar = Calendar.getInstance();
+        DatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                dtNasc.setText(dateFormatter.format(newDate.getTime()));
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
 }
